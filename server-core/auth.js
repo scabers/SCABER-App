@@ -76,8 +76,9 @@ class AuthService{
         if (!req.session) req.session = {};
         req.session.returnTo = config.auth.facebook.successUrl_luffy;
         // Pass them to session
-        req.session.username = req.body.username;
-        req.session.type = req.body.type;
+        req.session.username = req.body.account;
+        req.session.email = req.body.email;
+        req.session.type = req.body.user_type;
         console.log('Username: ' + req.session.username + "; Type: " + req.session.type );
         passport.authenticate('facebook')(req, res, next);
     }
@@ -87,8 +88,9 @@ class AuthService{
         if (!req.session) req.session = {};
         req.session.returnTo = config.auth.google.successUrl_luffy;
         // Pass them to session
-        req.session.username = req.body.username;
-        req.session.type = req.body.type;
+        req.session.username = req.body.account;
+        req.session.email = req.body.email;
+        req.session.type = req.body.user_type;
         console.log('Username: ' + req.session.username + "; Type: " + req.session.type );
         passport.authenticate('google')(req, res, next);
     }

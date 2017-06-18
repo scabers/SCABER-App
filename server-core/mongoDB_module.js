@@ -22,6 +22,7 @@ class MongoDBService {
             authID: String,
             userTYPE: String,
             token: String,
+            email: String,
             trueID: String
         });
 
@@ -30,7 +31,7 @@ class MongoDBService {
     }
 
     // callback method of findorCreate
-    user_findOrCreateCB(scaber_account,auth_type,auth_id,scaber_type,token,trueid,callback){
+    user_findOrCreateCB(scaber_account,auth_type,auth_id,scaber_type,token,trueid,email,callback){
         var usermodel = this.user_m;
         this.user_m.findOne({name: scaber_account,type: auth_type}, 'name type',function(err,user){
             if(err){
@@ -40,7 +41,7 @@ class MongoDBService {
             else{
                 if(user == null){
                     // not found
-                    let newuser = new usermodel({name:scaber_account,type:auth_type,authID: auth_id,userTYPE: scaber_type,token: token,trueID: trueid});
+                    let newuser = new usermodel({name:scaber_account,type:auth_type,authID: auth_id,userTYPE: scaber_type,token: token,trueID: trueid,email: email});
                     newuser.save(function(err,newuser){
                         if(err){
                             console.log("Error with user save:" + err);

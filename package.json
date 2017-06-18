@@ -1,12 +1,12 @@
 {
-  "name": "SCABER",
+  "name": "SCABER-APP",
   "main": "app.js",
   "config": {
-    "port": 5000
+    "port": 4000
   },
   "scripts": {
     "build": "npm install",
-    "postbuild": "gulp watch",
+    "postbuild": "gulp styles",
     "start": "node app.js",
     "all": "npm run build && npm run start"
   },

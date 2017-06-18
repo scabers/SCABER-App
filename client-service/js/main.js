@@ -32,17 +32,25 @@ $(document).ready(function() {
     });
 
     $('#signup-pass').click(function() {
+        // Passenger Page
         $('#signup-id').fadeOut(function() {
             $(this).hide();
             $('#signup').show();
         });
+        // Set the text information of type in Signup page
+        $('#user-type-gp').val("passenger");
+        $('#user-type-fb').val("passenger");
     });
 
     $('#signup-driver').click(function() {
+        // Driver Page
         $('#signup-id').fadeOut(function() {
             $(this).hide();
             $('#signup').show();
         });
+        // Set the text information of type in Signup page
+        $('#user-type-gp').val("driver");
+        $('#user-type-fb').val("driver");
     });
 
     // Navbar collapse
