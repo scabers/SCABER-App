@@ -109,22 +109,23 @@ img::-moz-selection {
 /** layout/_account.scss **/
 .sct-account {
   background-color: #e79535;
-  display: none;
+  display: table;
   height: 100vh !important;
   position: absolute;
   vertical-align: middle;
-  width: 100vw;
-  z-index: 1; }
+  width: 100vw; }
   .sct-account .account-panel {
-    background-color: white;
-    height: 90vh;
-    margin-top: 5vh;
+    display: table-cell;
     position: relative;
-    left: 5% !important;
-    vertical-align: middle;
-    max-width: 90% !important; }
+    vertical-align: middle; }
+    .sct-account .account-panel .card-panel {
+      display: table;
+      height: 90vh;
+      position: relative;
+      left: 5%;
+      max-width: 90% !important; }
     .sct-account .account-panel .account-signin {
-      display: none;
+      display: table-cell;
       vertical-align: middle; }
       .sct-account .account-panel .account-signin .account-top img {
         height: auto;
@@ -132,13 +133,11 @@ img::-moz-selection {
         font-size: 1.5rem;
         max-width: 50%; }
     .sct-account .account-panel .account-signup-id {
-      display: none;
+      display: table-cell;
       vertical-align: middle; }
     .sct-account .account-panel .account-signup {
-      display: none; }
-      .sct-account .account-panel .account-signup h4 {
-        margin-top: 0; }
-      .sct-account .account-panel .account-signup ul a {
+      display: table-cell; }
+      .sct-account .account-panel .account-signup d ul a {
         font-family: "Yantramanav";
         font-size: 1rem;
         text-transform: none; }

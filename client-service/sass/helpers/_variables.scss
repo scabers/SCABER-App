@@ -154,14 +154,17 @@ $str-zindex: 100;
 
 // acc background
 $acc-background-color: $light-orange;
-$acc-panel-background-color: $white;
+// acc border
+$acc-panel-border-radius: 2px;
 // acc color
 $acc-title-color: $white;
 // acc display
-$acc-display: none;
-$acc-signin-display: none;
-$acc-signup-id-display: none;
-$acc-signup-display: none;
+$acc-display: table;
+$acc-panel-display: table-cell;
+$acc-panel-card-display: table;
+$acc-signin-display: table-cell;
+$acc-signup-id-display: table-cell;
+$acc-signup-display: table-cell;
 // acc font
 $acc-logo-font-family: $font-family-title;
 $acc-logo-font-size: $h4-rem;
@@ -172,9 +175,10 @@ $acc-height: 100vh;
 $acc-panel-height: 90vh;
 $acc-logo-height: auto;
 // acc margin
-$acc-panel-margin-top: 5vh;
+$acc-panel-margin: .5rem 0 1rem 0;
 $acc-input-margin: 0;
-$acc-signup-title-margin-top: 0;
+// acc ppadding
+$acc-panel-padding: auto;
 // acc position
 $acc-position: absolute;
 $acc-panel-position: relative;
@@ -190,8 +194,6 @@ $acc-form-vertical-align: middle;
 $acc-width: 100vw;
 $acc-panel-max-width: 90%;
 $acc-logo-max-width: 50%;
-// acc z-index
-$acc-zindex: 1;
 
 /* button */
 
