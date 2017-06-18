@@ -4,7 +4,7 @@
             <div class="card" id="profile-card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="driver.png" alt="user background">
-                    <span class="card-title card-profile-name">姓名</span>  
+                    <span class="card-title card-profile-name"><%= user_familyName %> <%= user_givenName %></span>  
                 </div>
                 <div class="card-content">
                     <img class="circle responsive-img activator card-profile-image" src="driver/unknown.png" alt="">
@@ -13,15 +13,15 @@
                     </a>
                     <div class="row card-profile-stat">
                         <div class="col s4 center-align">
-                            <h4 class="card-title grey-text text-darken-4">0</h4>
+                            <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.cash %></h4>
                             <p class="medium-small grey-text">優惠點數</p>                        
                         </div>
                         <div class="col s4 center-align">
-                            <h4 class="card-title grey-text text-darken-4">0</h4>
+                            <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.ride %></h4>
                             <p class="medium-small grey-text">乘車次數</p>                        
                         </div>                    
                         <div class="col s4 center-align">
-                            <h4 class="card-title grey-text text-darken-4">0</h4>
+                            <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.case %></h4>
                             <p class="medium-small grey-text">監督次數</p>                        
                         </div>   
                     </div>    
@@ -37,12 +37,12 @@
                         <li class="collection-item avatar">
                             <i class="material-icons circle orange">call</i> 
                             <span class="title">電話</span>
-                            <p id="user-phone">+886-000-000-000</p>
+                            <p id="user-phone"><%= user_phone %></p>
                         </li>
                         <li class="collection-item avatar">
                             <i class="material-icons circle orange">email</i>
                             <span class="title">電子信箱</span>
-                            <p id="user-email">mail@gmail.com</p>
+                            <p id="user-email"><%= user_email %></p>
                         </li>
                     </ul>
                 </div>
