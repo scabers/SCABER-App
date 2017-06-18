@@ -115,17 +115,19 @@
     position: $acc-position;
     vertical-align: $acc-vertical-align;
     width: $acc-width;
-    z-index: $acc-zindex;
 }
 
 @mixin account-panel {
-    background-color: $acc-panel-background-color;
-    height: $acc-panel-height;
-    margin-top: $acc-panel-margin-top;
+    display: $acc-panel-display;
     position: $acc-panel-position;
-    left: $acc-panel-position-left !important;
     vertical-align: $acc-panel-vertical-align;
-    max-width: $acc-panel-max-width !important;
+    .card-panel {
+        display: $acc-panel-card-display;
+        height: $acc-panel-height;
+        position: $acc-panel-position;
+        left: $acc-panel-position-left;
+        max-width: $acc-panel-max-width !important;
+    }
 }
 
 @mixin account-signin {
@@ -140,10 +142,7 @@
 
 @mixin account-signup {
     display: $acc-signup-display;
-    h4 {
-        margin-top: $acc-signup-title-margin-top;
-    }
-    ul {
+    d ul {
         a {
             font: {
                 family: $acc-signup-tab-font-family;

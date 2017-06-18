@@ -1,6 +1,9 @@
 $(document).ready(function() {
     // Initialize account tabs
     $('ul.tabs').tabs();
+    $('#signin').hide();
+    $('#signup-id').hide();
+    $('#signup').hide();
 
     // Load start page animation
     $('.sct-start').delay(2000).fadeOut(function() {
