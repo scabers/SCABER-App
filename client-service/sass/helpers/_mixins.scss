@@ -142,7 +142,7 @@
 
 @mixin account-signup {
     display: $acc-signup-display;
-    d ul {
+    ul {
         a {
             font: {
                 family: $acc-signup-tab-font-family;
@@ -164,6 +164,54 @@
 
 @mixin account-input {
     margin: $acc-input-margin;
+}
+
+
+/* passenger */
+
+@mixin passenger-profile {
+    display: $pass-profile-display;
+    margin-top: $pass-profile-margin-top;
+}
+
+@mixin passenger-profile-name {
+    left: $pass-profile-name-position-left !important;
+    padding: $pass-profile-name-padding !important;
+}
+
+@mixin passenger-profile-edit {
+    margin-top: $pass-profile-edit-margin-top;
+}
+
+@mixin passenger-profile-avatar {
+    cursor: $pass-profile-avatar-cursor;
+    height: $pass-profile-avatar-img-height;
+    position: $pass-profile-avatar-position;
+    top: $pass-profile-avatar-position-top;
+    width: $pass-profile-avatar-img-width;
+    z-index: $pass-profile-avatar-zindex;
+}
+
+@mixin passenger-profile-stat {
+    margin: $pass-profile-stat-margin;
+}
+
+@mixin passenger-profile-reveal {
+    border: $pass-profile-reveal-border !important;
+    li {
+        border-bottom: $pass-profile-reveal-li-border;
+        min-height: $pass-profile-reveal-min-height !important;
+    }
+}
+
+@mixin passenger-riding-map {
+    height: $pass-riding-map-height;
+    width: $pass-riding-map-width;
+}
+
+@mixin passenger-riding-ride {
+    height: $pass-riding-ride;
+    margin: $pass-riding-ride-margin;
 }
 
 

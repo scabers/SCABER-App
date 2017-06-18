@@ -117,7 +117,7 @@ $nav-side-nav-background-color: $light-yellow;
 // nav color
 $nav-side-nav-li-color: $dark-brown;
 // nav font
-$nav-font-family: $font-family-text;
+$nav-font-family: $font-family-title;
 // nav height
 $nav-brand-icon-height: 80%;
 // nav letter 
@@ -194,6 +194,37 @@ $acc-form-vertical-align: middle;
 $acc-width: 100vw;
 $acc-panel-max-width: 90%;
 $acc-logo-max-width: 50%;
+
+/* passenger */
+
+// pass border
+$pass-profile-reveal-border: none;
+$pass-profile-reveal-li-border: none;
+// pass cursor
+$pass-profile-avatar-cursor: pointer;
+// pass display
+$pass-profile-display: block;
+// pass height
+$pass-profile-avatar-img-height: 60px;
+$pass-profile-reveal-min-height: 64px;
+$pass-riding-map-height: 80vh;
+$pass-riding-ride: 15vh;
+// pass margin
+$pass-profile-margin-top: 0;
+$pass-profile-edit-margin-top: -45px;
+$pass-profile-stat-margin: 0;
+$pass-riding-ride-margin: 2.5vh 0;
+// pass padding
+$pass-profile-name-padding: 0;
+// pass position
+$pass-profile-name-position-left: 100px;
+$pass-profile-avatar-position: absolute;
+$pass-profile-avatar-position-top: 110px;
+// pass width
+$pass-profile-avatar-img-width: $pass-profile-avatar-img-height;
+$pass-riding-map-width: 100%;
+// pass z-index
+$pass-profile-avatar-zindex: 1;
 
 /* button */
 

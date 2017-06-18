@@ -1,0 +1,29 @@
+<div class="pass-riding">
+    <div class="pass-map" id="map"></div>
+    <div class="pass-ride">
+        <div class="row">
+            <div class="col s6 m6 l6">
+                <button class="waves-effect waves-light btn-large">
+                    <i class="material-icons">directions_car</i>預約乘車
+                </button>
+            </div>
+            <div class="col s6 m6 l6">
+                <button class="waves-effect waves-light btn-large">
+                    <i class="material-icons">directions_car</i>立即乘車
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: { lat: 40.731, lng: -73.997 }
+    });
+}
+</script>
+
+<!-- Google Map API -->
+<script src="https://maps.googleapis.com/maps/api/js??sensor=false&libraries=places&callback=initMap"></script>

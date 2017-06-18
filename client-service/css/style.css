@@ -15,6 +15,7 @@
 /* navbar */
 /* start */
 /* account */
+/* passenger */
 /* button */
 /** helpers/_mixin.scss **/
 /* transform */
@@ -25,6 +26,7 @@
 /* navbar */
 /* start */
 /* account */
+/* passenger */
 /* button */
 /** helpers/_theme.scss **/
 /* selection effects */
@@ -76,7 +78,7 @@ img::-moz-selection {
 .nav-default {
   background-color: #ffcf47; }
   .nav-default .brand-logo {
-    font-family: Yantramanav, sans-serif;
+    font-family: Metrophobic, sans-serif;
     letter-spacing: 5px; }
     .nav-default .brand-logo img {
       height: 80%;
@@ -137,11 +139,43 @@ img::-moz-selection {
       vertical-align: middle; }
     .sct-account .account-panel .account-signup {
       display: table-cell; }
-      .sct-account .account-panel .account-signup d ul a {
+      .sct-account .account-panel .account-signup ul a {
         font-family: "Yantramanav";
         font-size: 1rem;
         text-transform: none; }
     .sct-account .account-panel .account-input {
       margin: 0; }
+
+/* Import Pages */
+/** layout/_passenger.scss **/
+.pass-profile {
+  display: block;
+  margin-top: 0; }
+  .pass-profile .card .card-image .card-profile-name {
+    left: 100px !important;
+    padding: 0 !important; }
+  .pass-profile .card .card-content .card-profile-image {
+    cursor: pointer;
+    height: 60px;
+    position: absolute;
+    top: 110px;
+    width: 60px;
+    z-index: 1; }
+  .pass-profile .card .card-content .card-profile-edit {
+    margin-top: -45px; }
+  .pass-profile .card .card-content .card-profile-stat {
+    margin: 0; }
+  .pass-profile .card .card-reveal .collection {
+    border: none !important; }
+    .pass-profile .card .card-reveal .collection li {
+      border-bottom: none;
+      min-height: 64px !important; }
+
+.pass-riding .pass-map {
+  height: 80vh;
+  width: 100%; }
+.pass-riding .pass-ride {
+  height: 15vh;
+  margin: 2.5vh 0; }
 
 /*# sourceMappingURL=style.css.map */
