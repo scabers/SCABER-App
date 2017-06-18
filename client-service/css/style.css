@@ -1,0 +1,148 @@
+/** style.scss **/
+/* Import herlpes */
+/** helpers/variables.scss **/
+/* ratio variables */
+/* border variables */
+/* colors variables */
+/* cursor variables */
+/* font-family */
+/* font-size */
+/* font-weight */
+/* media queries variables */
+/* inline elements */
+/* ::selection */
+/* ::placeholder */
+/* navbar */
+/* start */
+/* account */
+/* button */
+/** helpers/_mixin.scss **/
+/* transform */
+/* transition */
+/* user-select */
+/* ::selection */
+/* ::placeholder */
+/* navbar */
+/* start */
+/* account */
+/* button */
+/** helpers/_theme.scss **/
+/* selection effects */
+::selection {
+  background-color: #3f3133;
+  color: #ffcf47;
+  text-shadow: none; }
+
+::-moz-selection {
+  background-color: #3f3133;
+  color: #ffcf47;
+  text-shadow: none; }
+
+img::selection {
+  background-color: transparent;
+  color: #ffcf47; }
+
+img::-moz-selection {
+  background-color: transparent;
+  color: #ffcf47; }
+
+/* placeholder effects */
+::-webkit-input-placeholder {
+  color: #ffcf47;
+  font-family: Yantramanav, sans-serif;
+  font-size: 14px; }
+
+::-moz-placeholder {
+  color: #ffcf47;
+  font-family: Yantramanav, sans-serif;
+  font-size: 14px; }
+
+:-ms-input-placeholder {
+  color: #ffcf47;
+  font-family: Yantramanav, sans-serif;
+  font-size: 14px; }
+
+/* button */
+.btn-identity {
+  font-size: 1.7rem;
+  font-weight: 700;
+  height: 20%;
+  line-height: 7.5rem; }
+
+/** helpers/_keyframes.scss **/
+/* Import Media */
+/* Import Components */
+/** components/_nav.scss **/
+.nav-default {
+  background-color: #ffcf47; }
+  .nav-default .brand-logo {
+    font-family: Yantramanav, sans-serif;
+    letter-spacing: 5px; }
+    .nav-default .brand-logo img {
+      height: 80%;
+      margin: 0 2.5px;
+      vertical-align: middle;
+      width: auto; }
+  .nav-default .side-nav {
+    background-color: #ffcf47;
+    color: #3f3133; }
+
+/* Import Layout */
+/** layout/_start.scss **/
+.sct-start {
+  background-color: #e79535;
+  height: 100vh;
+  position: relative;
+  vertical-align: middle;
+  width: auto;
+  z-index: 100; }
+  .sct-start .start-logo {
+    position: relative;
+    top: 35%;
+    text-align: center;
+    vertical-align: middle;
+    width: auto; }
+    .sct-start .start-logo img {
+      height: 25%;
+      width: auto; }
+
+/** layout/_account.scss **/
+.sct-account {
+  background-color: #e79535;
+  display: none;
+  height: 100vh !important;
+  position: absolute;
+  vertical-align: middle;
+  width: 100vw;
+  z-index: 1; }
+  .sct-account .account-panel {
+    background-color: white;
+    height: 90vh;
+    margin-top: 5vh;
+    position: relative;
+    left: 5% !important;
+    vertical-align: middle;
+    max-width: 90% !important; }
+    .sct-account .account-panel .account-signin {
+      display: none;
+      vertical-align: middle; }
+      .sct-account .account-panel .account-signin .account-top img {
+        height: auto;
+        font-family: "Metrophobic";
+        font-size: 1.5rem;
+        max-width: 50%; }
+    .sct-account .account-panel .account-signup-id {
+      display: none;
+      vertical-align: middle; }
+    .sct-account .account-panel .account-signup {
+      display: none; }
+      .sct-account .account-panel .account-signup h4 {
+        margin-top: 0; }
+      .sct-account .account-panel .account-signup ul a {
+        font-family: "Yantramanav";
+        font-size: 1rem;
+        text-transform: none; }
+    .sct-account .account-panel .account-input {
+      margin: 0; }
+
+/*# sourceMappingURL=style.css.map */

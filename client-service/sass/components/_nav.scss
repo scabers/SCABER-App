@@ -1,0 +1,11 @@
+/** components/_nav.scss **/
+
+.nav-default {
+    @include nav-default;
+    .brand-logo {
+        @include nav-brand-logo;
+    }
+    .side-nav {
+        @include nav-side-nav;
+    }
+}

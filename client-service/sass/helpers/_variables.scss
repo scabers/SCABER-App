@@ -1,0 +1,204 @@
+/** helpers/variables.scss **/
+
+
+/* ratio variables */
+
+$full-perc: 100%;
+$full-vh: 100vh;
+$full-vw: 100vw;
+$full-px: 100px;
+
+/* border variables */
+
+$border-radius: 300px;
+$border-width: 2px;
+
+/* colors variables */
+
+$light-yellow: rgba(255, 207, 71, 1.0);
+$dark-yellow: rgba(246, 180, 30, 1.0);
+$light-orange: rgba(231, 149, 53, 1.0);
+$dark-orange: rgba(219, 90, 60, 1.0);
+$light-brown: rgba(114, 89, 92, 1.0);
+$dark-brown: rgba(63, 49, 51, 1.0);
+$skin: rgba(244, 193, 129, 1.0);
+$light-gray: rgba(216, 216, 216, 1.0);
+$dark-gray: rgba(51, 51, 51, 1.0);
+$white: rgba(255, 255, 255, 1.0);
+$black: rgba(0, 0, 0, 1.0);
+$color-none: transparent;
+$color-fb: rgba(59, 89, 152, 1.0);
+$color-gp: rgba(219, 90, 60, 1.0);
+$color-tw: rgba(64, 153, 255, 1.0);
+$color-ig: rgba(92, 61, 46, 1.0);
+$color-gh: rgba(51, 51, 51, 1.0);
+
+/* cursor variables */
+
+$cursor: pointer;
+
+/* font-family */
+
+$font-family-title: 'Metrophobic';
+$font-family-text: 'Yantramanav';
+$font-family-chi: '微軟正黑體';
+
+/* font-size */
+
+$h1-px: 36px;
+$h2-px: 30px;
+$h3-px: 24px;
+$h4-px: 18px;
+$h5-px: 14px;
+$h6-px: 12px;
+$p-px: 12px;
+$a-px: 12px;
+$h1-rem: 1.8rem;
+$h2-rem: 1.7rem;
+$h3-rem: 1.6rem;
+$h4-rem: 1.5rem;
+$h5-rem: 1.4rem;
+$h6-rem: 1.3rem;
+$p-rem: 1.2rem;
+$a-rem: 1.2rem;
+
+/* font-weight */
+
+$font-normal: 400;
+$font-medium: 550;
+$font-bold: 700;
+
+/* media queries variables */
+
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+/* inline elements */
+
+// font
+$h-font-family: $font-family-title;
+$h-font-weight: $font-bold;
+$p-font-size: $p-rem;
+// letter
+$h-letter-spacing: 2px;
+// line
+$p-line-height: 1.5;
+// margin
+$p-margin-bottom: 20px;
+
+/* ::selection */
+
+// ::selection background
+$-selection-bg-color: $dark-brown;
+$-selection-img-bg-color: $color-none;
+// ::selection color
+$-selection-color: $light-yellow;
+$-selection-img-color: $-selection-color;
+// ::selection text
+$-selection-text-shadow: none;
+
+/* ::placeholder */
+
+// ::placeholder color
+$-placeholder-color: $light-yellow;
+// ::placeholder font
+$-placeholder-font-family: $font-family-text;
+$-placeholder-font-size: $h5-px;
+
+/* navbar */
+
+// nav background 
+$nav-background-color: $light-yellow;
+$nav-side-nav-background-color: $light-yellow;
+// nav color
+$nav-side-nav-li-color: $dark-brown;
+// nav font
+$nav-font-family: $font-family-text;
+// nav height
+$nav-brand-icon-height: 80%;
+// nav letter 
+$nav-letter-spacing: 5px;
+// nav margin
+$nav-brand-icon-margin: 0 2.5px;
+// nav vertical
+$nav-brand-icon-vertical-align: middle;
+// nav width
+$nav-brand-icon-width: auto;
+
+/* start */
+
+// str background
+$str-background-color: $light-orange;
+// str height
+$str-height: 100vh;
+$str-logo-height: 25%;
+// str position
+$str-position: relative;
+$str-logo-top: 35%;
+// str text
+$str-logo-text-align: center;
+// str vertical
+$str-vertical-align: middle;
+$str-logo-vertical-align: middle;
+// str width
+$str-width: auto;
+$str-logo-width: auto;
+// str z-index
+$str-zindex: 100;
+
+/* account */
+
+// acc background
+$acc-background-color: $light-orange;
+$acc-panel-background-color: $white;
+// acc color
+$acc-title-color: $white;
+// acc display
+$acc-display: none;
+$acc-signin-display: none;
+$acc-signup-id-display: none;
+$acc-signup-display: none;
+// acc font
+$acc-logo-font-family: $font-family-title;
+$acc-logo-font-size: $h4-rem;
+$acc-signup-tab-font-family: $font-family-text;
+$acc-signup-tab-font-size: 1.0rem;
+// acc height
+$acc-height: 100vh;
+$acc-panel-height: 90vh;
+$acc-logo-height: auto;
+// acc margin
+$acc-panel-margin-top: 5vh;
+$acc-input-margin: 0;
+$acc-signup-title-margin-top: 0;
+// acc position
+$acc-position: absolute;
+$acc-panel-position: relative;
+$acc-panel-position-left: 5%;
+// acc text
+$acc-panel-text-align: center;
+$acc-signup-tab-text-transform: none;
+// acc vertical
+$acc-vertical-align: middle;
+$acc-panel-vertical-align: middle;
+$acc-form-vertical-align: middle;
+// acc width
+$acc-width: 100vw;
+$acc-panel-max-width: 90%;
+$acc-logo-max-width: 50%;
+// acc z-index
+$acc-zindex: 1;
+
+/* button */
+
+// btn font
+$btn-identity-font-size: $h2-rem;
+$btn-identity-font-weight: $font-bold;
+// btn height
+$btn-identity-height: 20%;
+// btn line
+$btn-identity-line-height: 7.5rem;

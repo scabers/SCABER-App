@@ -1,0 +1,25 @@
+/** layout/_account.scss **/
+
+.sct-account {
+    @include account-default;
+    .account-panel {
+        @include account-panel;
+        .account-signin {
+            @include account-signin;
+            .account-top {
+                img {
+                    @include account-logo;
+                }
+            }
+        }
+        .account-signup-id {
+            @include account-signup-id;
+        }
+        .account-signup {
+            @include account-signup;
+        }
+        .account-input {
+            @include account-input;
+        }
+    }
+}

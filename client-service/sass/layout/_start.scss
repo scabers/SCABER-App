@@ -1,0 +1,8 @@
+/** layout/_start.scss **/
+
+.sct-start {
+    @include start-default;
+    .start-logo {
+        @include start-logo;
+    }
+}

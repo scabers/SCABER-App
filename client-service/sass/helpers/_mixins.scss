@@ -1,0 +1,180 @@
+/** helpers/_mixin.scss **/
+
+
+/* transform */
+
+@mixin transform($transform) {
+    transform: $transform;
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+}
+
+
+/* transition */
+
+@mixin transition($transition) {
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+}
+
+
+/* user-select */
+
+@mixin user-select($select) {
+    user-select: $select;
+    -webkit-user-select: $select;
+    -moz-user-select: if ($select==none) -moz-none;
+    -ms-user-select: $select;
+}
+
+
+/* ::selection */
+
+@mixin -selection {
+    background-color: $-selection-bg-color;
+    color: $-selection-color;
+    text-shadow: $-selection-text-shadow;
+}
+
+@mixin -selection-img {
+    background-color: $-selection-img-bg-color;
+    color: $-selection-img-color;
+}
+
+
+/* ::placeholder */
+
+@mixin -placeholder {
+    color: $-placeholder-color;
+    font: {
+        family: #{$-placeholder-font-family},
+        sans-serif;
+        size: $-placeholder-font-size;
+    }
+}
+
+
+/* navbar */
+
+@mixin nav-default {
+    background-color: $nav-background-color;
+}
+
+@mixin nav-brand-logo {
+    font-family: #{$nav-font-family},
+    sans-serif;
+    letter-spacing: $nav-letter-spacing;
+    img {
+        height: $nav-brand-icon-height;
+        margin: $nav-brand-icon-margin;
+        vertical-align: $nav-brand-icon-vertical-align;
+        width: $nav-brand-icon-width;
+    }
+}
+
+@mixin nav-side-nav {
+    background-color: $nav-side-nav-background-color;
+    color: $nav-side-nav-li-color;
+}
+
+
+/* start */
+
+@mixin start-default {
+    background-color: $str-background-color;
+    height: $str-height;
+    position: $str-position;
+    vertical-align: $str-vertical-align;
+    width: $str-width;
+    z-index: $str-zindex;
+}
+
+@mixin start-logo {
+    position: $str-position;
+    top: $str-logo-top;
+    text-align: $str-logo-text-align;
+    vertical-align: $str-logo-vertical-align;
+    width: $str-width;
+    img {
+        height: $str-logo-height;
+        width: $str-logo-width;
+    }
+}
+
+
+/* account */
+
+@mixin account-default {
+    background-color: $acc-background-color;
+    display: $acc-display;
+    height: $acc-height !important;
+    position: $acc-position;
+    vertical-align: $acc-vertical-align;
+    width: $acc-width;
+    z-index: $acc-zindex;
+}
+
+@mixin account-panel {
+    background-color: $acc-panel-background-color;
+    height: $acc-panel-height;
+    margin-top: $acc-panel-margin-top;
+    position: $acc-panel-position;
+    left: $acc-panel-position-left !important;
+    vertical-align: $acc-panel-vertical-align;
+    max-width: $acc-panel-max-width !important;
+}
+
+@mixin account-signin {
+    display: $acc-signin-display;
+    vertical-align: $acc-form-vertical-align;
+}
+
+@mixin account-signup-id {
+    display: $acc-signup-id-display;
+    vertical-align: $acc-form-vertical-align;
+}
+
+@mixin account-signup {
+    display: $acc-signup-display;
+    h4 {
+        margin-top: $acc-signup-title-margin-top;
+    }
+    ul {
+        a {
+            font: {
+                family: $acc-signup-tab-font-family;
+                size: $acc-signup-tab-font-size;
+            }
+            text-transform: $acc-signup-tab-text-transform;
+        }
+    }
+}
+
+@mixin account-logo {
+    height: $acc-logo-height;
+    font: {
+        family: $acc-logo-font-family;
+        size: $acc-logo-font-size;
+    }
+    max-width: $acc-logo-max-width;
+}
+
+@mixin account-input {
+    margin: $acc-input-margin;
+}
+
+
+/* button */
+
+@mixin btn-identity {
+    font: {
+        size: $btn-identity-font-size;
+        weight: $btn-identity-font-weight;
+    }
+    height: $btn-identity-height;
+    line-height: $btn-identity-line-height;
+}

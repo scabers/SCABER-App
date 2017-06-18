@@ -1,0 +1,42 @@
+/** helpers/_theme.scss **/
+
+
+/* selection effects */
+
+::selection {
+    @include -selection;
+}
+
+::-moz-selection {
+    @include -selection;
+}
+
+img::selection {
+    @include -selection-img;
+}
+
+img::-moz-selection {
+    @include -selection-img;
+}
+
+
+/* placeholder effects */
+
+::-webkit-input-placeholder {
+    @include -placeholder;
+}
+
+::-moz-placeholder {
+    @include -placeholder;
+}
+
+:-ms-input-placeholder {
+    @include -placeholder;
+}
+
+
+/* button */
+
+.btn-identity {
+    @include btn-identity;
+}
