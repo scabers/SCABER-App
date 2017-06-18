@@ -52,7 +52,7 @@ class AuthService{
         app.post('/auth/facebook',this.fbauth);
         app.get('/auth/facebook/callback',passport.authenticate('facebook',{ failureRedirect: config.auth.facebook.failureUrl_luffy}),
             function(req,res){
-                console.log(req.user);
+                //console.log(req.user);
                 res.redirect(config.auth.facebook.successUrl_luffy);
         }
         );
@@ -61,7 +61,7 @@ class AuthService{
         app.get('/auth/google/callback',passport.authenticate('google',{ failureRedirect: config.auth.google.failureUrl_luffy }),
             function(req,res){
                 // successful goes here - debug with req.user data
-                console.log(req.user);
+                //console.log(req.user);
                 // Prepare page for Google Auth
                 res.redirect(config.auth.google.successUrl_luffy);
             }
@@ -78,8 +78,8 @@ class AuthService{
         // Pass them to session
         req.session.username = req.body.account;
         req.session.email = req.body.email;
+        req.session.phone = req.body.phone;
         req.session.type = req.body.user_type;
-        console.log('Username: ' + req.session.username + "; Type: " + req.session.type );
         passport.authenticate('facebook')(req, res, next);
     }
     // Google
@@ -90,13 +90,13 @@ class AuthService{
         // Pass them to session
         req.session.username = req.body.account;
         req.session.email = req.body.email;
+        req.session.phone = req.body.phone;
         req.session.type = req.body.user_type;
-        console.log('Username: ' + req.session.username + "; Type: " + req.session.type );
         passport.authenticate('google')(req, res, next);
     }
     login(req,res){
         // fetch user and theck out
-        let username = req.query.username;
+        let username = req.query.account;
         // Check this user from database
         MongoDBService.user_check(username,function(err,msg_data){
             if(err)

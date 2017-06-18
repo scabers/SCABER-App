@@ -1,6 +1,6 @@
 <!-- Sign-up Google -->
 <div class="account-gp"  id="signup-gp">
-    <form class="cpl s12 account-form">
+    <form class="cpl s12 account-form" action="/auth/google" method="POST">
         <div class="row account-top">
             <div class="input-field col s12 center">
                 <h4>Google 註冊</h4>
@@ -19,6 +19,13 @@
                 <i class="material-icons prefix">mail</i>
                 <input id="email" type="email" name="email">
                 <label class="center-align" for="email" data-error="wrong" data-success="right">電子信箱</label>
+            </div>
+        </div>
+        <div class="row account-input">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">call</i>
+                <input id="phone" type="text" name="phone">
+                <label class="center-align" for="phone" data-error="wrong" data-success="right">電話</label>
             </div>
         </div>
         <!-- Hidden type here -->
