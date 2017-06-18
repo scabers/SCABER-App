@@ -10,8 +10,8 @@ class UserService {
         // Normal usage
         app.get('/normal',this.normal);
         app.get('/error',this.error);
-        // Google Map tracking
-        app.get('/map',this.map);
+        // debug 
+        app.get('/delete',this.delete);
     }
     normal(req,res){
         // Parsing parameter from session
@@ -20,6 +20,8 @@ class UserService {
         let profile = req.user;
         let username = req.session.username;
         let usertype = req.session.type;
+        let useremail = req.session.email;
+        let userphone = req.session.phone;
         // Successfully login , and get redis session create
         // User id : using authenticate id
         RedisServer.create( profile.id ,req.connection.remoteAddress,7200,logintype, (err,user_token) => {
@@ -32,7 +34,7 @@ class UserService {
                 console.log("Get new user token: "+ user_token);
                 // Store in db
                 // FIXME Redis id need to store into mongo
-                MongoDBService.user_findOrCreateCB(username,logintype,profile.name.familyName + profile.name.givenName,usertype,user_token,profile.id,function(err,msg_type){
+                MongoDBService.user_findOrCreateCB(username,logintype,profile.name.familyName + profile.name.givenName,usertype,user_token,profile.id,useremail,userphone,function(err,msg_type){
                     if(err){
                         // Error occur
                         console.log(msg_type);
@@ -48,12 +50,11 @@ class UserService {
     }
     error(req,res){
         res.end("End");
-        // res.render("about",{title: "About us"});
     }
-    map(req,res){
-        res.render('googlemap',{
-            title: "SCABER Monitor",
-            apikey: config.map.apikey
+    delete(req,res){
+        // delete user 
+        MongoDBService.user_delete(req.query.account,function(err,msg){
+            res.end(msg);
         });
     }
 }

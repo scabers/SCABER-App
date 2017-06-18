@@ -1,7 +1,6 @@
 <!-- Sign-in -->
-
 <div class="account-signin"  id="signin">
-    <form class="col s12 account-form">
+    <form class="col s12 account-form" action="/login" method="GET">
         <div class="row account-top">
             <div class="input-field col s12 center">
                 <img src="logo/logo_icon.png" alt="" class="circle responsive-img valign profile-image-login">
@@ -11,15 +10,8 @@
         <div class="row account-input">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="username" type="text">
+                <input id="username" type="text" name="account">
                 <label for="username" class="center-align" data-error="wrong" data-success="right">帳號</label>
-            </div>
-        </div>
-        <div class="row account-input">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">lock</i>
-                <input id="password" type="password">
-                <label for="password" data-error="wrong" data-success="right">密碼</label>
             </div>
         </div>
         <div class="row">          
@@ -30,7 +22,8 @@
         </div>
         <div class="row account-input">
             <div class="input-field col s12">
-                <a href="#" class="btn waves-effect waves-light col s12">登入</a>
+                <!-- <a href="#" class="btn waves-effect waves-light col s12">登入</a> -->
+                <input type="submit" class="btn waves-effect waves-light col s12" value="登入">
             </div>
         </div>
         <div class="row account-input">
