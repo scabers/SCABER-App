@@ -23,6 +23,32 @@
         <p>按下「預約乘車」我們將儘速爲您派車。</p>
     </div>
     <div class="modal-footer">
+        <button class="modal-action waves-effect waves-green btn-flat" onclick="triggerPassengerOrderModal('form');">預約乘車</button>
+    </div>
+</div>
+
+<!-- modal form -->
+<div class="modal modal-form" id="modal-form">
+    <div class="modal-content">
+        <h4>開始預約！</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="username" type="text">
+                    <label class="center-align" for="username" data-error="wrong" data-success="right">乘車地</label>
+                </div>
+            </div>
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail</i>
+                    <input id="email" type="email">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
         <button class="modal-action waves-effect waves-green btn-flat">預約乘車</button>
     </div>
 </div>
@@ -38,7 +64,7 @@
     </div>
 </div>
 
-<!-- modal wait -->
+<!-- modal waiting -->
 <div class="modal modal-wait" id="modal-wait">
     <div class="modal-content">
         <h4>正在派車中！</h4>
@@ -99,7 +125,7 @@
 </div>
 
 <!-- modal choose location -->
-<div class="modal modal-succ" id="modal-location">
+<div class="modal modal-location" id="modal-location">
     <div class="modal-content">
         <h5>請選擇目的地</h5>
         <ul class="collection">
@@ -203,8 +229,13 @@ $('#startBtn').click(function(){
 });
 
 $('#tripBtn').click(function(){
+    // FIXME: 判斷使用者是否輸入正確的地標，再做 emit
+
     // Emit signal to server , broadcast information to each GAs => time to go 
     socket.emit('trip_start',{
+        id: <%- JSON.stringify(scaber_account) %>,
+        phone: <%- JSON.stringify(user_phone) %>,
+        unique: <%- JSON.stringify(passenger_profile.trueID) %>,
         startPos: { lat: 20, lng: 120 },
         endPos: { lat: 20.10, lng: 120.20}
     });

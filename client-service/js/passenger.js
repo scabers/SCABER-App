@@ -62,6 +62,7 @@ $(document).ready(function() {
     $('#startBtn').hide();
 });
 
+
 var passenger_page_status = 0;
 
 // Trigger passenger modal
@@ -74,6 +75,20 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
         passenger_page_status = 1;
+    }
+}
+
+// Trigger passenger ordering modal
+function triggerPassengerOrderModal(signal) {
+    if (signal == 'form') {
+        $('.modal-order').modal('close');
+        $('.modal-form').modal('open');
+    } else if (signal == 'waiting') {
+        $('.modal-form').modal('close');
+        $('.modal-wait').modal('open');
+    } else if (signal == 'match') {
+        $('.modal-wait').modal('close');
+        $('.modal-succ').modal('open');
     }
 }
 

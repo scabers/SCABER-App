@@ -54,6 +54,12 @@ body {
     }
 }
 
+.modal-form {
+    .modal-content {
+        @include mdl-form-content;
+    }
+}
+
 .modal-succ {
     .modal-content {
         @include mdl-succ-content;

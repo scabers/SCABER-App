@@ -74,6 +74,15 @@ class SyncService {
                     }
                 });
             });
+            // ========================== Prepare to binding channel ==========================
+            socket.on("trip_start",function(pass_obj){
+                // broadcast in pass_obj.unique (receive by GAs, and they will go into monitor page)
+                self.io.in(pass_obj.unique).emit('go_monitor',{
+                    passenger: pass_obj.id,
+                    startPos: pass_obj.startPos,
+                    endPos: pass_obj.endPos 
+                });
+            });
         }); // Web Socket Listening
     }
 }
