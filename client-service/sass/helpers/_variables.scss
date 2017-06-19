@@ -77,6 +77,15 @@ $screen-md-min: 992px;
 $screen-md-max: 1199px;
 $screen-lg-min: 1200px;
 
+/* view */
+
+// height
+$body-height: 100vh;
+// overflow
+$body-overflow: hidden;
+// width
+$body-width: 100vw;
+
 /* inline elements */
 
 // font
@@ -197,34 +206,52 @@ $acc-logo-max-width: 50%;
 
 /* passenger */
 
+// pass background
+$pass-riding-toolbar-background-color: $light-yellow;
 // pass border
 $pass-profile-reveal-border: none;
 $pass-profile-reveal-li-border: none;
+$pass-riding-toolbar-border-radius: 0;
+// pass color
+$pass-riding-toolbar-color: $dark-brown;
 // pass cursor
 $pass-profile-avatar-cursor: pointer;
 // pass display
 $pass-profile-display: block;
+// pass font
+$pass-riding-toolbar-font-weight: $font-bold;
 // pass height
 $pass-profile-avatar-img-height: 60px;
 $pass-profile-reveal-min-height: 64px;
-$pass-riding-map-height: 80vh;
-$pass-riding-ride: 15vh;
+$pass-riding-map-height: 84vh;
+$pass-riding-toolbar-height: 10vh;
+// pass line
+$pass-riding-toolbar-line-height: 10vh;
 // pass margin
 $pass-profile-margin-top: 0;
 $pass-profile-edit-margin-top: -45px;
 $pass-profile-stat-margin: 0;
-$pass-riding-ride-margin: 2.5vh 0;
+$pass-riding-toolbar-margin: 0;
 // pass padding
 $pass-profile-name-padding: 0;
+$pass-riding-toolbar-padding: 0;
 // pass position
 $pass-profile-name-position-left: 100px;
 $pass-profile-avatar-position: absolute;
 $pass-profile-avatar-position-top: 110px;
+$pass-riding-toolbar-position: absolute;
+$pass-riding-toolbar-position-bottom: 0;
+// pass text
+$pass-riding-toolbar-text-align: center;
+// pass vertical
+$pass-riding-toolbar-vertical-align: middle;
 // pass width
 $pass-profile-avatar-img-width: $pass-profile-avatar-img-height;
 $pass-riding-map-width: 100%;
+$pass-riding-toolbar-width: 100%;
 // pass z-index
 $pass-profile-avatar-zindex: 1;
+$pass-riding-toolbar-zindex: 10;
 
 /* button */
 

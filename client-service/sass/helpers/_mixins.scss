@@ -58,6 +58,15 @@
 }
 
 
+/* body */
+
+@mixin body {
+    height: $body-height;
+    overflow: $body-overflow;
+    width: $body-width;
+}
+
+
 /* navbar */
 
 @mixin nav-default {
@@ -169,6 +178,10 @@
 
 /* passenger */
 
+@mixin passenger {
+    overflow: $pass-overflow;
+}
+
 @mixin passenger-profile {
     display: $pass-profile-display;
     margin-top: $pass-profile-margin-top;
@@ -209,9 +222,25 @@
     width: $pass-riding-map-width;
 }
 
-@mixin passenger-riding-ride {
-    height: $pass-riding-ride;
-    margin: $pass-riding-ride-margin;
+@mixin passenger-riding-toolbar {
+    background-color: $pass-riding-toolbar-background-color;
+    height: $pass-riding-toolbar-height;
+    position: $pass-riding-toolbar-position;
+    bottom: $pass-riding-toolbar-position-bottom;
+    width: $pass-riding-toolbar-width;
+    z-index: $pass-riding-toolbar-zindex;
+    .row {
+        .col {
+            padding: $pass-riding-toolbar-padding;
+        }
+        button {
+            background-color: $pass-riding-toolbar-background-color;
+            border-radius: $pass-riding-toolbar-border-radius;
+            color: $pass-riding-toolbar-color;
+            height: $pass-riding-toolbar-height;
+            width: $pass-riding-toolbar-width;
+        }
+    }
 }
 
 
