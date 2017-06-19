@@ -136,12 +136,11 @@ function goRiding(){
             console.log(data);
         }
         else{
-            // get data 
-            alert(data.lat + ";" + data.lng);
             // set center 
             map.setZoom(14);
             map.setCenter(data);
             marker.setPosition(data);
+            // Call waiting
         }
     });
 }

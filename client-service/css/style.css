@@ -90,6 +90,7 @@ body {
       .modal .modal-content .collection li i {
         background-color: #3f3133 !important;
         color: #ffcf47 !important; }
+
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
@@ -213,6 +214,7 @@ body {
 .pass-riding .pass-map {
   height: 84vh;
   width: 100%; }
+
 .pass-riding .pass-toolbar {
   background-color: #ffcf47;
   height: 10vh;
@@ -230,5 +232,3 @@ body {
         color: #3f3133;
         height: 10vh;
         width: 100%; }
-
-/*# sourceMappingURL=style.css.map */

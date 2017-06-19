@@ -1,3 +1,4 @@
+// Usage: getCurrentLocation(err,data) => data is position object
 function getCurrentLocation(callback){
     // One time see location !
     if(navigator.geolocation){

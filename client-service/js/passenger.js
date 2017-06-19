@@ -63,12 +63,14 @@ $(document).ready(function() {
     });
 });
 
-// Trigger passenger waiting modal
+// Trigger passenger modal
 function triggerPassengerModal(signal) {
     if (signal == 'match') {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
     }
+    else if(signal == 'waiting'){
+        $('.modal-wait').modal('open');
+        $('.modal-succ').modal('close');
+    }
 }
-
-// Trigger passenger success modal
