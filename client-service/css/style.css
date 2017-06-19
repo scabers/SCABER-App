@@ -116,6 +116,8 @@ body {
   justify-content: center; }
   .modal-wait .modal-footer button {
     color: #ffcf47; }
+  .modal-wait .modal-footer .spinner-layer {
+    border-color: #ffcf47; }
 
 /* button */
 .btn-identity {
