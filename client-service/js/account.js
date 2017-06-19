@@ -1,4 +1,14 @@
 $(document).ready(function() {
+    // initialize account
+    $('.sct-account').hide();
+    $('#signup-id').hide();
+    $('#signup').hide();
+    $('#signup-gp').hide();
+    $('#signup-fb').hide();
+
+    // tabs
+    $('ul.tabs').tabs();
+
     // Load start page animation
     $('.sct-start').delay(2000).fadeOut(function() {
         $(this).hide();

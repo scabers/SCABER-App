@@ -96,14 +96,14 @@ img::-moz-selection {
   height: 100vh;
   position: relative;
   vertical-align: middle;
-  width: auto;
+  width: 100vw;
   z-index: 100; }
   .sct-start .start-logo {
     position: relative;
     top: 35%;
     text-align: center;
     vertical-align: middle;
-    width: auto; }
+    width: 100vw; }
     .sct-start .start-logo img {
       height: 25%;
       width: auto; }
