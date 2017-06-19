@@ -10,8 +10,64 @@ class UserService {
         // Normal usage
         app.get('/normal',this.normal);
         app.get('/error',this.error);
+        // Monitor
+        app.get('/monitor',this.monitor);
+        // Rate 
+        app.get('/rate',this.rate);
+        // Help 
+        app.get('/help',this.help);
         // debug 
         app.get('/delete',this.delete);
+    }
+    rate(req,res){
+        if(req.session.username == undefined){
+            // display error message and go back
+            res.redirect('/');
+        }
+        else{
+            // TODO : Monitor work
+            res.end("Rate work");
+        }
+    }
+    help(req,res){
+        if(req.session.username == undefined){
+            // display error message and go back
+            res.redirect('/');
+        }
+        else{
+            let username = req.session.username;
+            MongoDBService.user_check(username,function(err,msg_data){
+            if(err)
+                res.end(msg_data);
+            else {
+                MongoDBService.add_cash(username,0,function(c_err,profile){
+                    if(c_err)
+                        res.end("Error in fetch profile.");
+                    else{
+                        res.render('help',{
+                            title: "SCABER helper Page",
+                            user_familyName: msg_data.lastName,
+                            user_givenName: msg_data.firstName,
+                            scaber_account: username,
+                            user_email: msg_data.email,
+                            user_phone: msg_data.phone,
+                            passenger_profile: profile
+                        });
+                    }
+                });
+            }
+        });
+        }
+    }
+    monitor(req,res){
+        if(req.session.username == undefined){
+            // display error message and go back
+            res.redirect('/');
+        }
+        else{
+            // TODO : Monitor work
+            res.end("Monitor work");
+        }
     }
     normal(req,res){
         // Parsing parameter from session

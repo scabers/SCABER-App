@@ -38,6 +38,7 @@ app.set('views', path.join(__dirname, 'client-service/views'));
 app.set('view engine', 'ejs');
 app.use(require('express-session')({
     secret: 'SCABER cat',
+    cookie: 7200,
     resave: true,
     saveUninitialized: true
 }));

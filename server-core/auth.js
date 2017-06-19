@@ -96,7 +96,14 @@ class AuthService{
     }
     login(req,res){
         // fetch user and theck out
-        let username = req.body.account;
+        let username = "";
+        if(req.session.username != undefined){
+            username = req.session.username;
+        }
+        else{
+            username = req.body.account;
+            req.session.username = username;
+        }
         // Check this user from database
         MongoDBService.user_check(username,function(err,msg_data){
             if(err)
@@ -121,10 +128,13 @@ class AuthService{
         });
     }
     logout(req,res){
+        // Destroy current session
+        console.log("Prepared destory session:");
+        console.log(JSON.stringify(req.session));
         req.session.destroy();
-        // FIXME change to kill this logout person
-        RedisServer.destroy();
-        res.end("Logout");
+        res.render('index', {
+            title: "SCABER - Your best choice of taxi."
+        });
     }
 }
 
