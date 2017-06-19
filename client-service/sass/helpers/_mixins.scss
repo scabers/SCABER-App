@@ -62,7 +62,6 @@
 
 @mixin html {
     //height: $html-height;
-    overflow: $html-overflow !important;
     //width: $html-width;
 }
 
@@ -265,7 +264,39 @@
     }
 }
 
-@mixin passenger-helper-help {}
+@mixin passenger-riding-wait-notice {
+    height: $pass-riding-wait-notice-height;
+    width: $pass-riding-wait-notice-width;
+    .card {
+        margin: $pass-riding-wait-notice-margin;
+        .card-content {
+            background-color: $pass-riding-wait-notice-background-color;
+        }
+        .card-detail {
+            background-color: $pass-riding-wait-notice-detail-background-color;
+        }
+    }
+}
+
+@mixin passenger-riding-wait-monitor {
+    position: $pass-riding-wait-monitor-position;
+    .collection {
+        height: $pass-riding-monitor-height;
+        overflow-y: $pass-riding-monitor-overflow-y !important;
+        border: $pass-riding-wait-monitor-border;
+        width: $pass-riding-wait-monitor-width;
+        li {
+            border-bottom: $pass-riding-wait-monitor-li-border;
+            background-color: $pass-riding-wait-monitor-background-color;
+            min-height: $pass-riding-wait-monitor-li-min-height !important;
+            padding-bottom: $pass-riding-wait-monitor-li-padding-bottom;
+            button {
+                background-color: $pass-riding-wait-monitor-i-background-color !important;
+                color: $pass-riding-wait-monitor-i-color !important;
+            }
+        }
+    }
+}
 
 
 /* modal */

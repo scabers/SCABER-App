@@ -83,7 +83,6 @@ $screen-lg-min: 1200px;
 $html-height: 100vh;
 $body-height: 100%;
 // overflow
-$html-overflow: hidden;
 $body-overflow: hidden;
 // width
 $html-width: 100vw;
@@ -215,15 +214,22 @@ $pass-profile-edit-i-background-color: $dark-brown;
 $pass-profile-reveal-i-background-color: $dark-brown;
 $pass-riding-toolbar-background-color: $light-yellow;
 $pass-riding-modal-succ-i-background-color: $dark-brown;
+$pass-riding-wait-monitor-background-color: $light-yellow;
+$pass-riding-wait-monitor-i-background-color: $dark-brown;
+$pass-riding-wait-notice-background-color: $dark-brown;
+$pass-riding-wait-notice-detail-background-color: $light-gray;
 // pass border
 $pass-profile-reveal-border: none;
 $pass-profile-reveal-li-border: none;
 $pass-riding-toolbar-border-radius: 0;
+$pass-riding-wait-monitor-border: none;
+$pass-riding-wait-monitor-li-border: none;
 // pass color
 $pass-profile-edit-i-color: $light-yellow;
 $pass-profile-reveal-i-color: $light-yellow;
 $pass-riding-toolbar-color: $dark-brown;
 $pass-riding-modal-succ-i-color: $light-yellow;
+$pass-riding-wait-monitor-i-color: $light-yellow;
 // pass cursor
 $pass-profile-avatar-cursor: pointer;
 // pass display
@@ -234,7 +240,10 @@ $pass-riding-toolbar-font-weight: $font-bold;
 $pass-profile-avatar-img-height: 60px;
 $pass-profile-reveal-min-height: 64px;
 $pass-riding-map-height: 84vh;
+$pass-riding-wait-notice-height: 34vh;
+$pass-riding-monitor-height: 57vh;
 $pass-riding-toolbar-height: 10vh;
+$pass-riding-wait-monitor-li-min-height: 64px;
 // pass line
 $pass-riding-toolbar-line-height: 10vh;
 // pass margin
@@ -242,15 +251,21 @@ $pass-profile-margin-top: 0;
 $pass-profile-edit-margin-top: -45px;
 $pass-profile-stat-margin: 0;
 $pass-riding-toolbar-margin: 0;
+$pass-riding-wait-notice-margin: 0;
+// pass overflow
+$pass-riding-monitor-overflow-y: auto;
 // pass padding
 $pass-profile-name-padding: 0;
 $pass-riding-toolbar-padding: 0;
+$pass-riding-wait-monitor-padding-bottom: 6px;
+$pass-riding-wait-monitor-li-padding-bottom: 0;
 // pass position
 $pass-profile-name-position-left: 100px;
 $pass-profile-avatar-position: absolute;
 $pass-profile-avatar-position-top: 110px;
 $pass-riding-toolbar-position: absolute;
 $pass-riding-toolbar-position-bottom: 0;
+$pass-riding-wait-monitor-position: relative;
 // pass text
 $pass-riding-toolbar-text-align: center;
 // pass vertical
@@ -258,7 +273,9 @@ $pass-riding-toolbar-vertical-align: middle;
 // pass width
 $pass-profile-avatar-img-width: $pass-profile-avatar-img-height;
 $pass-riding-map-width: 100%;
+$pass-riding-wait-notice-width: 100%;
 $pass-riding-toolbar-width: 100%;
+$pass-riding-wait-monitor-width: 100%;
 // pass z-index
 $pass-profile-avatar-zindex: 1;
 $pass-riding-toolbar-zindex: 10;

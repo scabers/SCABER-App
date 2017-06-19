@@ -1,6 +1,8 @@
 $(document).ready(function() {
     // Initialize passenger
     $('#pass-profile').hide();
+    //$('#pass-riding-wait').hide();
+    $('#pass-helper').hide();
 
     // Initialize passenger modal
     $('.modal').modal({
@@ -35,7 +37,7 @@ $(document).ready(function() {
     // Bind passenger monitor
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
-        $('#pass-monitor').show();
+        $('#pass-riding-wait').show();
     });
 
     // Bind passenger rating
@@ -86,4 +88,12 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
     }
+}
+
+// Add monitor in passenger waiting taxi
+function addMonitorPassengerRiding(name, phone) {
+    var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button class="secondary-content waves-effect waves-green btn">取消監督</button></li>');
+    $newMonitor.find('.user-name').text(name);
+    $newMonitor.find('.user-phone').text(phone);
+    $('#pass-riding-wait-monitor').append($newMonitor);
 }

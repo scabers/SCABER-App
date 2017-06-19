@@ -69,9 +69,6 @@ img::-moz-selection {
   font-family: Yantramanav, sans-serif;
   font-size: 14px; }
 
-html {
-  overflow: hidden !important; }
-
 body {
   overflow: hidden !important; }
 
@@ -259,5 +256,30 @@ body {
         color: #3f3133;
         height: 10vh;
         width: 100%; }
+
+.pass-riding-wait .pass-notice {
+  height: 34vh;
+  width: 100%; }
+  .pass-riding-wait .pass-notice .card {
+    margin: 0; }
+    .pass-riding-wait .pass-notice .card .card-content {
+      background-color: #3f3133; }
+    .pass-riding-wait .pass-notice .card .card-detail {
+      background-color: #d8d8d8; }
+.pass-riding-wait .pass-monitor {
+  position: relative; }
+  .pass-riding-wait .pass-monitor .collection {
+    height: 57vh;
+    overflow-y: auto !important;
+    border: none;
+    width: 100%; }
+    .pass-riding-wait .pass-monitor .collection li {
+      border-bottom: none;
+      background-color: #ffcf47;
+      min-height: 64px !important;
+      padding-bottom: 0; }
+      .pass-riding-wait .pass-monitor .collection li button {
+        background-color: #3f3133 !important;
+        color: #ffcf47 !important; }
 
 /*# sourceMappingURL=style.css.map */

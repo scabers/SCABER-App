@@ -37,8 +37,11 @@
     }
 }
 
-.pass-helper {
-    .pass-help {
-        @include passenger-helper-help;
+.pass-riding-wait {
+    .pass-notice {
+        @include passenger-riding-wait-notice;
+    }
+    .pass-monitor {
+        @include passenger-riding-wait-monitor;
     }
 }
