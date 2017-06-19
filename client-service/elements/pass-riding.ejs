@@ -157,6 +157,16 @@ function goRiding(){
         }
     });
 }
+
+// Socket IO section 
+socket.on('find_driver_listen',function(rawdata){
+    if(rawdata.header == "error"){
+        triggerPassengerModal("waiting");
+    }
+    else{
+        triggerPassengerModal("match");
+    }
+});
 </script>
 
 <!-- Google Map API -->
