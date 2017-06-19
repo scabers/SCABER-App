@@ -19,7 +19,8 @@ class MongoDBService {
         this.userSchema = mongoose.Schema({
             name: String,
             type: String,
-            authID: String,
+            firstName: String,
+            lastName: String,
             userTYPE: String,
             token: String,
             email: String,
@@ -42,7 +43,7 @@ class MongoDBService {
     }
 
     // callback method of findorCreate
-    user_findOrCreateCB(scaber_account,auth_type,auth_id,scaber_type,token,trueid,email,phone,callback){
+    user_findOrCreateCB(scaber_account,auth_type,firstName,lastName,scaber_type,token,trueid,email,phone,callback){
         var usermodel = this.user_m;
         this.user_m.findOne({name: scaber_account}, 'name type',function(err,user){
             if(err){
@@ -52,7 +53,7 @@ class MongoDBService {
             else{
                 if(user == null){
                     // not found
-                    let newuser = new usermodel({name:scaber_account,type:auth_type,authID: auth_id,userTYPE: scaber_type,token: token,trueID: trueid,email: email,phone: phone});
+                    let newuser = new usermodel({name:scaber_account,type:auth_type,firstName: firstName,lastName: lastName,userTYPE: scaber_type,token: token,trueID: trueid,email: email,phone: phone});
                     newuser.save(function(err,newuser){
                         if(err){
                             console.log("Error with user save:" + err);
@@ -124,6 +125,68 @@ class MongoDBService {
             }
         });
     }
+    // Add ride
+    add_ride(scaber_account,callback){
+        var pass_model = this.pass_m;
+        this.user_m.findOne({name: scaber_account},'trueID userTYPE',function(err,user){
+            if(err){
+                console.log("Error occur when checking user");
+                callback(1,"Error occur when checking user");
+            }
+            else{
+                if(user == null){
+                    console.log("Not found");
+                    callback(1,"Not found");
+                }
+                else{
+                    // find one
+                    if(user.userTYPE == "driver"){
+                        // doing driver cash add 
+                        console.log("Driver cash!");
+                        callback(0,"Driver cash");
+                    }
+                    else{
+                        // passenger (GAs) bonus cash 
+                        pass_model.findOne({trueID: user.trueID},'cash case ride',function(perr,passenger){
+                            if(perr){
+                                console.log("Error occur when checking passenger");
+                                callback(1,"Error occur when checking passenger");
+                            }
+                            else{
+                                if(passenger == null){
+                                    // not found this user -> create for one
+                                    let newpass = new pass_model({trueID: user.trueID, cash: cash, case: 1,ride: 1});
+                                    newpass.save(function(nerr,newpass){
+                                        if(nerr){
+                                            console.log("Error with passenger save:" + nerr);
+                                            callback(1,"New passenger saving error.");
+                                        }
+                                        else {
+                                            console.log("Successfully save passenger");
+                                            callback(0,newpass);
+                                        }
+                                    });
+                                }
+                                else{
+                                    // found , update cash and case by trueID
+                                    passenger.ride++;
+                                    passenger.save(function(nerr,passenger){
+                                        if(nerr){
+                                            console.log("Error with add cash: " + nerr);
+                                            callback(1,"Error with add cash");
+                                        }
+                                        else{
+                                            callback(0,passenger);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    }
     // Add cash 
     add_cash(scaber_account,cash,callback){
         var pass_model = this.pass_m;
@@ -146,7 +209,7 @@ class MongoDBService {
                     }
                     else{
                         // passenger (GAs) bonus cash 
-                        this.pass_m.findOne({trueID: user.trueID},'cash case',function(perr,passenger){
+                        pass_model.findOne({trueID: user.trueID},'cash case ride',function(perr,passenger){
                             if(perr){
                                 console.log("Error occur when checking passenger");
                                 callback(1,"Error occur when checking passenger");
@@ -154,7 +217,7 @@ class MongoDBService {
                             else{
                                 if(passenger == null){
                                     // not found this user -> create for one
-                                    let newpass = new pass_model({trueID: user.trueID, cash: cash, case: 1});
+                                    let newpass = new pass_model({trueID: user.trueID, cash: cash, case: 1,ride: 0});
                                     newpass.save(function(nerr,newpass){
                                         if(nerr){
                                             console.log("Error with passenger save:" + nerr);
@@ -162,21 +225,23 @@ class MongoDBService {
                                         }
                                         else {
                                             console.log("Successfully save passenger");
-                                            callback(0,"create passenger");
+                                            callback(0,newpass);
                                         }
                                     });
                                 }
                                 else{
                                     // found , update cash and case by trueID
                                     passenger.cash+=cash;
-                                    passenger.case++;
+                                    if(cash > 0){
+                                        passenger.case++;
+                                    }
                                     passenger.save(function(nerr,passenger){
                                         if(nerr){
                                             console.log("Error with add cash: " + nerr);
                                             callback(1,"Error with add cash");
                                         }
                                         else{
-                                            callback(0,"add cash");
+                                            callback(0,passenger);
                                         }
                                     });
                                 }

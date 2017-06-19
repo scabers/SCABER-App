@@ -34,7 +34,7 @@ class UserService {
                 console.log("Get new user token: "+ user_token);
                 // Store in db
                 // FIXME Redis id need to store into mongo
-                MongoDBService.user_findOrCreateCB(username,logintype,profile.name.familyName + profile.name.givenName,usertype,user_token,profile.id,useremail,userphone,function(err,msg_type){
+                MongoDBService.user_findOrCreateCB(username,logintype,profile.name.givenName,profile.name.familyName,usertype,user_token,profile.id,useremail,userphone,function(err,msg_type){
                     if(err){
                         // Error occur
                         console.log(msg_type);
@@ -42,7 +42,33 @@ class UserService {
                     }
                     else{
                         console.log("success : " + msg_type);
-                        res.end("SCABER account: " + username + "\nSCABER type: " + usertype + "\nAuth ID:" + profile.name.familyName + profile.name.givenName);
+                        // res.end("SCABER account: " + username + "\nSCABER type: " + usertype + "\nAuth ID:" + profile.name.familyName + profile.name.givenName);
+                        if(usertype == "passenger"){
+                            // Create passenger profile
+                            MongoDBService.add_cash(username,0,function(a_err,msg_body){
+                                if(a_err){
+                                    res.end(msg_body);
+                                }
+                                else{
+                                    // Render Passenger
+                                    /*res.end(`Passenger Page:\nName:${username}\nTrue Name:${profile.name.familyName + profile.name.givenName}\nEmail: ${useremail}\nPhone: ${userphone}\n`+
+                                        +`Passenger Data:`+JSON.stringify(msg_body));*/
+                                    res.render('passenger',{
+                                        title: "歡迎使用 SCABER!",
+                                        user_familyName: profile.name.familyName,
+                                        user_givenName: profile.name.givenName,
+                                        scaber_account: username,
+                                        user_email: useremail,
+                                        user_phone: userphone,
+                                        passenger_profile: msg_body
+                                    });
+                                }
+                            });
+                        }
+                        else if(usertype == "driver"){
+                            // Render Driver
+                            res.end(`Driver Page:\n Name:${username}\n True Name:${profile.name.familyName + profile.name.givenName}\n`);
+                        }
                     }
                 });
             }

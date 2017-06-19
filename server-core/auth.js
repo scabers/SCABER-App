@@ -47,7 +47,7 @@ class AuthService{
             done(null, user);
         });
         // for login
-        app.get('/login',this.login);
+        app.post('/login',this.login);
         // for facebook
         app.post('/auth/facebook',this.fbauth);
         app.get('/auth/facebook/callback',passport.authenticate('facebook',{ failureRedirect: config.auth.facebook.failureUrl_luffy}),
@@ -96,13 +96,27 @@ class AuthService{
     }
     login(req,res){
         // fetch user and theck out
-        let username = req.query.account;
+        let username = req.body.account;
         // Check this user from database
         MongoDBService.user_check(username,function(err,msg_data){
             if(err)
                 res.end(msg_data);
             else {
-                res.end("Find you!\n"+JSON.stringify(msg_data));
+                MongoDBService.add_cash(username,0,function(c_err,profile){
+                    if(c_err)
+                        res.end("Error in fetch profile.");
+                    else{
+                        res.render('passenger',{
+                            title: "歡迎使用 SCABER",
+                            user_familyName: msg_data.lastName,
+                            user_givenName: msg_data.firstName,
+                            scaber_account: username,
+                            user_email: msg_data.email,
+                            user_phone: msg_data.phone,
+                            passenger_profile: profile
+                        });
+                    }
+                });
             }
         });
     }

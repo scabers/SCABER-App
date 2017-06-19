@@ -43,6 +43,9 @@ $(document).ready(function() {
             $(this).hide();
             $('#signup').show();
         });
+        // Add text information 
+        $('#user-type-gp').val("passenger");
+        $('#user-type-fb').val("passenger");
     });
 
     $('#signup-driver').click(function() {
@@ -50,5 +53,8 @@ $(document).ready(function() {
             $(this).hide();
             $('#signup').show();
         });
+        // Add text information 
+        $('#user-type-gp').val("driver");
+        $('#user-type-fb').val("driver");
     });
 });
