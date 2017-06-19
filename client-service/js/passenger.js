@@ -69,4 +69,8 @@ function triggerPassengerModal(signal) {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
     }
+    else if(signal == 'waiting'){
+        $('.modal-wait').modal('open');
+        $('.modal-succ').modal('close');
+    }
 }
