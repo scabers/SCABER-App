@@ -273,7 +273,6 @@
 @mixin mdl-content {
     background-color: $mdl-content-background-color;
     color: $mdl-content-color;
-    padding-bottom: $mdl-succ-content-padding-bottom;
     .collection {
         border: $mdl-succ-content-border;
         li {
@@ -289,11 +288,22 @@
     }
 }
 
+@mixin mdl-succ-content {
+    @include mdl-content;
+    padding-bottom: $mdl-succ-content-padding-bottom;
+}
+
 @mixin mdl-footer {
     background-color: $mdl-footer-background-color;
     button {
         color: $mdl-footer-color;
     }
+}
+
+@mixin mdl-wait-footer {
+    @include mdl-footer;
+    overflow: $mdl-wait-footer-overflow;
+    justify-content: $mdl-wait-footer-justify-align;
 }
 
 

@@ -54,6 +54,18 @@ body {
     }
 }
 
+.modal-succ {
+    .modal-content {
+        @include mdl-succ-content;
+    }
+}
+
+.modal-wait {
+    .modal-footer {
+        @include mdl-wait-footer;
+    }
+}
+
 
 /* button */
 
