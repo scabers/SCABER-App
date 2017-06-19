@@ -17,7 +17,7 @@
 </div>
 
 <!-- modal ordering -->
-<div class="modal" id="modal-order">
+<div class="modal modal-order" id="modal-order">
     <div class="modal-content">
         <h4>預約 SCABER！</h4>
         <p>按下「預約乘車」我們將儘速爲您派車。</p>
@@ -28,7 +28,7 @@
 </div>
 
 <!-- modal booking -->
-<div class="modal" id="modal-book">
+<div class="modal modal-book" id="modal-book">
     <div class="modal-content">
         <h4>立即 SCABER！</h4>
         <p>按下「立即乘車」我們將儘速爲您派車。</p>
@@ -72,28 +72,42 @@
             <li class="collection-item avatar">
                 <i class="material-icons circle">local_activity</i> 
                 <span class="title">車牌號碼</span>
-                <p id="user-phone">[license]</p>
+                <p id="driver-license">[license]</p>
 
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">call</i>
                 <span class="title">手機號碼</span>
-                <p id="user-email">[phone]</p>
+                <p id="driver-phone">[phone]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">local_taxi</i>
                 <span class="title">車輛型號</span>
-                <p id="user-email">[model]</p>
+                <p id="driver-model">[model]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">access_alarm</i>
                 <span class="title">抵達時間</span>
-                <p id="user-email">約 [arrival time] 分鐘</p>
+                <p id="driver-arrival">約 [arrival time] 分鐘</p>
             </li>
         </ul>
     </div>
     <div class="modal-footer">
+        <button id="startBtn" class="modal-action modal-close waves-effect waves-green btn-flat">選擇目的地</button>
         <button class="modal-action modal-close waves-effect waves-green btn-flat">關閉視窗</button>
+    </div>
+</div>
+
+<!-- modal choose location -->
+<div class="modal modal-succ" id="modal-location">
+    <div class="modal-content">
+        <h5>請選擇目的地</h5>
+        <ul class="collection">
+            <!-- 使用 google api 提供的文字欄位，提供使用者做輸入，並再最後轉換成{lat,lng}的型式做輸出 -->
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button id="tripBtn" class="modal-action modal-close waves-effect waves-green btn-flat">發車！</button>
     </div>
 </div>
 
@@ -143,28 +157,73 @@ const socket = io();
 
 // Notify server to find a driver
 function goRiding(){
-    // get current location
-    getCurrentLocation(function(err,data){
-        if(err){
-            console.log(data);
-        }
-        else{
-            // set center 
-            map.setZoom(14);
-            map.setCenter(data);
-            marker.setPosition(data);
-            // Call waiting
-        }
-    });
+    if(!passenger_page_status){
+        // get current location
+        getCurrentLocation(function(err,data){
+            if(err){
+                console.log(data);
+            }
+            else{
+                // set center 
+                map.setZoom(14);
+                map.setCenter(data);
+                marker.setPosition(data);
+                // Call waiting
+                $(".modal-book").modal('close');
+                triggerPassengerBookModal("waiting");
+                // emit signal 
+                socket.emit('find_driver',{
+                    id: <%- JSON.stringify(scaber_account) %>,
+                    phone: <%- JSON.stringify(user_phone) %>,
+                    unique: <%- JSON.stringify(passenger_profile.trueID) %>,
+                    pos: data
+                });
+            }
+        });
+    }
+    else{
+        $('.modal-book').modal('close');
+        $('.modal-succ').modal('open');
+    }
 }
+
+// driver arrived
+function driver_arrived(){
+    // Open succ modal
+    $('#modal-succ').modal('open');
+    // Display start btn 
+    $('#startBtn').show();
+    // FIXME: notify server to add those GAs into channel
+}
+
+// BTN signal here 
+$('#startBtn').click(function(){
+    // display "location" modal
+    $('#modal-location').modal('open');
+});
+
+$('#tripBtn').click(function(){
+    // Emit signal to server , broadcast information to each GAs => time to go 
+    socket.emit('trip_start',{
+        startPos: { lat: 20, lng: 120 },
+        endPos: { lat: 20.10, lng: 120.20}
+    });
+});
 
 // Socket IO section 
 socket.on('find_driver_listen',function(rawdata){
     if(rawdata.header == "error"){
-        triggerPassengerModal("waiting");
+        triggerPassengerBookModal("waiting");
     }
     else{
-        triggerPassengerModal("match");
+        triggerPassengerBookModal("match");
+        // set driver info 
+        $('#driver-name').html(rawdata.msg.driverName);
+        $('#driver-phone').html(rawdata.msg.driverPhone);
+        $('#driver-license').html(rawdata.msg.license);
+        $('#driver-model').html(rawdata.msg.car_model);
+        // Start timer 
+        arrivalTimer("2:30");
     }
 });
 </script>

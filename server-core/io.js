@@ -35,19 +35,42 @@ class SyncService {
             });
             // ========================== Find driver ==========================
             socket.on("find_driver",function(find_obj){
+                console.log("ID: " + find_obj.id + "; Pos:" + JSON.stringify(find_obj.pos) + "; True ID: " + find_obj.unique );
+                // Join into channel (self-created)
+                socket.join(find_obj.unique);
+                // find driver
                 MongoDBService.driv_m.find({idle: true}).limit(1).exec(function(err,array){
-                    if(array.length == 0){
-                        // Not found , emit "404" to client , let client try again
+                    if(err){
                         socket.emit('find_driver_listen',{
                             header: "error",
-                            msg: "Driver shortage"
+                            msg: "Error when find available driver"
                         });
-                    }else{
-                        // Found , send driver information to client
-                        socket.emit('find_driver_listen',{
-                            header: "accept",
-                            msg: array[0]
-                        });
+                    }
+                    else{
+                        if(array.length == 0){
+                            // Not found , emit "404" to client , let client try again
+                            socket.emit('find_driver_listen',{
+                                header: "error",
+                                msg: "Driver shortage"
+                            });
+                        }else{
+                            // Found , send driver information to client
+                            socket.emit('find_driver_listen',{
+                                header: "accept",
+                                msg: array[0]
+                            });
+                            // set this driver to idle
+                            MongoDBService.driver_idle_status(array[0].trueID,false,function(err,msg){
+
+                            });
+                            // FIXME: And then add this channel into monitor channels
+                            self.waiting_channel.push({
+                                channel_name: find_obj.unique,
+                                passenger_name: find_obj.id,
+                                passenger_phone: find_obj.phone,
+                                passenger_loc: find_obj.pos
+                            });
+                        }
                     }
                 });
             });

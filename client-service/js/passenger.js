@@ -13,11 +13,7 @@ $(document).ready(function() {
 
     // Initialize passenger waiting modal for not dismiss
     $('.modal-wait').modal({
-        dismissible: false,
-        // Callback for modal close
-        complete: function() {
-            alert('Closed');
-        }
+        dismissible: false
     });
 
     // Bind passenger riding
@@ -61,16 +57,46 @@ $(document).ready(function() {
         $('.pass-pages').hide();
         $('#pass-helper').show();
     });
+
+    // Hide this btn first
+    $('#startBtn').hide();
 });
 
+var passenger_page_status = 0;
+
 // Trigger passenger modal
-function triggerPassengerModal(signal) {
+function triggerPassengerBookModal(signal) {
     if (signal == 'match') {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
     }
     else if(signal == 'waiting'){
+        $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
-        $('.modal-succ').modal('close');
+        passenger_page_status = 1;
     }
+}
+
+var timer;
+// Count-down timer => format "min:sec" (String)
+function arrivalTimer(rawString){
+    // Clear first 
+    clearInterval(timer);
+    // Parsing to get minute and second
+    var min = parseInt(rawString.split(":")[0]);
+    var sec = parseInt(rawString.split(":")[1]);
+    var total = min*60 + sec;
+    // Count down timer start!
+    timer = setInterval(function(){
+        $('#driver-arrival').html("約剩餘 " + ( Math.floor(total/60) >= 10 ? Math.floor(total/60).toString() : '0'+Math.floor(total/60).toString() ) + ":" + (total%60 >= 10 ? total%60 : '0'+(total%60).toString()) );
+        if(total <= 0){
+            // call arrival function (in pass-riding.ejs)
+            driver_arrived();
+            // clear interval
+            clearInterval(timer);
+        }
+        else{
+            total--;
+        }
+    },1000);
 }
