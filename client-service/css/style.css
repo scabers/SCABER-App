@@ -25,6 +25,7 @@
 /* user-select */
 /* ::selection */
 /* ::placeholder */
+/* html */
 /* body */
 /* navbar */
 /* start */
@@ -68,10 +69,15 @@ img::-moz-selection {
   font-family: Yantramanav, sans-serif;
   font-size: 14px; }
 
-body {
+html {
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
   width: 100vw; }
+
+body {
+  height: 100%;
+  overflow: hidden !important;
+  width: 100%; }
 
 /* modal */
 .modal .modal-content {

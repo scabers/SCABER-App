@@ -58,11 +58,20 @@
 }
 
 
+/* html */
+
+@mixin html {
+    height: $html-height;
+    overflow: $html-overflow !important;
+    width: $html-width;
+}
+
+
 /* body */
 
 @mixin body {
     height: $body-height;
-    overflow: $body-overflow;
+    overflow: $body-overflow !important;
     width: $body-width;
 }
 
