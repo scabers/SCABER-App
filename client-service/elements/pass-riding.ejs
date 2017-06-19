@@ -17,10 +17,36 @@
 </div>
 
 <!-- modal ordering -->
-<div class="modal" id="modal-order">
+<div class="modal modal-order" id="modal-order">
     <div class="modal-content">
         <h4>預約 SCABER！</h4>
         <p>按下「預約乘車」我們將儘速爲您派車。</p>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action waves-effect waves-green btn-flat" onclick="triggerPassengerOrderModal('form');">預約乘車</button>
+    </div>
+</div>
+
+<!-- modal form -->
+<div class="modal modal-form" id="modal-form">
+    <div class="modal-content">
+        <h4>開始預約！</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="username" type="text">
+                    <label class="center-align" for="username" data-error="wrong" data-success="right">乘車地</label>
+                </div>
+            </div>
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail</i>
+                    <input id="email" type="email">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
         <button class="modal-action waves-effect waves-green btn-flat">預約乘車</button>
@@ -28,7 +54,7 @@
 </div>
 
 <!-- modal booking -->
-<div class="modal" id="modal-book">
+<div class="modal modal-book" id="modal-book">
     <div class="modal-content">
         <h4>立即 SCABER！</h4>
         <p>按下「立即乘車」我們將儘速爲您派車。</p>
@@ -38,7 +64,7 @@
     </div>
 </div>
 
-<!-- modal wait -->
+<!-- modal waiting -->
 <div class="modal modal-wait" id="modal-wait">
     <div class="modal-content">
         <h4>正在派車中！</h4>

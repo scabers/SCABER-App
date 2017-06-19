@@ -63,14 +63,27 @@ $(document).ready(function() {
     });
 });
 
-// Trigger passenger modal
-function triggerPassengerModal(signal) {
-    if (signal == 'match') {
+// Trigger passenger ordering modal
+function triggerPassengerOrderModal(signal) {
+    if (signal == 'form') {
+        $('.modal-order').modal('close');
+        $('.modal-form').modal('open');
+    } else if (signal == 'waiting') {
+        $('.modal-form').modal('close');
+        $('.modal-wait').modal('open');
+    } else if (signal == 'match') {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
     }
-    else if(signal == 'waiting'){
+}
+
+// Trigger passenger booking modal
+function triggerPassengerBookModal(signal) {
+    if (signal == 'match') {
+        $('.modal-wait').modal('close');
+        $('.modal-succ').modal('open');
+    } else if (signal == 'waiting') {
+        $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
-        $('.modal-succ').modal('close');
     }
 }

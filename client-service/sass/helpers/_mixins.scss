@@ -288,6 +288,16 @@
     }
 }
 
+@mixin mdl-form-content {
+    input {
+        border-bottom-color: $mdl-form-content-input-border-bottom-color;
+        color: $mdl-form-input-color;
+    }
+    label {
+        color: $mdl-form-input-color;
+    }
+}
+
 @mixin mdl-succ-content {
     @include mdl-content;
     padding-bottom: $mdl-succ-content-padding-bottom;
