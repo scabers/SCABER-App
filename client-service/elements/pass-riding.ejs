@@ -34,7 +34,7 @@
         <p>按下「立即乘車」我們將儘速爲您派車。</p>
     </div>
     <div class="modal-footer">
-        <button class="modal-action waves-effect waves-green btn-flat">立即乘車</button>
+        <button class="modal-action waves-effect waves-green btn-flat" onclick="goRiding()">立即乘車</button>
     </div>
 </div>
 
@@ -54,27 +54,27 @@
             <li class="collection-item avatar">
                 <i class="material-icons circle">perm_identity</i> 
                 <span class="title">司機姓名</span>
-                <p id="user-role">乘客</p>
+                <p id="driver-name">[name]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">local_activity</i> 
                 <span class="title">車牌號碼</span>
-                <p id="user-phone"><%= user_phone %></p>
+                <p id="driver-license">[license]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">call</i>
                 <span class="title">手機號碼</span>
-                <p id="user-email"><%= user_email %></p>
+                <p id="driver-phone">[phone]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">local_taxi</i>
                 <span class="title">車輛型號</span>
-                <p id="user-email"><%= user_email %></p>
+                <p id="driver-model">[model]</p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">access_alarm</i>
                 <span class="title">抵達時間</span>
-                <p id="user-email">約 <%= user_email %> 分鐘</p>
+                <p id="driver-arrival">[arrival time]</p>
             </li>
         </ul>
     </div>
@@ -91,6 +91,22 @@ function initMap() {
         center: { 
             lat: 25.040606, 
             lng: 121.536547 
+        }
+    });
+}
+
+const socket = io();
+
+// Notify server to find a driver
+function goRiding(){
+    // get current location
+    getCurrentLocation(function(err,data){
+        if(err){
+            console.log(data);
+        }
+        else{
+            // get data 
+            alert(data.lat + ";" + data.lng);
         }
     });
 }

@@ -10,12 +10,6 @@ class UserService {
         // Normal usage
         app.get('/normal',this.normal);
         app.get('/error',this.error);
-        // Monitor
-        app.get('/monitor',this.monitor);
-        // Rate 
-        app.get('/rate',this.rate);
-        // Help 
-        app.get('/help',this.help);
         // debug 
         app.get('/delete',this.delete);
     }
