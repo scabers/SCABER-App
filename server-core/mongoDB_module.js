@@ -37,11 +37,89 @@ class MongoDBService {
             trueID: String
         });
 
+        // Define driver schema 
+        this.driverSchema = mongoose.Schema({
+            lat: Number,
+            lng: Number,
+            type: [{type_name: String}],
+            driverName: String,
+            driverPhone: String,
+            license: String,
+            car_model: String,
+            idle: Boolean,
+            trueID: String
+        });
+
         // user schema model
         this.user_m = mongoose.model('user_m',this.userSchema);
         this.pass_m = mongoose.model('pass_m',this.passengerSchema);
+        this.driv_m = mongoose.model('driv_m',this.driverSchema);
     }
-
+    driver_updateOrCreate(scaber_account,lat,lng,type_array,license,car_model,idle,callback){
+        var driver_model = this.driv_m;
+        this.user_m.findOne({name: scaber_account},'trueID lastName firstName userTYPE phone',function(err,user){
+            if(err){
+                console.log("Error occur when checking user");
+                callback(1,"Error occur when checking user");
+            }
+            else{
+                if(user == null){
+                    console.log("Not found");
+                    callback(1,"Not found");
+                }
+                else{
+                    // find one
+                    if(user.userTYPE == "driver"){
+                        // find driver model
+                        driver_model.findOne({trueID: user.trueID},'lat lng type driverName idle trueID',function(derr,driver){
+                            if(derr){
+                                callback(1,"Error when findOne driver model");
+                            }
+                            else{
+                                if(driver == null){
+                                    // not found , create 
+                                    let newdriver = new driver_model({lat: lat,lng: lng,type: type_array,idle: idle,driverName: user.lastName + user.firstName,driverPhone: user.phone,license: license,car_model: car_model,trueID: user.trueID});
+                                    newdriver.save(function(nderr,newdriver){
+                                        if(nderr){
+                                            callback(1,"Error when save new driver.");
+                                        }
+                                        else{
+                                            callback(0,newdriver);
+                                        }
+                                    });
+                                }
+                                else{
+                                    // Duplicated , so update 
+                                    driver.lat = lat;
+                                    driver.lng = lng;
+                                    if(type_array.length != 0){
+                                        // If specific type array > 0, then update !
+                                        driver.type = type_array;
+                                    }
+                                    driver.driverName = user.lastName + user.firstName;
+                                    driver.idle = idle;
+                                    driver.license = (license.length == 0) ? driver.license : license;
+                                    driver.car_model = (car_model.length == 0) ? driver.car_model : car_model;
+                                    driver.save(function(oderr,driver){
+                                        if(oderr){
+                                            callback(1,"Error when update existed driver.");
+                                        }
+                                        else{
+                                            callback(0,driver);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        console.log("This is passenger account!");
+                        callback(1,"Driver cash");
+                    }
+                }
+            }
+        });
+    }
     // callback method of findorCreate
     user_findOrCreateCB(scaber_account,auth_type,firstName,lastName,scaber_type,token,trueid,email,phone,callback){
         var usermodel = this.user_m;

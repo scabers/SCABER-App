@@ -78,6 +78,7 @@ body {
 /* modal */
 .modal .modal-content {
   background-color: #ffcf47;
+<<<<<<< HEAD
   color: #3f3133;
   padding-bottom: 6px; }
   .modal .modal-content .collection {
@@ -90,6 +91,10 @@ body {
       .modal .modal-content .collection li i {
         background-color: #3f3133 !important;
         color: #ffcf47 !important; }
+=======
+  color: #3f3133; }
+
+>>>>>>> 29da5368ec2281c87db47ec7dfae51db143c2072
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
@@ -213,6 +218,7 @@ body {
 .pass-riding .pass-map {
   height: 84vh;
   width: 100%; }
+
 .pass-riding .pass-toolbar {
   background-color: #ffcf47;
   height: 10vh;
@@ -231,4 +237,10 @@ body {
         height: 10vh;
         width: 100%; }
 
+<<<<<<< HEAD
 /*# sourceMappingURL=style.css.map */
+=======
+.modal-succ li i {
+  background-color: #3f3133;
+  color: #ffcf47; }
+>>>>>>> 29da5368ec2281c87db47ec7dfae51db143c2072
