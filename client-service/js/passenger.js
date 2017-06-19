@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // initialize passenger
     $('#pass-profile').hide();
-    // Bind passenger profile
 
+    // Bind passenger profile
     $('.nav-profile').click(function() {
         $('.pass-pages').hide();
         $('#pass-profile').show();

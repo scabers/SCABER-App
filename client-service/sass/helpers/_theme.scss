@@ -34,6 +34,10 @@ img::-moz-selection {
     @include -placeholder;
 }
 
+body {
+    @include body;
+}
+
 
 /* button */
 

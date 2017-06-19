@@ -9,6 +9,7 @@
 /* font-size */
 /* font-weight */
 /* media queries variables */
+/* view */
 /* inline elements */
 /* ::selection */
 /* ::placeholder */
@@ -23,6 +24,7 @@
 /* user-select */
 /* ::selection */
 /* ::placeholder */
+/* body */
 /* navbar */
 /* start */
 /* account */
@@ -63,6 +65,11 @@ img::-moz-selection {
   color: #ffcf47;
   font-family: Yantramanav, sans-serif;
   font-size: 14px; }
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw; }
 
 /* button */
 .btn-identity {
@@ -172,10 +179,22 @@ img::-moz-selection {
       min-height: 64px !important; }
 
 .pass-riding .pass-map {
-  height: 80vh;
+  height: 84vh;
   width: 100%; }
-.pass-riding .pass-ride {
-  height: 15vh;
-  margin: 2.5vh 0; }
+.pass-riding .pass-toolbar {
+  background-color: #ffcf47;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10; }
+  .pass-riding .pass-toolbar .row .col {
+    padding: 0; }
+  .pass-riding .pass-toolbar .row button {
+    background-color: #ffcf47;
+    border-radius: 0;
+    color: #3f3133;
+    height: 10vh;
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

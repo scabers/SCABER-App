@@ -31,7 +31,7 @@
     .pass-map {
         @include passenger-riding-map;
     }
-    .pass-ride {
-        @include passenger-riding-ride;
+    .pass-toolbar {
+        @include passenger-riding-toolbar;
     }
 }
