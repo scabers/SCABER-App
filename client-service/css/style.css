@@ -78,7 +78,18 @@ body {
 /* modal */
 .modal .modal-content {
   background-color: #ffcf47;
-  color: #3f3133; }
+  color: #3f3133;
+  padding-bottom: 6px; }
+  .modal .modal-content .collection {
+    border: none; }
+    .modal .modal-content .collection li {
+      border-bottom: none;
+      background-color: #ffcf47;
+      min-height: 64px !important;
+      padding-bottom: 0; }
+      .modal .modal-content .collection li i {
+        background-color: #3f3133 !important;
+        color: #ffcf47 !important; }
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
@@ -186,8 +197,8 @@ body {
     .pass-profile .card .card-content .card-profile-edit {
       margin-top: -45px; }
       .pass-profile .card .card-content .card-profile-edit i {
-        background-color: #3f3133;
-        color: #ffcf47; }
+        background-color: #3f3133 !important;
+        color: #ffcf47 !important; }
     .pass-profile .card .card-content .card-profile-stat {
       margin: 0; }
   .pass-profile .card .card-reveal .collection {
@@ -219,9 +230,5 @@ body {
         color: #3f3133;
         height: 10vh;
         width: 100%; }
-
-.modal-succ li i {
-  background-color: #3f3133;
-  color: #ffcf47; }
 
 /*# sourceMappingURL=style.css.map */

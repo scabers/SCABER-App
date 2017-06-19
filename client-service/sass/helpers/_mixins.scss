@@ -208,8 +208,8 @@
 @mixin passenger-profile-edit {
     margin-top: $pass-profile-edit-margin-top;
     i {
-        background-color: $pass-profile-edit-i-background-color;
-        color: $pass-profile-edit-i-color;
+        background-color: $pass-profile-edit-i-background-color !important;
+        color: $pass-profile-edit-i-color !important;
     }
 }
 
@@ -265,15 +265,6 @@
     }
 }
 
-@mixin passenger-riding-modal-succ {
-    li {
-        i {
-            background-color: $pass-riding-modal-succ-i-background-color;
-            color: $pass-riding-modal-succ-i-color;
-        }
-    }
-}
-
 @mixin passenger-helper-help {}
 
 
@@ -282,6 +273,20 @@
 @mixin mdl-content {
     background-color: $mdl-content-background-color;
     color: $mdl-content-color;
+    padding-bottom: $mdl-succ-content-padding-bottom;
+    .collection {
+        border: $mdl-succ-content-border;
+        li {
+            border-bottom: $mdl-succ-content-li-border;
+            background-color: $mdl-succ-content-background-color;
+            min-height: $mdl-succ-content-li-min-height !important;
+            padding-bottom: $mdl-succ-content-li-padding-bottom;
+            i {
+                background-color: $mdl-succ-content-i-background-color !important;
+                color: $mdl-succ-content-i-color !important;
+            }
+        }
+    }
 }
 
 @mixin mdl-footer {

@@ -268,9 +268,20 @@ $pass-riding-toolbar-zindex: 10;
 // mdl background
 $mdl-content-background-color: $light-yellow;
 $mdl-footer-background-color: $dark-brown;
+$mdl-succ-content-background-color: $light-yellow;
+$mdl-succ-content-i-background-color: $dark-brown;
+// mdl border
+$mdl-succ-content-border: none;
+$mdl-succ-content-li-border: none;
 // mdl color
 $mdl-content-color: $dark-brown;
 $mdl-footer-color: $light-yellow;
+$mdl-succ-content-i-color: $light-yellow;
+// mdl height
+$mdl-succ-content-li-min-height: 64px;
+// mdl padding
+$mdl-succ-content-padding-bottom: 6px;
+$mdl-succ-content-li-padding-bottom: 0;
 
 /* button */
 
