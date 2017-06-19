@@ -25,6 +25,7 @@
 /* user-select */
 /* ::selection */
 /* ::placeholder */
+/* html */
 /* body */
 /* navbar */
 /* start */
@@ -68,10 +69,11 @@ img::-moz-selection {
   font-family: Yantramanav, sans-serif;
   font-size: 14px; }
 
+html {
+  overflow: hidden !important; }
+
 body {
-  height: 100vh;
-  overflow: hidden;
-  width: 100vw; }
+  overflow: hidden !important; }
 
 /* modal */
 .modal .modal-content {
@@ -173,22 +175,30 @@ body {
   .pass-profile .card .card-image .card-profile-name {
     left: 100px !important;
     padding: 0 !important; }
-  .pass-profile .card .card-content .card-profile-image {
-    cursor: pointer;
-    height: 60px;
-    position: absolute;
-    top: 110px;
-    width: 60px;
-    z-index: 1; }
-  .pass-profile .card .card-content .card-profile-edit {
-    margin-top: -45px; }
-  .pass-profile .card .card-content .card-profile-stat {
-    margin: 0; }
+  .pass-profile .card .card-content {
+    background-color: #ffcf47; }
+    .pass-profile .card .card-content .card-profile-image {
+      cursor: pointer;
+      height: 60px;
+      position: absolute;
+      top: 110px;
+      width: 60px;
+      z-index: 1; }
+    .pass-profile .card .card-content .card-profile-edit {
+      margin-top: -45px; }
+      .pass-profile .card .card-content .card-profile-edit i {
+        background-color: #3f3133;
+        color: #ffcf47; }
+    .pass-profile .card .card-content .card-profile-stat {
+      margin: 0; }
   .pass-profile .card .card-reveal .collection {
     border: none !important; }
     .pass-profile .card .card-reveal .collection li {
       border-bottom: none;
       min-height: 64px !important; }
+      .pass-profile .card .card-reveal .collection li i {
+        background-color: #3f3133;
+        color: #ffcf47; }
 
 .pass-riding .pass-map {
   height: 84vh;
@@ -201,11 +211,19 @@ body {
   bottom: 0;
   width: 100%;
   z-index: 10; }
-  .pass-riding .pass-toolbar .row .col {
-    padding: 0; }
-    .pass-riding .pass-toolbar .row .col .btn {
-      background-color: #ffcf47;
-      border-radius: 0;
-      color: #3f3133;
-      height: 10vh;
-      width: 100%; }
+  .pass-riding .pass-toolbar .row {
+    margin: 0; }
+    .pass-riding .pass-toolbar .row .col {
+      padding: 0; }
+      .pass-riding .pass-toolbar .row .col .btn {
+        background-color: #ffcf47;
+        border-radius: 0;
+        color: #3f3133;
+        height: 10vh;
+        width: 100%; }
+
+.modal-succ li i {
+  background-color: #3f3133;
+  color: #ffcf47; }
+
+/*# sourceMappingURL=style.css.map */

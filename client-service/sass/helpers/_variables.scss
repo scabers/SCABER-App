@@ -80,11 +80,14 @@ $screen-lg-min: 1200px;
 /* view */
 
 // height
-$body-height: 100vh;
+$html-height: 100vh;
+$body-height: 100%;
 // overflow
+$html-overflow: hidden;
 $body-overflow: hidden;
 // width
-$body-width: 100vw;
+$html-width: 100vw;
+$body-width: 100%;
 
 /* inline elements */
 
@@ -207,13 +210,20 @@ $acc-logo-max-width: 50%;
 /* passenger */
 
 // pass background
+$pass-profile-background-color: $light-yellow;
+$pass-profile-edit-i-background-color: $dark-brown;
+$pass-profile-reveal-i-background-color: $dark-brown;
 $pass-riding-toolbar-background-color: $light-yellow;
+$pass-riding-modal-succ-i-background-color: $dark-brown;
 // pass border
 $pass-profile-reveal-border: none;
 $pass-profile-reveal-li-border: none;
 $pass-riding-toolbar-border-radius: 0;
 // pass color
+$pass-profile-edit-i-color: $light-yellow;
+$pass-profile-reveal-i-color: $light-yellow;
 $pass-riding-toolbar-color: $dark-brown;
+$pass-riding-modal-succ-i-color: $light-yellow;
 // pass cursor
 $pass-profile-avatar-cursor: pointer;
 // pass display

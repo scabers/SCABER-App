@@ -9,6 +9,7 @@
             }
         }
         .card-content {
+            @include passenger-profile-content;
             .card-profile-image {
                 @include passenger-profile-avatar;
             }
@@ -34,4 +35,14 @@
     .pass-toolbar {
         @include passenger-riding-toolbar;
     }
+}
+
+.pass-helper {
+    .pass-help {
+        @include passenger-helper-help;
+    }
+}
+
+.modal-succ {
+    @include passenger-riding-modal-succ;
 }
