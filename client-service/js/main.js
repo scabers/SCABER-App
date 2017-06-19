@@ -4,4 +4,10 @@ $(document).ready(function() {
         closeOnClick: true,
         draggable: true
     });
+
+    // tabs
+    $('ul.tabs').tabs();
+
+    // modal
+    $('.modal').modal();
 });

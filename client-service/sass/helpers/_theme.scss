@@ -39,6 +39,18 @@ body {
 }
 
 
+/* modal */
+
+.modal {
+    .modal-content {
+        @include mdl-content;
+    }
+    .modal-footer {
+        @include mdl-footer;
+    }
+}
+
+
 /* button */
 
 .btn-identity {

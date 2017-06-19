@@ -232,14 +232,29 @@
     .row {
         .col {
             padding: $pass-riding-toolbar-padding;
+            .btn {
+                background-color: $pass-riding-toolbar-background-color;
+                border-radius: $pass-riding-toolbar-border-radius;
+                color: $pass-riding-toolbar-color;
+                height: $pass-riding-toolbar-height;
+                width: $pass-riding-toolbar-width;
+            }
         }
-        button {
-            background-color: $pass-riding-toolbar-background-color;
-            border-radius: $pass-riding-toolbar-border-radius;
-            color: $pass-riding-toolbar-color;
-            height: $pass-riding-toolbar-height;
-            width: $pass-riding-toolbar-width;
-        }
+    }
+}
+
+
+/* modal */
+
+@mixin mdl-content {
+    background-color: $mdl-content-background-color;
+    color: $mdl-content-color;
+}
+
+@mixin mdl-footer {
+    background-color: $mdl-footer-background-color;
+    button {
+        color: $mdl-footer-color;
     }
 }
 

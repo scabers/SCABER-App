@@ -6,9 +6,6 @@ $(document).ready(function() {
     $('#signup-gp').hide();
     $('#signup-fb').hide();
 
-    // tabs
-    $('ul.tabs').tabs();
-
     // Redirect start page to sign-in page
     $('.sct-start').delay(2000).fadeOut(function() {
         $(this).hide();

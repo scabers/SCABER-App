@@ -17,6 +17,7 @@
 /* start */
 /* account */
 /* passenger */
+/* modal */
 /* button */
 /** helpers/_mixin.scss **/
 /* transform */
@@ -29,6 +30,7 @@
 /* start */
 /* account */
 /* passenger */
+/* modal */
 /* button */
 /** helpers/_theme.scss **/
 /* selection effects */
@@ -70,6 +72,15 @@ body {
   height: 100vh;
   overflow: hidden;
   width: 100vw; }
+
+/* modal */
+.modal .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal .modal-footer {
+  background-color: #3f3133; }
+  .modal .modal-footer button {
+    color: #ffcf47; }
 
 /* button */
 .btn-identity {
@@ -190,11 +201,11 @@ body {
   z-index: 10; }
   .pass-riding .pass-toolbar .row .col {
     padding: 0; }
-  .pass-riding .pass-toolbar .row button {
-    background-color: #ffcf47;
-    border-radius: 0;
-    color: #3f3133;
-    height: 10vh;
-    width: 100%; }
+    .pass-riding .pass-toolbar .row .col .btn {
+      background-color: #ffcf47;
+      border-radius: 0;
+      color: #3f3133;
+      height: 10vh;
+      width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
