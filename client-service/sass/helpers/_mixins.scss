@@ -61,18 +61,18 @@
 /* html */
 
 @mixin html {
-    height: $html-height;
+    //height: $html-height;
     overflow: $html-overflow !important;
-    width: $html-width;
+    //width: $html-width;
 }
 
 
 /* body */
 
 @mixin body {
-    height: $body-height;
+    //height: $body-height;
     overflow: $body-overflow !important;
-    width: $body-width;
+    //width: $body-width;
 }
 
 
@@ -239,6 +239,7 @@
     width: $pass-riding-toolbar-width;
     z-index: $pass-riding-toolbar-zindex;
     .row {
+        margin: $pass-riding-toolbar-margin;
         .col {
             padding: $pass-riding-toolbar-padding;
             .btn {

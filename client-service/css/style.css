@@ -70,14 +70,10 @@ img::-moz-selection {
   font-size: 14px; }
 
 html {
-  height: 100vh;
-  overflow: hidden !important;
-  width: 100vw; }
+  overflow: hidden !important; }
 
 body {
-  height: 100%;
-  overflow: hidden !important;
-  width: 100%; }
+  overflow: hidden !important; }
 
 /* modal */
 .modal .modal-content {
@@ -205,13 +201,15 @@ body {
   bottom: 0;
   width: 100%;
   z-index: 10; }
-  .pass-riding .pass-toolbar .row .col {
-    padding: 0; }
-    .pass-riding .pass-toolbar .row .col .btn {
-      background-color: #ffcf47;
-      border-radius: 0;
-      color: #3f3133;
-      height: 10vh;
-      width: 100%; }
+  .pass-riding .pass-toolbar .row {
+    margin: 0; }
+    .pass-riding .pass-toolbar .row .col {
+      padding: 0; }
+      .pass-riding .pass-toolbar .row .col .btn {
+        background-color: #ffcf47;
+        border-radius: 0;
+        color: #3f3133;
+        height: 10vh;
+        width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
