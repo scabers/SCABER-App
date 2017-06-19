@@ -85,13 +85,43 @@
 
 <!-- Google Map -->
 <script>
+var map;
+var marker;
+var infoWindow;
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
         center: { 
             lat: 25.040606, 
             lng: 121.536547 
         }
+    });
+    // infowindow
+    infoWindow = new google.maps.InfoWindow({content: "SCABER"});
+    // Custom marker
+    var scaber_flag = {
+        url: 'scaber_flag.png',
+        size: new google.maps.Size(20,32),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(0,32)
+    };
+    // shape of click 
+    var scaber_flag_shape = {
+        coords: [1,1,1,20,18,20,18,1],
+        type: 'poly'
+    };
+    // marker init 
+    marker = new google.maps.Marker({
+        position: {lat: 25.040606,lng: 121.536547 },
+        map: map,
+        icon: scaber_flag,
+        shape:scaber_flag_shape,
+        title: "Your Position",
+        zIndex: 1
+    });
+    // Add Marker Listen
+    marker.addListener('click',function(){
+        infoWindow.open(map,marker);
     });
 }
 
@@ -107,6 +137,10 @@ function goRiding(){
         else{
             // get data 
             alert(data.lat + ";" + data.lng);
+            // set center 
+            map.setZoom(14);
+            map.setCenter(data);
+            marker.setPosition(data);
         }
     });
 }
