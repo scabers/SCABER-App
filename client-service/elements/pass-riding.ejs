@@ -3,14 +3,14 @@
     <div class="pass-toolbar">
         <div class="row">
             <div class="col s6 m6 l6">
-                <button class="waves-effect waves-light btn btn-large" data-toggle="modal-order">預約乘車
+                <a class="waves-effect waves-light btn btn-large" href="#modal-order">預約乘車
                     <i class="material-icons right">event</i>
-                </button>
+                </a>
             </div>
             <div class="col s6 m6 l6">
-                <button class="waves-effect waves-light btn btn-large" data-toggle="modal-book">立即乘車
+                <a class="waves-effect waves-light btn btn-large" href="#modal-book">立即乘車
                     <i class="material-icons right">local_taxi</i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -35,6 +35,51 @@
     </div>
     <div class="modal-footer">
         <button class="modal-action waves-effect waves-green btn-flat">立即乘車</button>
+    </div>
+</div>
+
+<!-- modal wait -->
+<div class="modal modal-wait" id="modal-wait">
+    <div class="modal-content">
+        <h4>正在派車中！</h4>
+        <p>請您耐心等待，我們正在爲您派車。</p>
+    </div>
+</div>
+
+<!-- modal success -->
+<div class="modal modal-succ" id="modal-succ">
+    <div class="modal-content">
+        <h5>SCABER 正在路上！</h5>
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">perm_identity</i> 
+                <span class="title">司機姓名</span>
+                <p id="user-role">乘客</p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">local_activity</i> 
+                <span class="title">車牌號碼</span>
+                <p id="user-phone"><%= user_phone %></p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">call</i>
+                <span class="title">手機號碼</span>
+                <p id="user-email"><%= user_email %></p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">local_taxi</i>
+                <span class="title">車輛型號</span>
+                <p id="user-email"><%= user_email %></p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">access_alarm</i>
+                <span class="title">抵達時間</span>
+                <p id="user-email">約 <%= user_email %> 分鐘</p>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat">關閉視窗</button>
     </div>
 </div>
 

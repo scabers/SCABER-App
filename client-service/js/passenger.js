@@ -1,6 +1,24 @@
 $(document).ready(function() {
-    // initialize passenger
+    // Initialize passenger
     $('#pass-profile').hide();
+
+    // Initialize passenger modal
+    $('.modal').modal({
+        opacity: .5,
+        inDuration: 300,
+        outDuration: 200,
+        startingTop: '4%',
+        endingTop: '10%'
+    })
+
+    // Initialize passenger waiting modal for not dismiss
+    $('.modal-wait').modal({
+        dismissible: false,
+        // Callback for modal close
+        complete: function() {
+            alert('Closed');
+        }
+    })
 
     // Bind passenger riding
     $('.nav-riding').click(function() {
@@ -39,8 +57,8 @@ $(document).ready(function() {
     });
 
     // Bind passenger help
-    $('.nav-help').click(function() {
+    $('.nav-helper').click(function() {
         $('.pass-pages').hide();
-        $('#pass-help').show();
+        $('#pass-helper').show();
     });
 });

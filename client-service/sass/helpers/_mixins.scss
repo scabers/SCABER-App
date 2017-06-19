@@ -196,6 +196,10 @@
     margin-top: $pass-profile-margin-top;
 }
 
+@mixin passenger-profile-content {
+    background-color: $pass-profile-background-color;
+}
+
 @mixin passenger-profile-name {
     left: $pass-profile-name-position-left !important;
     padding: $pass-profile-name-padding !important;
@@ -203,6 +207,10 @@
 
 @mixin passenger-profile-edit {
     margin-top: $pass-profile-edit-margin-top;
+    i {
+        background-color: $pass-profile-edit-i-background-color;
+        color: $pass-profile-edit-i-color;
+    }
 }
 
 @mixin passenger-profile-avatar {
@@ -223,6 +231,10 @@
     li {
         border-bottom: $pass-profile-reveal-li-border;
         min-height: $pass-profile-reveal-min-height !important;
+        i {
+            background-color: $pass-profile-reveal-i-background-color;
+            color: $pass-profile-reveal-i-color;
+        }
     }
 }
 
@@ -252,6 +264,17 @@
         }
     }
 }
+
+@mixin passenger-riding-modal-succ {
+    li {
+        i {
+            background-color: $pass-riding-modal-succ-i-background-color;
+            color: $pass-riding-modal-succ-i-color;
+        }
+    }
+}
+
+@mixin passenger-helper-help {}
 
 
 /* modal */
