@@ -18,7 +18,7 @@ $(document).ready(function() {
         complete: function() {
             alert('Closed');
         }
-    })
+    });
 
     // Bind passenger riding
     $('.nav-riding').click(function() {
@@ -62,3 +62,13 @@ $(document).ready(function() {
         $('#pass-helper').show();
     });
 });
+
+// Trigger passenger waiting modal
+function triggerPassengerModal(signal) {
+    if (signal == 'match') {
+        $('.modal-wait').modal('close');
+        $('.modal-succ').modal('open');
+    }
+}
+
+// Trigger passenger success modal
