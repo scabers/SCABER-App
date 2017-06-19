@@ -55,6 +55,29 @@ class MongoDBService {
         this.pass_m = mongoose.model('pass_m',this.passengerSchema);
         this.driv_m = mongoose.model('driv_m',this.driverSchema);
     }
+    driver_idle_status(trueid,status,callback){
+        this.driv_m.findOne({trueID: trueid},'idle',function(err,driver){
+            if(err){
+                callback(1,"Error in driver status update.");
+            }
+            else{
+                if(driver == null){
+                    callback(1,"Driver status update - driver not found");
+                }
+                else{
+                    driver.idle = status;
+                    driver.save(function(ierr,driver){
+                        if(ierr){
+                            callback(1,"Driver status update - driver status can't save");
+                        }
+                        else{
+                            callback(0,driver);
+                        }
+                    });
+                }
+            }
+        });
+    }
     driver_updateOrCreate(scaber_account,lat,lng,type_array,license,car_model,idle,callback){
         var driver_model = this.driv_m;
         this.user_m.findOne({name: scaber_account},'trueID lastName firstName userTYPE phone',function(err,user){
@@ -287,7 +310,7 @@ class MongoDBService {
                     }
                     else{
                         // passenger (GAs) bonus cash 
-                        pass_model.findOne({trueID: user.trueID},'cash case ride',function(perr,passenger){
+                        pass_model.findOne({trueID: user.trueID},'trueID cash case ride',function(perr,passenger){
                             if(perr){
                                 console.log("Error occur when checking passenger");
                                 callback(1,"Error occur when checking passenger");
