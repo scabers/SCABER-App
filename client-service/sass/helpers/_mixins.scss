@@ -306,6 +306,10 @@
     justify-content: $mdl-wait-footer-justify-align;
 }
 
+@mixin mdl-wait-footer-spinner {
+    border-color: $mdl-wait-footer-spinner-border-color;
+}
+
 
 /* button */
 

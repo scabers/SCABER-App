@@ -63,6 +63,9 @@ body {
 .modal-wait {
     .modal-footer {
         @include mdl-wait-footer;
+        .spinner-layer {
+            @include mdl-wait-footer-spinner;
+        }
     }
 }
 
