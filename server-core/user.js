@@ -19,56 +19,6 @@ class UserService {
         // debug 
         app.get('/delete',this.delete);
     }
-    rate(req,res){
-        if(req.session.username == undefined){
-            // display error message and go back
-            res.redirect('/');
-        }
-        else{
-            // TODO : Monitor work
-            res.end("Rate work");
-        }
-    }
-    help(req,res){
-        if(req.session.username == undefined){
-            // display error message and go back
-            res.redirect('/');
-        }
-        else{
-            let username = req.session.username;
-            MongoDBService.user_check(username,function(err,msg_data){
-            if(err)
-                res.end(msg_data);
-            else {
-                MongoDBService.add_cash(username,0,function(c_err,profile){
-                    if(c_err)
-                        res.end("Error in fetch profile.");
-                    else{
-                        res.render('help',{
-                            title: "SCABER helper Page",
-                            user_familyName: msg_data.lastName,
-                            user_givenName: msg_data.firstName,
-                            scaber_account: username,
-                            user_email: msg_data.email,
-                            user_phone: msg_data.phone,
-                            passenger_profile: profile
-                        });
-                    }
-                });
-            }
-        });
-        }
-    }
-    monitor(req,res){
-        if(req.session.username == undefined){
-            // display error message and go back
-            res.redirect('/');
-        }
-        else{
-            // TODO : Monitor work
-            res.end("Monitor work");
-        }
-    }
     normal(req,res){
         // Parsing parameter from session
         console.log("Successfully Login with : " + req.query.type);
@@ -123,7 +73,25 @@ class UserService {
                         }
                         else if(usertype == "driver"){
                             // Render Driver
-                            res.end(`Driver Page:\n Name:${username}\n True Name:${profile.name.familyName + profile.name.givenName}\n`);
+                            // res.end(`Driver Page:\n Name:${username}\n True Name:${profile.name.familyName + profile.name.givenName}\n`);
+                            MongoDBService.driver_updateOrCreate(username,22.999337,120.222028,[],"UID-9487","HONDA-CR-V",false,function(a_err,msg_body){
+                                if(a_err){
+                                    res.end(msg_body);
+                                }
+                                else{
+                                    // Render Passenger
+                                    res.end(JSON.stringify(msg_body));
+                                    /*res.render('passenger',{
+                                        title: "歡迎使用 SCABER!",
+                                        user_familyName: profile.name.familyName,
+                                        user_givenName: profile.name.givenName,
+                                        scaber_account: username,
+                                        user_email: useremail,
+                                        user_phone: userphone,
+                                        passenger_profile: msg_body
+                                    });*/
+                                }
+                            });
                         }
                     }
                 });
