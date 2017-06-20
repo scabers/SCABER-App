@@ -1,33 +1,5 @@
 /** layout/_passenger.scss **/
 
-.pass-profile {
-    @include passenger-profile;
-    .card {
-        .card-image {
-            .card-profile-name {
-                @include passenger-profile-name;
-            }
-        }
-        .card-content {
-            @include passenger-profile-content;
-            .card-profile-image {
-                @include passenger-profile-avatar;
-            }
-            .card-profile-edit {
-                @include passenger-profile-edit;
-            }
-            .card-profile-stat {
-                @include passenger-profile-stat;
-            }
-        }
-        .card-reveal {
-            .collection {
-                @include passenger-profile-reveal;
-            }
-        }
-    }
-}
-
 .pass-riding {
     .pass-map {
         @include passenger-riding-map;

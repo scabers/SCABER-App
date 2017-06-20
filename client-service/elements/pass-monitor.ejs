@@ -1,0 +1,50 @@
+<div class="pass-pages pass-monitor" id="pass-monitor">
+    <div class="pass-header" id="header">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card card-header">
+                    <div class="card-image">
+                        <img src="driver.png">
+                        <span class="card-title">監督</span>
+                        <a class="btn-floating activator halfway-fab waves-effect waves-light card-more ">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <p>透過平台其他使用者的互相幫助，來達成安全的目的！</p> 
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">監督模式 <i class="material-icons right">clear</i></span>
+                        <ul class="collection collection-avatar">
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons circle">monetization_on</i>
+                                <p class="title" id="user-cash">優惠點數</p>
+                                <p class="secondary-content secondary-content-p"><%= passenger_profile.cash %></p>
+                            </li>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons circle">local_taxi</i>
+                                <p class="title" id="user-ride">乘車次數</p>
+                                <p class="secondary-content secondary-content-p"><%= passenger_profile.ride %></p>
+                            </li>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons circle">visibility</i>
+                                <p class="title" id="user-case">監督次數</p>
+                                <p class="secondary-content secondary-content-p"><%= passenger_profile.case %></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pass-monitor" id="monitor">
+        <ul class="collection collection-avatar">
+            <li class="collection-item avatar">
+                <img class="circle" src="driver/unknown.png" alt>
+                <p class="title user-name" id="user-name">[name]</p>
+                <p class="user-phone" id="user-phone">[phone]</p>
+                <button class="secondary-content waves-effect waves-green btn">取消監督</button>
+            </li>
+        </ul>
+    </div>
+</div>
