@@ -1,9 +1,12 @@
 $(document).ready(function() {
     // Initialize passenger
     $('#pass-profile').hide();
-    //$('#pass-riding-wait').hide();
     $('#pass-monitor').hide();
+    $('#pass-rating').hide();
+    $('#pass-message').hide();
+    $('#pass-setting').hide();
     $('#pass-helper').hide();
+    $('#pass-travel').hide();
 
 
     // Initialize passenger modal
@@ -62,6 +65,12 @@ $(document).ready(function() {
         $('#pass-helper').show();
     });
 
+    // TEST
+    $('.nav-test').click(function() {
+        $('.pass-pages').hide();
+        $('#pass-riding-wait').show();
+    });
+
     // Hide this btn first
     $('#startBtn').hide();
 });
@@ -78,6 +87,10 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
         passenger_page_status = 1;
+    } else if (signal == 'book') {
+        $('.modal-book').modal('open');
+    } else if (signal == 'monitor') {
+        $('.modal-monitor').modal('open');
     }
 }
 
@@ -92,6 +105,8 @@ function triggerPassengerOrderModal(signal) {
     } else if (signal == 'match') {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
+    } else if (signal == 'order') {
+        $('.modal-order').modal('open');
     }
 }
 

@@ -17,6 +17,7 @@
 /* start */
 /* account */
 /* passenger */
+/* toolbar */
 /* collection */
 /* card */
 /* modal */
@@ -33,6 +34,7 @@
 /* start */
 /* account */
 /* passenger */
+/* toolbar */
 /* collection */
 /* card */
 /* modal */
@@ -76,6 +78,25 @@ img::-moz-selection {
 body {
   overflow: hidden !important; }
 
+/* toolbar */
+.toolbar {
+  background-color: #ffcf47;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10; }
+  .toolbar .row {
+    margin: 0; }
+    .toolbar .row .col {
+      padding: 0; }
+      .toolbar .row .col .btn {
+        background-color: #ffcf47;
+        border-radius: 0;
+        color: #3f3133;
+        height: 10vh;
+        width: 100%; }
+
 /* collection */
 .collection-avatar {
   border: none;
@@ -100,19 +121,22 @@ body {
       font-weight: 700; }
 
 /* card */
-.card-header .card-title {
+.card-theme .card-title {
   color: #3f3133; }
-.card-header .card-more {
+.card-theme .card-more {
   background-color: #3f3133 !important; }
-  .card-header .card-more i {
+  .card-theme .card-more i {
     color: #ffcf47 !important; }
-.card-header .card-content {
+.card-theme .card-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 16px 24px; }
+  .card-theme .card-content .row {
+    margin: 0; }
+.card-theme .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
-.card-header .card-reveal {
-  background-color: #ffcf47;
-  color: #3f3133; }
-.card-header .card-stat {
+.card-theme .card-stat {
   margin: 0; }
 
 .card-profile .card-name {
@@ -129,12 +153,45 @@ body {
     color: #ffcf47 !important; }
 .card-profile .card-content {
   background-color: #ffcf47;
-  color: #3f3133; }
+  color: #3f3133;
+  padding: 16px 24px; }
+  .card-profile .card-content .row {
+    margin: 0; }
+.card-profile .card-content-contrast {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 16px 24px;
+  background-color: #3f3133;
+  color: #ffcf47; }
+  .card-profile .card-content-contrast .row {
+    margin: 0; }
 .card-profile .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
 .card-profile .card-stat {
   margin: 0; }
+
+.card-travel .card-header {
+  background-color: #3f3133;
+  padding: 10px; }
+.card-travel .card-title {
+  color: #ffcf47;
+  padding: 10px; }
+.card-travel .card-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 16px 24px;
+  padding: 12px 12px !important; }
+  .card-travel .card-content .row {
+    margin: 0; }
+.card-travel .card-content-contrast {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 16px 24px;
+  background-color: #3f3133;
+  color: #ffcf47; }
+  .card-travel .card-content-contrast .row {
+    margin: 0; }
 
 /* modal */
 .modal .modal-content {
@@ -169,6 +226,19 @@ body {
   border-bottom-color: #3f3133;
   color: #3f3133; }
 .modal-form .modal-content label {
+  color: #3f3133; }
+
+.modal-location .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-location .modal-footer {
+  background-color: #3f3133; }
+  .modal-location .modal-footer button {
+    color: #ffcf47; }
+.modal-location .modal-content input {
+  border-bottom-color: #3f3133;
+  color: #3f3133; }
+.modal-location .modal-content label {
   color: #3f3133; }
 
 /* button */
@@ -258,23 +328,6 @@ body {
 .pass-riding .pass-map {
   height: 84vh;
   width: 100%; }
-.pass-riding .pass-toolbar {
-  background-color: #ffcf47;
-  height: 10vh;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 10; }
-  .pass-riding .pass-toolbar .row {
-    margin: 0; }
-    .pass-riding .pass-toolbar .row .col {
-      padding: 0; }
-      .pass-riding .pass-toolbar .row .col .btn {
-        background-color: #ffcf47;
-        border-radius: 0;
-        color: #3f3133;
-        height: 10vh;
-        width: 100%; }
 
 .pass-riding-wait .pass-notice {
   height: 34vh;
@@ -287,18 +340,5 @@ body {
       background-color: #d8d8d8; }
 .pass-riding-wait .pass-monitor {
   position: relative; }
-  .pass-riding-wait .pass-monitor .collection {
-    height: 57vh;
-    overflow-y: auto !important;
-    border: none;
-    width: 100%; }
-    .pass-riding-wait .pass-monitor .collection li {
-      border-bottom: none;
-      background-color: #ffcf47;
-      min-height: 64px !important;
-      padding-bottom: 0; }
-      .pass-riding-wait .pass-monitor .collection li button {
-        background-color: #3f3133 !important;
-        color: #ffcf47 !important; }
 
 /*# sourceMappingURL=style.css.map */

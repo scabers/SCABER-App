@@ -4,9 +4,6 @@
     .pass-map {
         @include passenger-riding-map;
     }
-    .pass-toolbar {
-        @include passenger-riding-toolbar;
-    }
 }
 
 .pass-riding-wait {

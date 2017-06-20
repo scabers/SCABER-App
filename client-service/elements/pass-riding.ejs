@@ -1,23 +1,20 @@
 <div class="pass-pages pass-riding" id="pass-riding">
-    <div class="pass-map" id="map"></div>
-    <div class="pass-toolbar">
+    <div class="pass-map" id="pass-map"></div>
+    <div class="toolbar pass-toolbar" id="pass-toolbar">
         <div class="row">
             <div class="col s6 m6 l6">
-                <a class="waves-effect waves-light btn btn-large" href="#modal-monitor">預約乘車
+                <button class="waves-effect waves-light btn btn-large" onclick="triggerPassengerBookModal('order');">預約乘車
                     <i class="material-icons right">event</i>
-                </a>
+                </button>
             </div>
             <div class="col s6 m6 l6">
-                <a class="waves-effect waves-light btn btn-large" href="#modal-book">立即乘車
+                <button class="waves-effect waves-light btn btn-large" onclick="triggerPassengerOrderModal('book');">立即乘車
                     <i class="material-icons right">local_taxi</i>
-                </a>
+                </button>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Include passenger waiting page in ride -->
- <% include ../elements/pass-riding-wait %>
 
 <!-- Modal ordering -->
 <div class="modal modal-order" id="modal-order">
@@ -130,13 +127,19 @@
 <!-- Modal choosing location -->
 <div class="modal modal-location" id="modal-location">
     <div class="modal-content">
-        <h5>請選擇目的地</h5>
-        <ul class="collection">
-            <!-- 使用 google api 提供的文字欄位，提供使用者做輸入，並再最後轉換成{lat,lng}的型式做輸出 -->
-        </ul>
+        <h4>前往目的地？</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">place</i>
+                    <input id="book-dest" type="text">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button id="tripBtn" class="modal-action modal-close waves-effect waves-green btn-flat">發車！</button>
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="tripBtn">發車</button>
     </div>
 </div>
 
@@ -179,8 +182,8 @@ var map;
 var marker;
 var infoWindow;
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+    map = new google.maps.Map(document.getElementById('pass-map'), {
+        zoom: 14,
         center: { 
             lat: 25.040606, 
             lng: 121.536547 
@@ -191,18 +194,21 @@ function initMap() {
     // Custom marker
     var scaber_flag = {
         url: 'scaber_flag.png',
-        size: new google.maps.Size(20,32),
-        origin: new google.maps.Point(0,0),
-        anchor: new google.maps.Point(0,32)
+        size: new google.maps.Size(20, 32),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(0, 32)
     };
     // shape of click 
     var scaber_flag_shape = {
-        coords: [1,1,1,20,18,20,18,1],
+        coords: [1, 1, 1, 20, 18, 20, 18, 1],
         type: 'poly'
     };
     // marker init 
     marker = new google.maps.Marker({
-        position: {lat: 25.040606,lng: 121.536547 },
+        position: {
+            lat: 25.040606,
+            lng: 121.536547 
+        },
         map: map,
         icon: scaber_flag,
         shape:scaber_flag_shape,
@@ -210,31 +216,31 @@ function initMap() {
         zIndex: 1
     });
     // Add Marker Listen
-    marker.addListener('click',function(){
-        infoWindow.open(map,marker);
+    marker.addListener('click', function() {
+        infoWindow.open(map, marker);
     });
 }
 
 const socket = io();
 
 // Notify server to find a driver
-function goRiding(){
-    if(!passenger_page_status){
+function goRiding() {
+    if (!passenger_page_status) {
         // get current location
-        getCurrentLocation(function(err,data){
-            if(err){
+        getCurrentLocation(function(err, data) {
+            if (err) {
                 console.log(data);
             }
-            else{
+            else {
                 // set center 
                 map.setZoom(14);
                 map.setCenter(data);
                 marker.setPosition(data);
                 // Call waiting
-                $(".modal-book").modal('close');
-                triggerPassengerBookModal("waiting");
+                $('.modal-book').modal('close');
+                triggerPassengerBookModal('waiting');
                 // emit signal 
-                socket.emit('find_driver',{
+                socket.emit('find_driver', {
                     id: <%- JSON.stringify(scaber_account) %>,
                     phone: <%- JSON.stringify(user_phone) %>,
                     unique: <%- JSON.stringify(passenger_profile.trueID) %>,
@@ -243,14 +249,14 @@ function goRiding(){
             }
         });
     }
-    else{
+    else {
         $('.modal-book').modal('close');
         $('.modal-succ').modal('open');
     }
 }
 
 // driver arrived
-function driver_arrived(){
+function driver_arrived() {
     // Open succ modal
     $('#modal-succ').modal('open');
     // Display start btn 
@@ -259,16 +265,16 @@ function driver_arrived(){
 }
 
 // BTN signal here 
-$('#startBtn').click(function(){
+$('#startBtn').click(function() {
     // display "location" modal
     $('#modal-location').modal('open');
 });
 
-$('#tripBtn').click(function(){
+$('#tripBtn').click(function() {
     // FIXME: 判斷使用者是否輸入正確的地標，再做 emit
 
     // Emit signal to server , broadcast information to each GAs => time to go 
-    socket.emit('trip_start',{
+    socket.emit('trip_start', {
         id: <%- JSON.stringify(scaber_account) %>,
         phone: <%- JSON.stringify(user_phone) %>,
         unique: <%- JSON.stringify(passenger_profile.trueID) %>,
@@ -279,21 +285,78 @@ $('#tripBtn').click(function(){
 
 // Socket IO section 
 socket.on('find_driver_listen',function(rawdata){
-    if(rawdata.header == "error"){
-        triggerPassengerBookModal("waiting");
+    if (rawdata.header == 'error') {
+        triggerPassengerBookModal('waiting');
     }
-    else{
-        triggerPassengerBookModal("match");
+    else {
+        triggerPassengerBookModal('match');
         // set driver info 
         $('#driver-name').html(rawdata.msg.driverName);
         $('#driver-phone').html(rawdata.msg.driverPhone);
         $('#driver-license').html(rawdata.msg.license);
         $('#driver-model').html(rawdata.msg.car_model);
         // Start timer 
-        arrivalTimer("2:30");
+        arrivalTimer('2:30');
     }
 });
 </script>
 
 <!-- Google Map API -->
 <script src="https://maps.googleapis.com/maps/api/js??sensor=false&libraries=places&callback=initMap"></script>
+
+<!-- Passenger routing -->
+<script>
+/*var destination;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
+google.maps.event.addDomListener(window, 'load', function() {
+    new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+    directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+});
+
+/*
+function getRoute() {
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('passenger-direction'));
+
+    // Direction and route
+    destination = document.getElementById('txtDestination').value;
+
+    var req = {
+        origin: src, // get booking src
+        destination: destination,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(req, function(res, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(res);
+        }
+    });
+
+    // Distance and duration
+    var service = new google.maps.DistanceMatrixService();
+
+    service.getDistanceMatrix({
+        origins: [src], // get booking src
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function(res, status) {
+        if (status == google.maps.DistanceMatrixStatus.OK && res.rows[0].elements[0].status != 'ZERO_RESULTS') {
+            var distance = res.rows[0].elements[0].distance.text;
+            var duration = res.rows[0].elements[0].duration.text;
+            var dvDistance = document.getElementById("passenger-distance");
+
+            // return miles and arrival time
+            dvDistance.innerHTML = '';
+            dvDistance.innerHTML += 'total Distance: ' + distance + "<br />";
+            dvDistance.innerHTML += "total Time:" + duration;
+        } else {
+            alert('Unable to find the distance via road.');
+        }
+    });
+}*/
+</script>
