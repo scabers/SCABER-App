@@ -2,7 +2,9 @@ $(document).ready(function() {
     // Initialize passenger
     $('#pass-profile').hide();
     //$('#pass-riding-wait').hide();
+    $('#pass-monitor').hide();
     $('#pass-helper').hide();
+
 
     // Initialize passenger modal
     $('.modal').modal({
@@ -33,7 +35,7 @@ $(document).ready(function() {
     // Bind passenger monitor
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
-        $('#pass-riding-wait').show();
+        $('#pass-monitor').show();
     });
 
     // Bind passenger rating
@@ -122,5 +124,4 @@ function arrivalTimer(rawString) {
             total--;
         }
     }, 1000);
-
 }

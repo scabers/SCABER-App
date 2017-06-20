@@ -17,6 +17,8 @@
 /* start */
 /* account */
 /* passenger */
+/* collection */
+/* card */
 /* modal */
 /* button */
 /** helpers/_mixin.scss **/
@@ -31,6 +33,8 @@
 /* start */
 /* account */
 /* passenger */
+/* collection */
+/* card */
 /* modal */
 /* button */
 /** helpers/_theme.scss **/
@@ -72,54 +76,100 @@ img::-moz-selection {
 body {
   overflow: hidden !important; }
 
+/* collection */
+.collection-avatar {
+  border: none;
+  margin-bottom: 0; }
+  .collection-avatar li {
+    border-bottom: none !important;
+    background-color: #ffcf47 !important;
+    min-height: 64px !important;
+    padding-bottom: 0; }
+    .collection-avatar li i {
+      background-color: #3f3133 !important;
+      color: #ffcf47 !important; }
+    .collection-avatar li .content-p {
+      color: #db5a3c;
+      font-family: Yantramanav, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700; }
+    .collection-avatar li .secondary-content-p {
+      color: #db5a3c;
+      font-family: Yantramanav, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700; }
+
+/* card */
+.card-header .card-title {
+  color: #3f3133; }
+.card-header .card-more {
+  background-color: #3f3133 !important; }
+  .card-header .card-more i {
+    color: #ffcf47 !important; }
+.card-header .card-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.card-header .card-reveal {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.card-header .card-stat {
+  margin: 0; }
+
+.card-profile .card-name {
+  color: #3f3133;
+  position: absolute;
+  left: 100px !important;
+  padding: 0 !important; }
+.card-profile .card-avatar {
+  height: 60px;
+  width: 60px; }
+.card-profile .card-more {
+  background-color: #3f3133 !important; }
+  .card-profile .card-more i {
+    color: #ffcf47 !important; }
+.card-profile .card-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.card-profile .card-reveal {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.card-profile .card-stat {
+  margin: 0; }
+
 /* modal */
 .modal .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
-  .modal .modal-content .collection {
-    border: none; }
-    .modal .modal-content .collection li {
-      border-bottom: none;
-      background-color: #ffcf47;
-      min-height: 64px !important;
-      padding-bottom: 0; }
-      .modal .modal-content .collection li i {
-        background-color: #3f3133 !important;
-        color: #ffcf47 !important; }
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
     color: #ffcf47; }
 
+.modal-wait .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-wait .modal-footer {
+  background-color: #3f3133; }
+  .modal-wait .modal-footer button {
+    color: #ffcf47; }
+.modal-wait .modal-footer {
+  overflow: hidden;
+  justify-content: center; }
+  .modal-wait .modal-footer .spinner-layer {
+    border-color: #ffcf47; }
+
+.modal-form .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-form .modal-footer {
+  background-color: #3f3133; }
+  .modal-form .modal-footer button {
+    color: #ffcf47; }
 .modal-form .modal-content input {
   border-bottom-color: #3f3133;
   color: #3f3133; }
 .modal-form .modal-content label {
   color: #3f3133; }
-
-.modal-succ .modal-content {
-  background-color: #ffcf47;
-  color: #3f3133;
-  padding-bottom: 6px; }
-  .modal-succ .modal-content .collection {
-    border: none; }
-    .modal-succ .modal-content .collection li {
-      border-bottom: none;
-      background-color: #ffcf47;
-      min-height: 64px !important;
-      padding-bottom: 0; }
-      .modal-succ .modal-content .collection li i {
-        background-color: #3f3133 !important;
-        color: #ffcf47 !important; }
-
-.modal-wait .modal-footer {
-  background-color: #3f3133;
-  overflow: hidden;
-  justify-content: center; }
-  .modal-wait .modal-footer button {
-    color: #ffcf47; }
-  .modal-wait .modal-footer .spinner-layer {
-    border-color: #ffcf47; }
 
 /* button */
 .btn-identity {
@@ -205,37 +255,6 @@ body {
 
 /* Import Pages */
 /** layout/_passenger.scss **/
-.pass-profile {
-  display: block;
-  margin-top: 0; }
-  .pass-profile .card .card-image .card-profile-name {
-    left: 100px !important;
-    padding: 0 !important; }
-  .pass-profile .card .card-content {
-    background-color: #ffcf47; }
-    .pass-profile .card .card-content .card-profile-image {
-      cursor: pointer;
-      height: 60px;
-      position: absolute;
-      top: 110px;
-      width: 60px;
-      z-index: 1; }
-    .pass-profile .card .card-content .card-profile-edit {
-      margin-top: -45px; }
-      .pass-profile .card .card-content .card-profile-edit i {
-        background-color: #3f3133 !important;
-        color: #ffcf47 !important; }
-    .pass-profile .card .card-content .card-profile-stat {
-      margin: 0; }
-  .pass-profile .card .card-reveal .collection {
-    border: none !important; }
-    .pass-profile .card .card-reveal .collection li {
-      border-bottom: none;
-      min-height: 64px !important; }
-      .pass-profile .card .card-reveal .collection li i {
-        background-color: #3f3133;
-        color: #ffcf47; }
-
 .pass-riding .pass-map {
   height: 84vh;
   width: 100%; }

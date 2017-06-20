@@ -190,53 +190,6 @@
     overflow: $pass-overflow;
 }
 
-@mixin passenger-profile {
-    display: $pass-profile-display;
-    margin-top: $pass-profile-margin-top;
-}
-
-@mixin passenger-profile-content {
-    background-color: $pass-profile-background-color;
-}
-
-@mixin passenger-profile-name {
-    left: $pass-profile-name-position-left !important;
-    padding: $pass-profile-name-padding !important;
-}
-
-@mixin passenger-profile-edit {
-    margin-top: $pass-profile-edit-margin-top;
-    i {
-        background-color: $pass-profile-edit-i-background-color !important;
-        color: $pass-profile-edit-i-color !important;
-    }
-}
-
-@mixin passenger-profile-avatar {
-    cursor: $pass-profile-avatar-cursor;
-    height: $pass-profile-avatar-img-height;
-    position: $pass-profile-avatar-position;
-    top: $pass-profile-avatar-position-top;
-    width: $pass-profile-avatar-img-width;
-    z-index: $pass-profile-avatar-zindex;
-}
-
-@mixin passenger-profile-stat {
-    margin: $pass-profile-stat-margin;
-}
-
-@mixin passenger-profile-reveal {
-    border: $pass-profile-reveal-border !important;
-    li {
-        border-bottom: $pass-profile-reveal-li-border;
-        min-height: $pass-profile-reveal-min-height !important;
-        i {
-            background-color: $pass-profile-reveal-i-background-color;
-            color: $pass-profile-reveal-i-color;
-        }
-    }
-}
-
 @mixin passenger-riding-map {
     height: $pass-riding-map-height;
     width: $pass-riding-map-width;
@@ -299,56 +252,178 @@
 }
 
 
-/* modal */
+/* collection */
 
-@mixin mdl-content {
-    background-color: $mdl-content-background-color;
-    color: $mdl-content-color;
-    .collection {
-        border: $mdl-succ-content-border;
-        li {
-            border-bottom: $mdl-succ-content-li-border;
-            background-color: $mdl-succ-content-background-color;
-            min-height: $mdl-succ-content-li-min-height !important;
-            padding-bottom: $mdl-succ-content-li-padding-bottom;
-            i {
-                background-color: $mdl-succ-content-i-background-color !important;
-                color: $mdl-succ-content-i-color !important;
-            }
+@mixin collection-content-p {
+    color: $coll-content-p-color;
+    font: {
+        family: #{$coll-content-p-font-family},
+        sans-serif;
+        size: $coll-content-p-font-size;
+        weight: $coll-content-p-font-weight;
+    }
+}
+
+@mixin collection-secondary-content-p {
+    color: $coll-content-p-color;
+    font: {
+        family: #{$coll-content-p-font-family},
+        sans-serif;
+        size: $coll-secondary-content-p-font-size;
+        weight: $coll-content-p-font-weight;
+    }
+}
+
+@mixin collection-avatar {
+    border: $coll-avatar-border;
+    margin-bottom: $coll-avatar-ul-margin-bottom;
+    li {
+        @include collection-avatar-item;
+        .content-p {
+            @include collection-content-p;
+        }
+        .secondary-content-p {
+            @include collection-secondary-content-p;
         }
     }
 }
 
-@mixin mdl-form-content {
-    input {
-        border-bottom-color: $mdl-form-content-input-border-bottom-color;
-        color: $mdl-form-input-color;
-    }
-    label {
-        color: $mdl-form-input-color;
+@mixin collection-avatar-item {
+    border-bottom: $coll-avatar-li-border-bottom !important;
+    background-color: $coll-avatar-li-background-color !important;
+    min-height: $coll-avatar-li-min-height !important;
+    padding-bottom: $coll-avatar-li-padding-bottom;
+    i {
+        background-color: $coll-avatar-i-background-color !important;
+        color: $coll-avatar-i-color !important;
     }
 }
 
-@mixin mdl-succ-content {
-    @include mdl-content;
-    padding-bottom: $mdl-succ-content-padding-bottom;
+
+/* card */
+
+@mixin card-header {
+    .card-title {
+        @include card-title;
+    }
+    .card-more {
+        @include card-more;
+    }
+    .card-content {
+        @include card-content;
+    }
+    .card-reveal {
+        @include card-reveal;
+    }
+    .card-stat {
+        @include card-stat;
+    }
 }
 
-@mixin mdl-footer {
+@mixin card-profile {
+    .card-name {
+        @include card-name;
+    }
+    .card-avatar {
+        @include card-avatar;
+    }
+    .card-more {
+        @include card-more;
+    }
+    .card-content {
+        @include card-content;
+    }
+    .card-reveal {
+        @include card-reveal;
+    }
+    .card-stat {
+        @include card-stat;
+    }
+}
+
+@mixin card-title {
+    color: $card-header-title-color;
+}
+
+@mixin card-more {
+    background-color: $card-more-background-color !important;
+    i {
+        color: $card-more-i-color !important;
+    }
+}
+
+@mixin card-name {
+    @include card-title;
+    position: $card-profile-name-posiiton;
+    left: $card-profile-name-position-left !important;
+    padding: $card-profile-name-padding !important;
+}
+
+@mixin card-avatar {
+    height: $card-profile-avatar-height;
+    width: $card-profile-avatar-width;
+}
+
+@mixin card-content {
+    background-color: $card-header-content-background-color;
+    color: $card-header-content-color;
+}
+
+@mixin card-stat {
+    margin: $card-header-stat-margin;
+}
+
+@mixin card-reveal {
+    background-color: $card-header-reveal-background-color;
+    color: $card-header-reveal-color;
+}
+
+
+/* modal */
+
+@mixin modal-default {
+    .modal-content {
+        @include modal-content;
+    }
+    .modal-footer {
+        @include modal-footer;
+    }
+}
+
+@mixin modal-wait {
+    @include modal-default;
+    .modal-footer {
+        overflow: $mdl-wait-footer-overflow;
+        justify-content: $mdl-wait-footer-justify-align;
+        .spinner-layer {
+            border-color: $mdl-wait-footer-spinner-border-color;
+        }
+    }
+}
+
+@mixin modal-form {
+    @include modal-default;
+    .modal-content {
+        input {
+            border-bottom-color: $mdl-form-content-input-border-bottom-color;
+            color: $mdl-form-input-color;
+        }
+        label {
+            color: $mdl-form-input-color;
+        }
+    }
+}
+
+@mixin modal-content {
+    background-color: $mdl-content-background-color;
+    color: $mdl-content-color;
+}
+
+@mixin modal-footer {
     background-color: $mdl-footer-background-color;
     button {
         color: $mdl-footer-color;
     }
-}
-
-@mixin mdl-wait-footer {
-    @include mdl-footer;
-    overflow: $mdl-wait-footer-overflow;
-    justify-content: $mdl-wait-footer-justify-align;
-}
-
-@mixin mdl-wait-footer-spinner {
-    border-color: $mdl-wait-footer-spinner-border-color;
 }
 
 

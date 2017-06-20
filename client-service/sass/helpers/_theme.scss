@@ -43,36 +43,36 @@ body {
 }
 
 
+/* collection */
+
+.collection-avatar {
+    @include collection-avatar;
+}
+
+
+/* card */
+
+.card-header {
+    @include card-header;
+}
+
+.card-profile {
+    @include card-profile;
+}
+
+
 /* modal */
 
 .modal {
-    .modal-content {
-        @include mdl-content;
-    }
-    .modal-footer {
-        @include mdl-footer;
-    }
-}
-
-.modal-form {
-    .modal-content {
-        @include mdl-form-content;
-    }
-}
-
-.modal-succ {
-    .modal-content {
-        @include mdl-succ-content;
-    }
+    @include modal-default;
 }
 
 .modal-wait {
-    .modal-footer {
-        @include mdl-wait-footer;
-        .spinner-layer {
-            @include mdl-wait-footer-spinner;
-        }
-    }
+    @include modal-wait;
+}
+
+.modal-form {
+    @include modal-form;
 }
 
 

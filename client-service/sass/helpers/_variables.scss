@@ -209,9 +209,6 @@ $acc-logo-max-width: 50%;
 /* passenger */
 
 // pass background
-$pass-profile-background-color: $light-yellow;
-$pass-profile-edit-i-background-color: $dark-brown;
-$pass-profile-reveal-i-background-color: $dark-brown;
 $pass-riding-toolbar-background-color: $light-yellow;
 $pass-riding-modal-succ-i-background-color: $dark-brown;
 $pass-riding-wait-monitor-background-color: $light-yellow;
@@ -219,26 +216,18 @@ $pass-riding-wait-monitor-i-background-color: $dark-brown;
 $pass-riding-wait-notice-background-color: $dark-brown;
 $pass-riding-wait-notice-detail-background-color: $light-gray;
 // pass border
-$pass-profile-reveal-border: none;
-$pass-profile-reveal-li-border: none;
 $pass-riding-toolbar-border-radius: 0;
 $pass-riding-wait-monitor-border: none;
 $pass-riding-wait-monitor-li-border: none;
 // pass color
-$pass-profile-edit-i-color: $light-yellow;
-$pass-profile-reveal-i-color: $light-yellow;
 $pass-riding-toolbar-color: $dark-brown;
 $pass-riding-modal-succ-i-color: $light-yellow;
 $pass-riding-wait-monitor-i-color: $light-yellow;
-// pass cursor
-$pass-profile-avatar-cursor: pointer;
 // pass display
 $pass-profile-display: block;
 // pass font
 $pass-riding-toolbar-font-weight: $font-bold;
 // pass height
-$pass-profile-avatar-img-height: 60px;
-$pass-profile-reveal-min-height: 64px;
 $pass-riding-map-height: 84vh;
 $pass-riding-wait-notice-height: 34vh;
 $pass-riding-monitor-height: 57vh;
@@ -248,21 +237,15 @@ $pass-riding-wait-monitor-li-min-height: 64px;
 $pass-riding-toolbar-line-height: 10vh;
 // pass margin
 $pass-profile-margin-top: 0;
-$pass-profile-edit-margin-top: -45px;
-$pass-profile-stat-margin: 0;
 $pass-riding-toolbar-margin: 0;
 $pass-riding-wait-notice-margin: 0;
 // pass overflow
 $pass-riding-monitor-overflow-y: auto;
 // pass padding
-$pass-profile-name-padding: 0;
 $pass-riding-toolbar-padding: 0;
 $pass-riding-wait-monitor-padding-bottom: 6px;
 $pass-riding-wait-monitor-li-padding-bottom: 0;
 // pass position
-$pass-profile-name-position-left: 100px;
-$pass-profile-avatar-position: absolute;
-$pass-profile-avatar-position-top: 110px;
 $pass-riding-toolbar-position: absolute;
 $pass-riding-toolbar-position-bottom: 0;
 $pass-riding-wait-monitor-position: relative;
@@ -271,14 +254,58 @@ $pass-riding-toolbar-text-align: center;
 // pass vertical
 $pass-riding-toolbar-vertical-align: middle;
 // pass width
-$pass-profile-avatar-img-width: $pass-profile-avatar-img-height;
 $pass-riding-map-width: 100%;
 $pass-riding-wait-notice-width: 100%;
 $pass-riding-toolbar-width: 100%;
 $pass-riding-wait-monitor-width: 100%;
 // pass z-index
-$pass-profile-avatar-zindex: 1;
 $pass-riding-toolbar-zindex: 10;
+
+/* collection */
+
+// coll background
+$coll-avatar-li-background-color: $light-yellow;
+$coll-avatar-i-background-color: $dark-brown;
+// coll border
+$coll-avatar-border: none;
+$coll-avatar-li-border-bottom: none;
+// coll color
+$coll-avatar-i-color: $light-yellow;
+$coll-content-p-color: $dark-orange;
+// coll font
+$coll-content-p-font-family: $font-family-text;
+$coll-content-p-font-size: $h6-rem;
+$coll-secondary-content-p-font-size: $h5-rem;
+// coll height
+$coll-avatar-li-min-height: 64px;
+// coll margin
+$coll-avatar-ul-margin-bottom: 0;
+// coll padding
+$coll-avatar-li-padding-bottom: 0;
+// coll weight
+$coll-content-p-font-weight: $font-bold;
+
+/* card */
+
+// card background
+$card-header-content-background-color: $light-yellow;
+$card-header-reveal-background-color: $light-yellow;
+$card-more-background-color: $dark-brown;
+// card color
+$card-header-title-color: $dark-brown;
+$card-header-content-color: $dark-brown;
+$card-header-reveal-color: $dark-brown;
+$card-more-i-color: $light-yellow;
+// card height
+$card-profile-avatar-height: 60px;
+// card margin
+$card-header-stat-margin: 0;
+// card position
+$card-profile-name-posiiton: absolute;
+$card-profile-name-position-left: 100px;
+$card-profile-name-padding: 0;
+// card width
+$card-profile-avatar-width: $card-profile-avatar-height;
 
 /* modal */
 
