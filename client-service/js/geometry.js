@@ -52,3 +52,27 @@ function address2pos(address_data,callback){
         }
     });
 }
+
+// Get distance and time (2 point)
+function getDistTime(pos1,pos2,callback){
+    var service = new google.maps.DistanceMatrixService;
+    service.getDistanceMatrix({
+        origins: [pos1],
+        destinations: [pos2],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    },function(response,status){
+        if(status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS" ){
+            // Get result 
+            callback(0,{
+                distance: response.rows[0].elements[0].distance.text,
+                duration: response.rows[0].elements[0].duration.text
+            });
+        }else{
+            // error
+            callback(1,"Unable to find the distance via road.");
+        }
+    });
+}

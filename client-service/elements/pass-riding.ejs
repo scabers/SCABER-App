@@ -254,14 +254,40 @@ $('#startBtn').click(function() {
 
 $('#tripBtn').click(function() {
     // FIXME: 判斷使用者是否輸入正確的地標，再做 emit
-
-    // Emit signal to server , broadcast information to each GAs => time to go 
-    socket.emit('trip_start', {
-        id: <%- JSON.stringify(scaber_account) %>,
-        phone: <%- JSON.stringify(user_phone) %>,
-        unique: <%- JSON.stringify(passenger_profile.trueID) %>,
-        startPos: { lat: 20, lng: 120 },
-        endPos: { lat: 20.10, lng: 120.20}
+    var destination = $('#book-dest').val();
+    address2pos(destination,function(err,pos){
+        if(err){
+            alert(pos);
+        }
+        else{
+            // get Position information of destination
+            console.log(JSON.stringify(pos));
+            // fetch current location
+            getCurrentLocation(function(c_err,c_pos){
+                if(c_err){
+                    alert(c_pos);
+                }
+                else{
+                    // Get current position
+                    console.log(JSON.stringify(c_pos));
+                    // Using google api - DistanceMatrixService to get distance and time 
+                    getDistTime(c_pos,pos,function(dterr,result){
+                        // Get distance and duration
+                        console.log(JSON.stringify(result));
+                        // Emit signal to server , broadcast information to each GAs => time to go 
+                        socket.emit('trip_start', {
+                            id: <%- JSON.stringify(scaber_account) %>,
+                            phone: <%- JSON.stringify(user_phone) %>,
+                            unique: <%- JSON.stringify(passenger_profile.trueID) %>,
+                            distance: result.distance,
+                            duration: result.duration,
+                            startPos: c_pos,
+                            endPos: pos
+                        });
+                    });
+                }
+            });
+        }
     });
 });
 
@@ -280,7 +306,7 @@ socket.on('find_driver_listen',function(rawdata){
         $('#driver-license').html(rawdata.msg.license);
         $('#driver-model').html(rawdata.msg.car_model);
         // Start timer
-        arrivalTimer("2:30");
+        arrivalTimer("0:15");
         // Switch page 
         $('#pass-riding').hide();
         $('#pass-riding-wait').show();
@@ -301,13 +327,54 @@ socket.on('get_waiting_channel',function(rawdata){
     clearAvailableEntry();
     // Add all 
     for(var index in rawdata.channel){
-        addAvailableEntry(<%- JSON.stringify(scaber_account) %>,rawdata.channel[index].passenger_name,rawdata.channel[index].passenger_phone,rawdata.channel[index].channel_name);
+        addAvailableEntry(<%- JSON.stringify(scaber_account) %>,<%- JSON.stringify(user_phone) %>,rawdata.channel[index].passenger_name,rawdata.channel[index].passenger_phone,rawdata.channel[index].channel_name);
     }
 });
+
+// If using channel owner
+socket.on('add_ga',function(rawdata){
+    // Compare different
+    console.log("Compare => Target : " + rawdata.target_name + "; Current : " + <%- JSON.stringify(scaber_account) %>);
+    if(rawdata.target_name == <%- JSON.stringify(scaber_account) %>){
+        // This is channel owner => so add ga into list
+        console.log("Match! " + rawdata.target_name);
+        addMonitorPassengerRiding(rawdata.ga_name,rawdata.ga_phone,rawdata.target_channel);
+    }
+    else{
+        // Ignore this message , just print for debug 
+        console.log("Get ga debug message: " + rawdata.ga_name);
+    }
+});
+
+// Cancel from server 
+socket.on('cancel_who',function(rawdata){
+    if(rawdata.cancel_target == <%- JSON.stringify(scaber_account) %>){
+        alert("該名使用者拒絕了您的好意");
+        // FIXME => disable the waiting modal!
+
+        socket.emit('leaving',{
+            room_name: rawdata.cancel_from
+        });
+    }
+    else{
+        // Ignore 
+        console.log("Not me~^^");
+    }
+});
+
+// Safty channel build
+socket.on('safty_channel_build',function(rawdata){
+    // debug
+    console.log(JSON.stringify(rawdata));
+    // Set up new timer to count down => check out safty
+
+    // And then open Google map and draw two point on it
+});
+
 </script>
 
 <!-- Google Map API -->
-<script src="https://maps.googleapis.com/maps/api/js??sensor=false&libraries=places&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNT8S6xvvrKY1Ef8AXtcROOKDYBsVt-p4&callback=initMap"></script>
 
 <!-- Passenger routing -->
 <script>
