@@ -1,5 +1,6 @@
 // lib
 const IO = require('socket.io');
+const moment = require('moment');
 const sjcl = require('sjcl');
 const rs = require('randomstring');
 const jsfs = require('jsonfile');
@@ -32,6 +33,13 @@ class SyncService {
                 console.log('[Sync] '+ socket.request.connection.remoteAddress +' ,detach from channel.' );
                 // check out the room name
                 console.log('[Sync] Leaving Room: ' + socket.room_name);
+            });
+            // ========================== Fetch waiting channel ==========================
+            socket.on("fetch_waiting_channel",function(){
+                socket.emit("get_waiting_channel",{
+                    date: moment().format('YYYY-MM-DD-hh-mm-ss-a'),
+                    channel: self.waiting_channel
+                });
             });
             // ========================== Find driver ==========================
             socket.on("find_driver",function(find_obj){
