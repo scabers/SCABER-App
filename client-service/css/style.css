@@ -210,32 +210,31 @@ body {
 .card-profile .card-stat {
   margin: 0; }
 
-.card-travel .card-header {
+.card-trip .card-header {
   background-color: #3f3133;
   padding: 10px; }
-
-.card-travel .card-title {
+.card-trip .card-title {
   color: #ffcf47;
   margin: 0;
   padding: 0; }
+.card-trip .card-content {
 
-.card-travel .card-content {
   background-color: #ffcf47;
   color: #3f3133;
   padding: 12px 24px; }
-  .card-travel .card-content .row {
+  .card-trip .card-content .row {
     margin: 0; }
+.card-trip .card-content-contrast {
 
-.card-travel .card-content-contrast {
   background-color: #ffcf47;
   color: #3f3133;
   padding: 12px 24px;
   background-color: #3f3133;
   color: #ffcf47; }
-  .card-travel .card-content-contrast .row {
+  .card-trip .card-content-contrast .row {
     margin: 0; }
 
-.card-travel .card-content {
+.card-trip .card-content {
   padding: 12px 12px !important; }
 
 /* modal */
@@ -434,4 +433,14 @@ body {
 /** layout/_passenger.scss **/
 .pass-riding .pass-map {
   height: 84vh;
-  width: 100%; }
+  width: 100%;
+  z-index: 0; }
+
+.pass-trip {
+  height: 90vh;
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  z-index: 500 !important; }
+
+/*# sourceMappingURL=style.css.map */

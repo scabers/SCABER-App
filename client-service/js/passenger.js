@@ -127,6 +127,15 @@ function triggerPassengerOrderModal(signal) {
     }
 }
 
+function triggerPassengerTrip() {
+    $('.pass-riding').hide();
+    $('.pass-riding-wait').hide();
+    $('.pass-riding').show(function() {
+        $('#pass-toolbar').hide();
+        $('#pass-trip').show();
+    });
+}
+
 function triggerPassengerMonitorModal(signal) {
     if (signal == 'join') {
         $('.modal-succ').modal('open');

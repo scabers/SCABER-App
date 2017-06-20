@@ -1,61 +1,73 @@
-<div class="pass-pages pass-monitor" id="pass-test2">
-    <div class="pass-header" id="header">
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card card-theme">
-                    <div class="card-image">
-                        <img src="driver.png">
-                        <span class="card-title">監督</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-stat row">
-                            <div class="col s4 center-align">
-                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.cash %></h4>
-                                <p class="medium-small grey-text text-darken-2">優惠點數</p>                        
+<div class="pass-pages pass-riding-wait" id="pass-test2">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card card-default">
+                <div class="card-header">
+                    <p class="card-title center-align" id="driver-arrival-waiting">約 [arrival] 分鐘抵達</p>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s6 m6 l6 center-align">
+                            <div class="card-travel-info">
+                                <p class="medium-small">司機姓名</p>
+                                <h5 id="driver-name-waiting"></h5>
                             </div>
-                            <div class="col s4 center-align">
-                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.ride %></h4>
-                                <p class="medium-small grey-text text-darken-2">乘車次數</p>                        
-                            </div>                    
-                            <div class="col s4 center-align">
-                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.case %></h4>
-                                <p class="medium-small grey-text text-darken-2">守護次數</p>                        
-                            </div>   
+                        </div>
+                        <div class="col s6 m6 l6 center-align">
+                            <div class="card-travel-info">
+                                <p class="medium-small">車牌號碼</p>
+                                <h5 id="driver-license-waiting"></h5>
+                            </div>
+                        </div>
+                        <div class="col s6 m6 l6 center-align">
+                            <div class="card-travel-info">
+                                <p class="medium-small">手機號碼</p>
+                                <h5 id="driver-phone-waiting"></h5>
+                            </div>
+                        </div>
+                        <div class="col s6 m6 l6 center-align">
+                            <div class="card-travel-info">
+                                <p class="medium-small">車輛型號</p>
+                                <h5 id="driver-model-waiting"></h5>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button class="col s12 m12 l12 waves-effect waves-green btn" id="statusBtn">檢視狀態</button>
+                    <!-- TEST -->
+                    <button class="col s12 m12 l12 waves-effect waves-green btn" id="statusBtn" onclick="triggerPassengerTrip();">測試地圖</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="pass-monitor" id="monitor">
-        <ul class="collection collection-avatar" id="pass-monitor-monitor">
+        <ul class="collection collection-avatar" id="pass-riding-wait-monitor">
             <li class="collection-item avatar">
                 <img class="circle" src="driver/unknown.png" alt>
-                <p class="title user-name" id="user-name">[name]</p>
-                <p class="user-phone" id="user-phone">[phone]</p>
-                <button class="secondary-content waves-effect waves-green btn" onclick="triggerPassengerMonitorModal('join');">安全守護</button>
+                <p class="title user-name" id="user-name">SCABER Boy</p>
+                <p class="user-phone" id="user-phone">0987654321</p>
+                <button class="secondary-content waves-effect waves-green btn">移除守護</button>
             </li>
         </ul>
     </div>
 </div>
 
-<!-- Modal waiting to enter monitor -->
-<div class="modal modal-join" id="modal-join">
+<!-- Modal choosing location -->
+<div class="modal modal-location" id="modal-location">
     <div class="modal-content">
-        <h4>等候加入守護！</h4>
-        <p>請您耐心等待，我們會將您加入 <span class="monitor-pers" id="monitor-pers"></span >安全守護</p>
-    </div>
-    <div class="modal-footer valign-wrapper">
-        <div class="preloader-wrapper right-align small active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
+        <h4>前往目的地？</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">place</i>
+                    <input id="book-dest" type="text">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
                 </div>
             </div>
-        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="tripBtn" onclick="triggerPassengerTrip();">發車</button>
     </div>
 </div>

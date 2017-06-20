@@ -193,6 +193,15 @@
 @mixin passenger-riding-map {
     height: $pass-riding-map-height;
     width: $pass-riding-map-width;
+    z-index: $pass-riding-map-zindex;
+}
+
+@mixin passenger-trip {
+    height: $pass-riding-trip-height;
+    position: $pass-riding-trip-position;
+    top: $pass-riding-trip-position-top;
+    width: $pass-riding-trip-width;
+    z-index: $pass-riding-trip-zindex !important;
 }
 
 
@@ -328,7 +337,7 @@
     }
 }
 
-@mixin card-travel {
+@mixin card-trip {
     @include card-default;
     .card-content {
         padding: 12px 12px !important;
