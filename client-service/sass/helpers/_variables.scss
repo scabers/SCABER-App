@@ -235,7 +235,6 @@ $pass-riding-wait-notice-margin: 0;
 $pass-riding-monitor-overflow-y: auto;
 // pass padding
 $pass-riding-wait-monitor-padding-bottom: 6px;
-$pass-riding-wait-monitor-li-padding-bottom: 0;
 // pass position
 $pass-riding-wait-monitor-position: relative;
 // pass width
@@ -309,13 +308,13 @@ $card-more-i-color: $light-yellow;
 // card height
 $card-profile-avatar-height: 60px;
 // card margin
-$card-default-title-margin: 12px;
+$card-default-title-margin: 0;
 $card-default-text-margin-bottom: 0;
 $card-theme-content-row-margin: 0;
 $card-theme-stat-margin: 0;
 // card padding
 $card-header-padding: 10px;
-$card-default-title-padding: 10px;
+$card-default-title-padding: 0;
 $card-theme-content-padding: 16px 24px;
 // card position
 $card-profile-name-posiiton: absolute;

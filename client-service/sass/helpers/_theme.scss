@@ -59,6 +59,10 @@ body {
 
 /* card */
 
+.card-default {
+    @include card-default;
+}
+
 .card-theme {
     @include card-theme;
 }

@@ -195,24 +195,6 @@
     width: $pass-riding-map-width;
 }
 
-@mixin passenger-riding-wait-notice {
-    height: $pass-riding-wait-notice-height;
-    width: $pass-riding-wait-notice-width;
-    .card {
-        margin: $pass-riding-wait-notice-margin;
-        .card-content {
-            background-color: $pass-riding-wait-notice-background-color;
-        }
-        .card-detail {
-            background-color: $pass-riding-wait-notice-detail-background-color;
-        }
-    }
-}
-
-@mixin passenger-riding-wait-monitor {
-    position: $pass-riding-wait-monitor-position;
-}
-
 
 /* toolbar */
 
@@ -289,6 +271,21 @@
 
 /* card */
 
+@mixin card-default {
+    .card-header {
+        @include card-header;
+    }
+    .card-title {
+        @include card-default-title;
+    }
+    .card-content {
+        @include card-content;
+    }
+    .card-content-contrast {
+        @include card-content-contrast;
+    }
+}
+
 @mixin card-theme {
     .card-title {
         @include card-image-title;
@@ -332,18 +329,9 @@
 }
 
 @mixin card-travel {
-    .card-header {
-        @include card-header;
-    }
-    .card-title {
-        @include card-default-title;
-    }
+    @include card-default;
     .card-content {
-        @include card-content;
         padding: 12px 12px !important;
-    }
-    .card-content-contrast {
-        @include card-content-contrast;
     }
 }
 
@@ -354,6 +342,7 @@
 
 @mixin card-default-title {
     color: $card-default-title-color;
+    margin: $card-default-title-margin;
     padding: $card-default-title-padding;
 }
 

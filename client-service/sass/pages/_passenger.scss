@@ -5,12 +5,3 @@
         @include passenger-riding-map;
     }
 }
-
-.pass-riding-wait {
-    .pass-notice {
-        @include passenger-riding-wait-notice;
-    }
-    .pass-monitor {
-        @include passenger-riding-wait-monitor;
-    }
-}

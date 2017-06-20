@@ -1,3 +1,5 @@
+var passenger_page_status = 0;
+
 $(document).ready(function() {
     // Initialize passenger
     $('#pass-profile').hide();
@@ -25,8 +27,13 @@ $(document).ready(function() {
 
     // Bind passenger riding
     $('.nav-riding').click(function() {
-        $('.pass-pages').hide();
-        $('#pass-riding').show();
+        if (passenger_page_status) {
+            $('.pass-pages').hide();
+            $('#pass-riding-wait').show();
+        } else {
+            $('.pass-pages').hide();
+            $('#pass-riding').show();
+        }
     });
 
     // Bind passenger profile
@@ -68,15 +75,12 @@ $(document).ready(function() {
     // TEST
     $('.nav-test').click(function() {
         $('.pass-pages').hide();
-        $('#pass-riding-wait').show();
+        $('#pass-travel').show();
     });
 
     // Hide this btn first
     $('#startBtn').hide();
 });
-
-
-var passenger_page_status = 0;
 
 // Trigger passenger modal
 function triggerPassengerBookModal(signal) {
@@ -110,11 +114,22 @@ function triggerPassengerOrderModal(signal) {
     }
 }
 
+// Emit signal to server to cancel 
+function cancel_GAs(GA_name) {
+    socket.emit('cancel_ga', {
+        account: GA_name
+    });
+}
+
 // Add monitor in passenger waiting taxi
 function addMonitorPassengerRiding(name, phone) {
-    var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button class="secondary-content waves-effect waves-green btn">取消監督</button></li>');
+    var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-delete" class="secondary-content waves-effect waves-green btn">取消監督</button></li>');
     $newMonitor.find('.user-name').text(name);
     $newMonitor.find('.user-phone').text(phone);
+    $newMonitor.find('.user-delete').click(function() {
+        // When click , emit to server need to remove this user from GAs - (the function body in pass-riding.ejs)
+        cancel_GAs(name);
+    });
     $('#pass-riding-wait-monitor').append($newMonitor);
 }
 
@@ -130,6 +145,7 @@ function arrivalTimer(rawString) {
     // Count down timer start!
     timer = setInterval(function() {
         $('#driver-arrival').html("約剩餘 " + (Math.floor(total / 60) >= 10 ? Math.floor(total / 60).toString() : '0' + Math.floor(total / 60).toString()) + ":" + (total % 60 >= 10 ? total % 60 : '0' + (total % 60).toString()));
+        $('#driver-arrival-waiting').html("約剩餘 " + (Math.floor(total / 60) >= 10 ? Math.floor(total / 60).toString() : '0' + Math.floor(total / 60).toString()) + ":" + (total % 60 >= 10 ? total % 60 : '0' + (total % 60).toString()));
         if (total <= 0) {
             // call arrival function (in pass-riding.ejs)
             driver_arrived();

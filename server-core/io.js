@@ -83,6 +83,11 @@ class SyncService {
                     endPos: pass_obj.endPos 
                 });
             });
+            // ========================== Remove somebody from channel ==========================
+            socket.on("cancel_ga",function(ga_obj){
+                // FIXME 
+                console.log("GA: " + ga_obj.account);
+            });
         }); // Web Socket Listening
     }
 }
