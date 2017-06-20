@@ -24,10 +24,33 @@
     <div class="toolbar pass-toolbar-monitor" id="pass-toolbar-monitor">
         <div class="row">
             <div class="col s12 m12 l12">
-                <button class="waves-effect waves-light btn btn-large" onclick="triggerPassengerBookModal('monitor');">查看監督
+                <button class="waves-effect waves-light btn btn-large" onclick="triggerPassengerBookModal('finish');">查看監督
                     <i class="material-icons right">event</i>
                 </button>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal finish path routing -->
+<div class="modal modal-finish" id="modal-finish">
+    <div class="modal-content">
+        <h5>SCABER 旅程結束！</h5>
+        <ul class="collection collection-avatar">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">timer</i> 
+                <p class="title">本趟旅程耗時</p>
+                <p class="content-p" id="driver-name">[consume]</p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">favorite</i> 
+                <p class="title">本趟旅程守護人數</p>
+                <p class="content-p" id="driver-name">[number]</p>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button id="startBtn" class="modal-action modal-close waves-effect waves-green btn-flat">給與評價</button>
+        <button class="modal-action modal-close waves-effect waves-green btn-flat">關閉視窗</button>
     </div>
 </div>

@@ -33,8 +33,27 @@
                 <img class="circle" src="driver/unknown.png" alt>
                 <p class="title user-name" id="user-name">[name]</p>
                 <p class="user-phone" id="user-phone">[phone]</p>
-                <button class="secondary-content waves-effect waves-green btn">取消監督</button>
+                <button class="secondary-content waves-effect waves-green btn">移除監督</button>
             </li>
         </ul>
+    </div>
+</div>
+
+<!-- Modal waiting to enter monitor -->
+<div class="modal modal-location" id="modal-location">
+    <div class="modal-content">
+        <h4>前往目的地？</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">place</i>
+                    <input id="book-dest" type="text">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="tripBtn">發車</button>
     </div>
 </div>

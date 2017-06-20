@@ -95,6 +95,8 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('open');
     } else if (signal == 'monitor') {
         $('.modal-monitor').modal('open');
+    } else if (signal == 'finish') {
+        $('.modal-finish').modal('open');
     }
 }
 
