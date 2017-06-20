@@ -86,6 +86,7 @@ body {
       .modal .modal-content .collection li i {
         background-color: #3f3133 !important;
         color: #ffcf47 !important; }
+
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
@@ -94,6 +95,7 @@ body {
 .modal-form .modal-content input {
   border-bottom-color: #3f3133;
   color: #3f3133; }
+
 .modal-form .modal-content label {
   color: #3f3133; }
 
@@ -239,6 +241,7 @@ body {
 .pass-riding .pass-map {
   height: 84vh;
   width: 100%; }
+
 .pass-riding .pass-toolbar {
   background-color: #ffcf47;
   height: 10vh;
@@ -266,6 +269,7 @@ body {
       background-color: #3f3133; }
     .pass-riding-wait .pass-notice .card .card-detail {
       background-color: #d8d8d8; }
+
 .pass-riding-wait .pass-monitor {
   position: relative; }
   .pass-riding-wait .pass-monitor .collection {
@@ -281,5 +285,3 @@ body {
       .pass-riding-wait .pass-monitor .collection li button {
         background-color: #3f3133 !important;
         color: #ffcf47 !important; }
-
-/*# sourceMappingURL=style.css.map */
