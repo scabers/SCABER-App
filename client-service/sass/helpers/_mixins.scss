@@ -431,8 +431,20 @@
     }
 }
 
-@mixin modal-location {
-    @include modal-form;
+@mixin modal-succ {
+    @include modal-default;
+    .modal-content {
+        border: $mdl-succ-content-border;
+        padding-bottom: $mdl-succ-content-padding-bottom;
+        li {
+            border: $mdl-succ-content-li-border;
+            min-height: $mdl-succ-content-li-min-height;
+            padding-bottom: $mdl-succ-content-li-padding-bottom;
+            i {
+                color: $mdl-succ-content-i-color;
+            }
+        }
+    }
 }
 
 @mixin modal-content {

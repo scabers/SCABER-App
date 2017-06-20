@@ -269,6 +269,53 @@ body {
 .modal-location .modal-content label {
   color: #3f3133; }
 
+.modal-succ .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-succ .modal-footer {
+  background-color: #3f3133; }
+  .modal-succ .modal-footer button {
+    color: #ffcf47; }
+.modal-succ .modal-content {
+  border: none;
+  padding-bottom: 6px; }
+  .modal-succ .modal-content li {
+    border: none;
+    min-height: 64px;
+    padding-bottom: 0; }
+    .modal-succ .modal-content li i {
+      color: #ffcf47; }
+
+.modal-join .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-join .modal-footer {
+  background-color: #3f3133; }
+  .modal-join .modal-footer button {
+    color: #ffcf47; }
+.modal-join .modal-footer {
+  overflow: hidden;
+  justify-content: center; }
+  .modal-join .modal-footer .spinner-layer {
+    border-color: #ffcf47; }
+
+.modal-finish .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-finish .modal-footer {
+  background-color: #3f3133; }
+  .modal-finish .modal-footer button {
+    color: #ffcf47; }
+.modal-finish .modal-content {
+  border: none;
+  padding-bottom: 6px; }
+  .modal-finish .modal-content li {
+    border: none;
+    min-height: 64px;
+    padding-bottom: 0; }
+    .modal-finish .modal-content li i {
+      color: #ffcf47; }
+
 /* button */
 .btn-identity {
   font-size: 1.7rem;

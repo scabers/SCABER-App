@@ -8,7 +8,8 @@ $(document).ready(function() {
     $('#pass-message').hide();
     $('#pass-setting').hide();
     $('#pass-helper').hide();
-    $('#pass-travel').hide();
+    $('#pass-test1').hide();
+    $('#pass-test2').hide();
 
 
     // Initialize passenger modal
@@ -46,6 +47,8 @@ $(document).ready(function() {
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
         $('#pass-monitor').show();
+        // Emit signal to server => require waiting channel 
+        socket.emit('fetch_waiting_channel', {});
     });
 
     // Bind passenger rating
@@ -73,13 +76,23 @@ $(document).ready(function() {
     });
 
     // TEST
-    $('.nav-test').click(function() {
+    $('.nav-test1').click(function() {
         $('.pass-pages').hide();
-        $('#pass-travel').show();
+        $('#pass-test1').show();
+    });
+
+    $('.nav-test2').click(function() {
+        $('.pass-pages').hide();
+        $('#pass-test2').show();
     });
 
     // Hide this btn first
     $('#startBtn').hide();
+
+    // Bind statusBtn 
+    $('#statusBtn').click(function() {
+        $('#modal-succ').modal('open');
+    });
 });
 
 // Trigger passenger modal
@@ -95,8 +108,6 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('open');
     } else if (signal == 'monitor') {
         $('.modal-monitor').modal('open');
-    } else if (signal == 'finish') {
-        $('.modal-finish').modal('open');
     }
 }
 
@@ -116,11 +127,50 @@ function triggerPassengerOrderModal(signal) {
     }
 }
 
+function triggerPassengerMonitorModal(signal) {
+    if (signal == 'join') {
+        $('.modal-succ').modal('open');
+    }
+}
+
+// TEST Trigger
+function triggerTEST(signal) {
+    if (signal == 'finish') { // test
+        $('.modal-finish').modal('open');
+    } else if (signal == 'join') {
+        $('.modal-succ').modal('open');
+    }
+}
+
 // Emit signal to server to cancel 
 function cancel_GAs(GA_name) {
     socket.emit('cancel_ga', {
         account: GA_name
     });
+}
+
+// Emit signal to server to join
+function join_GAs(new_ga, target_name, channel_id) {
+    socket.emit('join_ga', {
+        whoami: new_ga,
+        account: target_name,
+        channel: channel_id
+    });
+}
+
+function addAvailableEntry(new_ga, name, phone, channel_id) {
+    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn">加入守護</button></li>');
+    $newEntry.find('.user-name').text(name);
+    $newEntry.find('.user-phone').text(phone);
+    $newEntry.find('.user-join').click(function() {
+        // When click , emit to server need to remove this user from GAs - (the function body in pass-riding.ejs)
+        join_GAs(new_ga, name, channel_id);
+    });
+    $('#pass-monitor-monitor').append($newEntry);
+}
+
+function clearAvailableEntry() {
+    $('#pass-monitor-monitor').empty();
 }
 
 // Add monitor in passenger waiting taxi
@@ -133,6 +183,11 @@ function addMonitorPassengerRiding(name, phone) {
         cancel_GAs(name);
     });
     $('#pass-riding-wait-monitor').append($newMonitor);
+}
+
+// Clear all 
+function clearMonitorPassengerRiding() {
+    $('#pass-riding-wait-monitor').empty();
 }
 
 var timer;

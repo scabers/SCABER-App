@@ -143,21 +143,6 @@
     </div>
 </div>
 
-<!-- Modal viewing monitor -->
-<div class="modal bottom-sheet modal-monitor" id="modal-monitor">
-    <div class="modal-content">
-        <h4>監督用戶</h4>
-        <ul class="collection collection-avatar">
-            <li class="collection-item avatar">
-                <i class="material-icons circle">perm_identity</i>
-                <p class="title">[Name]</p>
-                <p class="content-p" id="driver-phone">[phone]</p>
-                <button class="secondary-content waves-effect waves-green btn">移除監督</button>
-            </li>
-        </ul>
-    </div>
-</div>
-
 <!-- Google Map -->
 <script>
 var map;
@@ -226,6 +211,23 @@ function goRiding() {
                     unique: <%- JSON.stringify(passenger_profile.trueID) %>,
                     pos: data
                 });
+                // Clear GAs
+                clearMonitorPassengerRiding();
+                // Debug: pos2address
+                /*pos2address(data,function(err,msg_data){
+                    if(err)
+                        console.error(msg_data);
+                    else{
+                        console.log(msg_data); // FIXME
+                        address2pos(msg_data,function(perr,pos_data){
+                            if(perr)
+                                console.error(pos_data);
+                            else{
+                                console.log(JSON.stringify(pos_data));
+                            }
+                        });
+                    }
+                });*/
             }
         });
     }
@@ -287,6 +289,19 @@ socket.on('find_driver_listen',function(rawdata){
         $('#driver-phone-waiting').html(rawdata.msg.driverPhone);
         $('#driver-license-waiting').html(rawdata.msg.license);
         $('#driver-model-waiting').html(rawdata.msg.car_model);
+    }
+});
+// Get Waiting channel 
+socket.on('get_waiting_channel',function(rawdata){
+    // latest updated time
+    console.log("Latest updated time: " + rawdata.date);
+    // FIXME: update the monitor broad => drop all element and then 
+    console.log(JSON.stringify(rawdata.channel));
+    // Add available entry => clear first 
+    clearAvailableEntry();
+    // Add all 
+    for(var index in rawdata.channel){
+        addAvailableEntry(<%- JSON.stringify(scaber_account) %>,rawdata.channel[index].passenger_name,rawdata.channel[index].passenger_phone,rawdata.channel[index].channel_name);
     }
 });
 </script>
