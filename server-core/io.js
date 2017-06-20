@@ -96,6 +96,17 @@ class SyncService {
                 // FIXME 
                 console.log("GA: " + ga_obj.account);
             });
+            // ========================== Become GA ==========================
+            socket.on("join_ga",function(ga_obj){
+                console.log("New coming GA: " + ga_obj.whoami);
+                console.log("Target passenger monitor: " + ga_obj.account);
+                console.log("Target channel: " + ga_obj.channel);
+                // Join the channel 
+                socket.join(ga_obj.channel,function(){
+                    // emit signal
+                    
+                });
+            });
         }); // Web Socket Listening
     }
 }

@@ -138,13 +138,9 @@ function join_GAs(new_ga,target_name,channel_id){
 }
 
 function addAvailableEntry(new_ga,name,phone,channel_id){
-    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn">加入守護</button></li>');
+    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn" onclick="join_GAs(\''+new_ga+'\',\''+name+'\',\''+channel_id+'\')">加入守護</button></li>');
     $newEntry.find('.user-name').text(name);
     $newEntry.find('.user-phone').text(phone);
-    $newEntry.find('.user-join').click(function() {
-        // When click , emit to server need to remove this user from GAs - (the function body in pass-riding.ejs)
-        join_GAs(new_ga,name,channel_id);
-    });
     $('#pass-monitor-monitor').append($newEntry);
 }
 
