@@ -131,20 +131,22 @@ body {
 .card-default .card-content {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px; }
+  padding: 12px 24px; }
   .card-default .card-content .row {
     margin: 0; }
 .card-default .card-content-contrast {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px;
+  padding: 12px 24px;
   background-color: #3f3133;
   color: #ffcf47; }
   .card-default .card-content-contrast .row {
     margin: 0; }
 
 .card-theme .card-title {
-  color: #3f3133; }
+  color: #3f3133;
+  margin: 0 !important;
+  padding: 12px 24px !important; }
 .card-theme .card-more {
   background-color: #3f3133 !important; }
   .card-theme .card-more i {
@@ -152,7 +154,7 @@ body {
 .card-theme .card-content {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px; }
+  padding: 12px 24px; }
   .card-theme .card-content .row {
     margin: 0; }
 .card-theme .card-reveal {
@@ -163,6 +165,8 @@ body {
 
 .card-profile .card-name {
   color: #3f3133;
+  margin: 0 !important;
+  padding: 12px 24px !important;
   position: absolute;
   left: 100px !important;
   padding: 0 !important; }
@@ -176,13 +180,13 @@ body {
 .card-profile .card-content {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px; }
+  padding: 12px 24px; }
   .card-profile .card-content .row {
     margin: 0; }
 .card-profile .card-content-contrast {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px;
+  padding: 12px 24px;
   background-color: #3f3133;
   color: #ffcf47; }
   .card-profile .card-content-contrast .row {
@@ -203,13 +207,13 @@ body {
 .card-travel .card-content {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px; }
+  padding: 12px 24px; }
   .card-travel .card-content .row {
     margin: 0; }
 .card-travel .card-content-contrast {
   background-color: #ffcf47;
   color: #3f3133;
-  padding: 16px 24px;
+  padding: 12px 24px;
   background-color: #3f3133;
   color: #ffcf47; }
   .card-travel .card-content-contrast .row {

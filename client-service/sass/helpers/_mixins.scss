@@ -288,7 +288,7 @@
 
 @mixin card-theme {
     .card-title {
-        @include card-image-title;
+        @include card-theme-title;
     }
     .card-more {
         @include card-more;
@@ -346,8 +346,10 @@
     padding: $card-default-title-padding;
 }
 
-@mixin card-image-title {
+@mixin card-theme-title {
     color: $card-theme-title-color;
+    margin: $card-theme-title-margin !important;
+    padding: $card-theme-title-padding !important;
 }
 
 @mixin card-more {
@@ -358,7 +360,7 @@
 }
 
 @mixin card-name {
-    @include card-image-title;
+    @include card-theme-title;
     position: $card-profile-name-posiiton;
     left: $card-profile-name-position-left !important;
     padding: $card-profile-name-padding !important;
