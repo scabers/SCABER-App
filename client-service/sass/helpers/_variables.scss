@@ -209,57 +209,62 @@ $acc-logo-max-width: 50%;
 /* passenger */
 
 // pass background
-$pass-riding-toolbar-background-color: $light-yellow;
 $pass-riding-modal-succ-i-background-color: $dark-brown;
 $pass-riding-wait-monitor-background-color: $light-yellow;
 $pass-riding-wait-monitor-i-background-color: $dark-brown;
 $pass-riding-wait-notice-background-color: $dark-brown;
 $pass-riding-wait-notice-detail-background-color: $light-gray;
 // pass border
-$pass-riding-toolbar-border-radius: 0;
 $pass-riding-wait-monitor-border: none;
 $pass-riding-wait-monitor-li-border: none;
 // pass color
-$pass-riding-toolbar-color: $dark-brown;
 $pass-riding-modal-succ-i-color: $light-yellow;
 $pass-riding-wait-monitor-i-color: $light-yellow;
 // pass display
 $pass-profile-display: block;
 // pass font
-$pass-riding-toolbar-font-weight: $font-bold;
 // pass height
 $pass-riding-map-height: 84vh;
 $pass-riding-wait-notice-height: 34vh;
 $pass-riding-monitor-height: 57vh;
-$pass-riding-toolbar-height: 10vh;
 $pass-riding-wait-monitor-li-min-height: 64px;
-// pass line
-$pass-riding-toolbar-line-height: 10vh;
 // pass margin
 $pass-profile-margin-top: 0;
-$pass-riding-toolbar-margin: 0;
 $pass-riding-wait-notice-margin: 0;
 // pass overflow
-$pass-riding-monitor-overflow-y: auto;
+$pass-overflow-y: auto;
 // pass padding
-$pass-riding-toolbar-padding: 0;
 $pass-riding-wait-monitor-padding-bottom: 6px;
-$pass-riding-wait-monitor-li-padding-bottom: 0;
 // pass position
-$pass-riding-toolbar-position: absolute;
-$pass-riding-toolbar-position-bottom: 0;
 $pass-riding-wait-monitor-position: relative;
-// pass text
-$pass-riding-toolbar-text-align: center;
-// pass vertical
-$pass-riding-toolbar-vertical-align: middle;
 // pass width
 $pass-riding-map-width: 100%;
 $pass-riding-wait-notice-width: 100%;
-$pass-riding-toolbar-width: 100%;
 $pass-riding-wait-monitor-width: 100%;
-// pass z-index
-$pass-riding-toolbar-zindex: 10;
+
+/* toolbar */
+
+// tbar background
+$tbar-background-color: $light-yellow;
+// tbar border
+$tbar-border-radius: 0;
+// tbar color
+$tbar-color: $dark-brown;
+// tbar height
+$tbar-height: 10vh;
+// tbar margin
+$tbar-margin: 0;
+// tbar padding
+$tbar-padding: 0;
+// tbar position
+$tbar-position: absolute;
+$tbar-position-bottom: 0;
+// tbar text
+$tbar-text-align: center;
+// tbar width
+$tbar-width: 100%;
+// tbar z-index
+$tbar-zindex: 10;
 
 /* collection */
 
@@ -288,18 +293,31 @@ $coll-content-p-font-weight: $font-bold;
 /* card */
 
 // card background
-$card-header-content-background-color: $light-yellow;
-$card-header-reveal-background-color: $light-yellow;
+$card-header-background-color: $dark-brown;
+$card-theme-content-background-color: $light-yellow;
+$card-theme-content-contrast-background-color: $dark-brown;
+$card-theme-reveal-background-color: $light-yellow;
 $card-more-background-color: $dark-brown;
 // card color
-$card-header-title-color: $dark-brown;
-$card-header-content-color: $dark-brown;
-$card-header-reveal-color: $dark-brown;
+$card-default-title-color: $light-yellow;
+$card-theme-title-color: $dark-brown;
+$card-theme-content-color: $dark-brown;
+$card-theme-content-contrast-color: $light-yellow;
+$card-theme-reveal-color: $dark-brown;
 $card-more-i-color: $light-yellow;
 // card height
 $card-profile-avatar-height: 60px;
 // card margin
-$card-header-stat-margin: 0;
+$card-default-title-margin: 0;
+$card-default-text-margin-bottom: 0;
+$card-theme-title-margin: 0;
+$card-theme-content-row-margin: 0;
+$card-theme-stat-margin: 0;
+// card padding
+$card-header-padding: 10px;
+$card-default-title-padding: 0;
+$card-theme-title-padding: 12px 24px;
+$card-theme-content-padding: 12px 24px;
 // card position
 $card-profile-name-posiiton: absolute;
 $card-profile-name-position-left: 100px;

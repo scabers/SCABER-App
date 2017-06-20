@@ -3,9 +3,12 @@ var passenger_page_status = 0;
 $(document).ready(function() {
     // Initialize passenger
     $('#pass-profile').hide();
-    //$('#pass-riding-wait').hide();
     $('#pass-monitor').hide();
+    $('#pass-rating').hide();
+    $('#pass-message').hide();
+    $('#pass-setting').hide();
     $('#pass-helper').hide();
+    $('#pass-travel').hide();
 
 
     // Initialize passenger modal
@@ -24,11 +27,10 @@ $(document).ready(function() {
 
     // Bind passenger riding
     $('.nav-riding').click(function() {
-        if(passenger_page_status){
+        if (passenger_page_status) {
             $('.pass-pages').hide();
             $('#pass-riding-wait').show();
-        }
-        else{
+        } else {
             $('.pass-pages').hide();
             $('#pass-riding').show();
         }
@@ -70,6 +72,12 @@ $(document).ready(function() {
         $('#pass-helper').show();
     });
 
+    // TEST
+    $('.nav-test').click(function() {
+        $('.pass-pages').hide();
+        $('#pass-travel').show();
+    });
+
     // Hide this btn first
     $('#startBtn').hide();
 });
@@ -83,6 +91,10 @@ function triggerPassengerBookModal(signal) {
         $('.modal-book').modal('close');
         $('.modal-wait').modal('open');
         passenger_page_status = 1;
+    } else if (signal == 'book') {
+        $('.modal-book').modal('open');
+    } else if (signal == 'monitor') {
+        $('.modal-monitor').modal('open');
     }
 }
 
@@ -97,12 +109,14 @@ function triggerPassengerOrderModal(signal) {
     } else if (signal == 'match') {
         $('.modal-wait').modal('close');
         $('.modal-succ').modal('open');
+    } else if (signal == 'order') {
+        $('.modal-order').modal('open');
     }
 }
 
 // Emit signal to server to cancel 
-function cancel_GAs(GA_name){
-    socket.emit('cancel_ga',{
+function cancel_GAs(GA_name) {
+    socket.emit('cancel_ga', {
         account: GA_name
     });
 }
@@ -112,7 +126,7 @@ function addMonitorPassengerRiding(name, phone) {
     var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-delete" class="secondary-content waves-effect waves-green btn">取消監督</button></li>');
     $newMonitor.find('.user-name').text(name);
     $newMonitor.find('.user-phone').text(phone);
-    $newMonitor.find('.user-delete').click(function(){
+    $newMonitor.find('.user-delete').click(function() {
         // When click , emit to server need to remove this user from GAs - (the function body in pass-riding.ejs)
         cancel_GAs(name);
     });

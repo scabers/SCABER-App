@@ -2,36 +2,26 @@
     <div class="pass-header" id="header">
         <div class="row">
             <div class="col s12 m6">
-                <div class="card card-header">
+                <div class="card card-theme">
                     <div class="card-image">
                         <img src="driver.png">
                         <span class="card-title">監督</span>
-                        <a class="btn-floating activator halfway-fab waves-effect waves-light card-more ">
-                            <i class="material-icons">add</i>
-                        </a>
                     </div>
                     <div class="card-content">
-                        <p>透過平台其他使用者的互相幫助，來達成安全的目的！</p> 
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">監督模式 <i class="material-icons right">clear</i></span>
-                        <ul class="collection collection-avatar">
-                            <li class="collection-item avatar valign-wrapper">
-                                <i class="material-icons circle">monetization_on</i>
-                                <p class="title" id="user-cash">優惠點數</p>
-                                <p class="secondary-content secondary-content-p"><%= passenger_profile.cash %></p>
-                            </li>
-                            <li class="collection-item avatar valign-wrapper">
-                                <i class="material-icons circle">local_taxi</i>
-                                <p class="title" id="user-ride">乘車次數</p>
-                                <p class="secondary-content secondary-content-p"><%= passenger_profile.ride %></p>
-                            </li>
-                            <li class="collection-item avatar valign-wrapper">
-                                <i class="material-icons circle">visibility</i>
-                                <p class="title" id="user-case">監督次數</p>
-                                <p class="secondary-content secondary-content-p"><%= passenger_profile.case %></p>
-                            </li>
-                        </ul>
+                        <div class="card-stat row">
+                            <div class="col s4 center-align">
+                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.cash %></h4>
+                                <p class="medium-small grey-text text-darken-2">優惠點數</p>                        
+                            </div>
+                            <div class="col s4 center-align">
+                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.ride %></h4>
+                                <p class="medium-small grey-text text-darken-2">乘車次數</p>                        
+                            </div>                    
+                            <div class="col s4 center-align">
+                                <h4 class="card-title grey-text text-darken-4"><%= passenger_profile.case %></h4>
+                                <p class="medium-small grey-text text-darken-2">監督次數</p>                        
+                            </div>   
+                        </div>
                     </div>
                 </div>
             </div>

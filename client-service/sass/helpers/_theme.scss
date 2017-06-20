@@ -43,6 +43,13 @@ body {
 }
 
 
+/* toolbar */
+
+.toolbar {
+    @include toolbar-default;
+}
+
+
 /* collection */
 
 .collection-avatar {
@@ -52,12 +59,20 @@ body {
 
 /* card */
 
-.card-header {
-    @include card-header;
+.card-default {
+    @include card-default;
+}
+
+.card-theme {
+    @include card-theme;
 }
 
 .card-profile {
     @include card-profile;
+}
+
+.card-travel {
+    @include card-travel;
 }
 
 
@@ -73,6 +88,10 @@ body {
 
 .modal-form {
     @include modal-form;
+}
+
+.modal-location {
+    @include modal-location;
 }
 
 

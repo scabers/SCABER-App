@@ -4,16 +4,4 @@
     .pass-map {
         @include passenger-riding-map;
     }
-    .pass-toolbar {
-        @include passenger-riding-toolbar;
-    }
-}
-
-.pass-riding-wait {
-    .pass-notice {
-        @include passenger-riding-wait-notice;
-    }
-    .pass-monitor {
-        @include passenger-riding-wait-monitor;
-    }
 }

@@ -17,6 +17,7 @@
 /* start */
 /* account */
 /* passenger */
+/* toolbar */
 /* collection */
 /* card */
 /* modal */
@@ -33,6 +34,7 @@
 /* start */
 /* account */
 /* passenger */
+/* toolbar */
 /* collection */
 /* card */
 /* modal */
@@ -76,6 +78,25 @@ img::-moz-selection {
 body {
   overflow: hidden !important; }
 
+/* toolbar */
+.toolbar {
+  background-color: #ffcf47;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10; }
+  .toolbar .row {
+    margin: 0; }
+    .toolbar .row .col {
+      padding: 0; }
+      .toolbar .row .col .btn {
+        background-color: #ffcf47;
+        border-radius: 0;
+        color: #3f3133;
+        height: 10vh;
+        width: 100%; }
+
 /* collection */
 .collection-avatar {
   border: none;
@@ -100,56 +121,110 @@ body {
       font-weight: 700; }
 
 /* card */
-.card-header .card-title {
-  color: #3f3133; }
+.card-default .card-header {
+  background-color: #3f3133;
+  padding: 10px; }
+.card-default .card-title {
+  color: #ffcf47;
+  margin: 0;
+  padding: 0; }
+.card-default .card-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px; }
+  .card-default .card-content .row {
+    margin: 0; }
+.card-default .card-content-contrast {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px;
+  background-color: #3f3133;
+  color: #ffcf47; }
+  .card-default .card-content-contrast .row {
+    margin: 0; }
 
-.card-header .card-more {
+.card-theme .card-title {
+  color: #3f3133;
+  margin: 0 !important;
+  padding: 12px 24px !important; }
+.card-theme .card-more {
   background-color: #3f3133 !important; }
-  .card-header .card-more i {
+  .card-theme .card-more i {
     color: #ffcf47 !important; }
-
-.card-header .card-content {
+.card-theme .card-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px; }
+  .card-theme .card-content .row {
+    margin: 0; }
+.card-theme .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
-
-.card-header .card-reveal {
-  background-color: #ffcf47;
-  color: #3f3133; }
-
-.card-header .card-stat {
+.card-theme .card-stat {
   margin: 0; }
 
 .card-profile .card-name {
   color: #3f3133;
+  margin: 0 !important;
+  padding: 12px 24px !important;
   position: absolute;
   left: 100px !important;
   padding: 0 !important; }
-
 .card-profile .card-avatar {
   height: 60px;
   width: 60px; }
-
 .card-profile .card-more {
   background-color: #3f3133 !important; }
   .card-profile .card-more i {
     color: #ffcf47 !important; }
-
 .card-profile .card-content {
   background-color: #ffcf47;
-  color: #3f3133; }
-
+  color: #3f3133;
+  padding: 12px 24px; }
+  .card-profile .card-content .row {
+    margin: 0; }
+.card-profile .card-content-contrast {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px;
+  background-color: #3f3133;
+  color: #ffcf47; }
+  .card-profile .card-content-contrast .row {
+    margin: 0; }
 .card-profile .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
-
 .card-profile .card-stat {
   margin: 0; }
+
+.card-travel .card-header {
+  background-color: #3f3133;
+  padding: 10px; }
+.card-travel .card-title {
+  color: #ffcf47;
+  margin: 0;
+  padding: 0; }
+.card-travel .card-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px; }
+  .card-travel .card-content .row {
+    margin: 0; }
+.card-travel .card-content-contrast {
+  background-color: #ffcf47;
+  color: #3f3133;
+  padding: 12px 24px;
+  background-color: #3f3133;
+  color: #ffcf47; }
+  .card-travel .card-content-contrast .row {
+    margin: 0; }
+.card-travel .card-content {
+  padding: 12px 12px !important; }
 
 /* modal */
 .modal .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
-
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
@@ -158,12 +233,10 @@ body {
 .modal-wait .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
-
 .modal-wait .modal-footer {
   background-color: #3f3133; }
   .modal-wait .modal-footer button {
     color: #ffcf47; }
-
 .modal-wait .modal-footer {
   overflow: hidden;
   justify-content: center; }
@@ -173,17 +246,27 @@ body {
 .modal-form .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
-
 .modal-form .modal-footer {
   background-color: #3f3133; }
   .modal-form .modal-footer button {
     color: #ffcf47; }
-
 .modal-form .modal-content input {
   border-bottom-color: #3f3133;
   color: #3f3133; }
-
 .modal-form .modal-content label {
+  color: #3f3133; }
+
+.modal-location .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-location .modal-footer {
+  background-color: #3f3133; }
+  .modal-location .modal-footer button {
+    color: #ffcf47; }
+.modal-location .modal-content input {
+  border-bottom-color: #3f3133;
+  color: #3f3133; }
+.modal-location .modal-content label {
   color: #3f3133; }
 
 /* button */
@@ -274,46 +357,4 @@ body {
   height: 84vh;
   width: 100%; }
 
-.pass-riding .pass-toolbar {
-  background-color: #ffcf47;
-  height: 10vh;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 10; }
-  .pass-riding .pass-toolbar .row {
-    margin: 0; }
-    .pass-riding .pass-toolbar .row .col {
-      padding: 0; }
-      .pass-riding .pass-toolbar .row .col .btn {
-        background-color: #ffcf47;
-        border-radius: 0;
-        color: #3f3133;
-        height: 10vh;
-        width: 100%; }
-
-.pass-riding-wait .pass-notice {
-  height: 34vh;
-  width: 100%; }
-  .pass-riding-wait .pass-notice .card {
-    margin: 0; }
-    .pass-riding-wait .pass-notice .card .card-content {
-      background-color: #3f3133; }
-    .pass-riding-wait .pass-notice .card .card-detail {
-      background-color: #d8d8d8; }
-
-.pass-riding-wait .pass-monitor {
-  position: relative; }
-  .pass-riding-wait .pass-monitor .collection {
-    height: 57vh;
-    overflow-y: auto !important;
-    border: none;
-    width: 100%; }
-    .pass-riding-wait .pass-monitor .collection li {
-      border-bottom: none;
-      background-color: #ffcf47;
-      min-height: 64px !important;
-      padding-bottom: 0; }
-      .pass-riding-wait .pass-monitor .collection li button {
-        background-color: #3f3133 !important;
-        color: #ffcf47 !important; }
+/*# sourceMappingURL=style.css.map */

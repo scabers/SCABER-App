@@ -195,57 +195,26 @@
     width: $pass-riding-map-width;
 }
 
-@mixin passenger-riding-toolbar {
-    background-color: $pass-riding-toolbar-background-color;
-    height: $pass-riding-toolbar-height;
-    position: $pass-riding-toolbar-position;
-    bottom: $pass-riding-toolbar-position-bottom;
-    width: $pass-riding-toolbar-width;
-    z-index: $pass-riding-toolbar-zindex;
+
+/* toolbar */
+
+@mixin toolbar-default {
+    background-color: $tbar-background-color;
+    height: $tbar-height;
+    position: $tbar-position;
+    bottom: $tbar-position-bottom;
+    width: $tbar-width;
+    z-index: $tbar-zindex;
     .row {
-        margin: $pass-riding-toolbar-margin;
+        margin: $tbar-margin;
         .col {
-            padding: $pass-riding-toolbar-padding;
+            padding: $tbar-padding;
             .btn {
-                background-color: $pass-riding-toolbar-background-color;
-                border-radius: $pass-riding-toolbar-border-radius;
-                color: $pass-riding-toolbar-color;
-                height: $pass-riding-toolbar-height;
-                width: $pass-riding-toolbar-width;
-            }
-        }
-    }
-}
-
-@mixin passenger-riding-wait-notice {
-    height: $pass-riding-wait-notice-height;
-    width: $pass-riding-wait-notice-width;
-    .card {
-        margin: $pass-riding-wait-notice-margin;
-        .card-content {
-            background-color: $pass-riding-wait-notice-background-color;
-        }
-        .card-detail {
-            background-color: $pass-riding-wait-notice-detail-background-color;
-        }
-    }
-}
-
-@mixin passenger-riding-wait-monitor {
-    position: $pass-riding-wait-monitor-position;
-    .collection {
-        height: $pass-riding-monitor-height;
-        overflow-y: $pass-riding-monitor-overflow-y !important;
-        border: $pass-riding-wait-monitor-border;
-        width: $pass-riding-wait-monitor-width;
-        li {
-            border-bottom: $pass-riding-wait-monitor-li-border;
-            background-color: $pass-riding-wait-monitor-background-color;
-            min-height: $pass-riding-wait-monitor-li-min-height !important;
-            padding-bottom: $pass-riding-wait-monitor-li-padding-bottom;
-            button {
-                background-color: $pass-riding-wait-monitor-i-background-color !important;
-                color: $pass-riding-wait-monitor-i-color !important;
+                background-color: $tbar-background-color;
+                border-radius: $tbar-border-radius;
+                color: $tbar-color;
+                height: $tbar-height;
+                width: $tbar-width;
             }
         }
     }
@@ -302,9 +271,24 @@
 
 /* card */
 
-@mixin card-header {
+@mixin card-default {
+    .card-header {
+        @include card-header;
+    }
     .card-title {
-        @include card-title;
+        @include card-default-title;
+    }
+    .card-content {
+        @include card-content;
+    }
+    .card-content-contrast {
+        @include card-content-contrast;
+    }
+}
+
+@mixin card-theme {
+    .card-title {
+        @include card-theme-title;
     }
     .card-more {
         @include card-more;
@@ -333,6 +317,9 @@
     .card-content {
         @include card-content;
     }
+    .card-content-contrast {
+        @include card-content-contrast;
+    }
     .card-reveal {
         @include card-reveal;
     }
@@ -341,8 +328,28 @@
     }
 }
 
-@mixin card-title {
-    color: $card-header-title-color;
+@mixin card-travel {
+    @include card-default;
+    .card-content {
+        padding: 12px 12px !important;
+    }
+}
+
+@mixin card-header {
+    background-color: $card-header-background-color;
+    padding: $card-header-padding;
+}
+
+@mixin card-default-title {
+    color: $card-default-title-color;
+    margin: $card-default-title-margin;
+    padding: $card-default-title-padding;
+}
+
+@mixin card-theme-title {
+    color: $card-theme-title-color;
+    margin: $card-theme-title-margin !important;
+    padding: $card-theme-title-padding !important;
 }
 
 @mixin card-more {
@@ -353,7 +360,7 @@
 }
 
 @mixin card-name {
-    @include card-title;
+    @include card-theme-title;
     position: $card-profile-name-posiiton;
     left: $card-profile-name-position-left !important;
     padding: $card-profile-name-padding !important;
@@ -365,17 +372,27 @@
 }
 
 @mixin card-content {
-    background-color: $card-header-content-background-color;
-    color: $card-header-content-color;
+    background-color: $card-theme-content-background-color;
+    color: $card-theme-content-color;
+    padding: $card-theme-content-padding;
+    .row {
+        margin: $card-theme-content-row-margin;
+    }
+}
+
+@mixin card-content-contrast {
+    @include card-content;
+    background-color: $card-theme-content-contrast-background-color;
+    color: $card-theme-content-contrast-color;
 }
 
 @mixin card-stat {
-    margin: $card-header-stat-margin;
+    margin: $card-theme-stat-margin;
 }
 
 @mixin card-reveal {
-    background-color: $card-header-reveal-background-color;
-    color: $card-header-reveal-color;
+    background-color: $card-theme-reveal-background-color;
+    color: $card-theme-reveal-color;
 }
 
 
@@ -412,6 +429,10 @@
             color: $mdl-form-input-color;
         }
     }
+}
+
+@mixin modal-location {
+    @include modal-form;
 }
 
 @mixin modal-content {
