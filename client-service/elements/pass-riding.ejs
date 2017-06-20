@@ -244,8 +244,10 @@ function goRiding() {
                     unique: <%- JSON.stringify(passenger_profile.trueID) %>,
                     pos: data
                 });
+                // Clear GAs
+                clearMonitorPassengerRiding();
                 // Debug: pos2address
-                pos2address(data,function(err,msg_data){
+                /*pos2address(data,function(err,msg_data){
                     if(err)
                         console.error(msg_data);
                     else{
@@ -258,7 +260,7 @@ function goRiding() {
                             }
                         });
                     }
-                });
+                });*/
             }
         });
     }
@@ -328,6 +330,12 @@ socket.on('get_waiting_channel',function(rawdata){
     console.log("Latest updated time: " + rawdata.date);
     // FIXME: update the monitor broad => drop all element and then 
     console.log(JSON.stringify(rawdata.channel));
+    // Add available entry => clear first 
+    clearAvailableEntry();
+    // Add all 
+    for(var index in rawdata.channel){
+        addAvailableEntry(<%- JSON.stringify(scaber_account) %>,rawdata.channel[index].passenger_name,rawdata.channel[index].passenger_phone,rawdata.channel[index].channel_name);
+    }
 });
 </script>
 

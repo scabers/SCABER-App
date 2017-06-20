@@ -46,6 +46,8 @@ $(document).ready(function() {
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
         $('#pass-monitor').show();
+        // Emit signal to server => require waiting channel 
+        socket.emit('fetch_waiting_channel',{});
     });
 
     // Bind passenger rating
@@ -80,6 +82,11 @@ $(document).ready(function() {
 
     // Hide this btn first
     $('#startBtn').hide();
+
+    // Bind statusBtn 
+    $('#statusBtn').click(function(){
+        $('#modal-succ').modal('open');
+    });
 });
 
 // Trigger passenger modal
@@ -121,6 +128,30 @@ function cancel_GAs(GA_name) {
     });
 }
 
+// Emit signal to server to join
+function join_GAs(new_ga,target_name,channel_id){
+    socket.emit('join_ga',{
+        whoami: new_ga,
+        account: target_name,
+        channel: channel_id
+    });
+}
+
+function addAvailableEntry(new_ga,name,phone,channel_id){
+    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn">加入守護</button></li>');
+    $newEntry.find('.user-name').text(name);
+    $newEntry.find('.user-phone').text(phone);
+    $newEntry.find('.user-join').click(function() {
+        // When click , emit to server need to remove this user from GAs - (the function body in pass-riding.ejs)
+        join_GAs(new_ga,name,channel_id);
+    });
+    $('#pass-monitor-monitor').append($newEntry);
+}
+
+function clearAvailableEntry(){
+    $('#pass-monitor-monitor').empty();
+}
+
 // Add monitor in passenger waiting taxi
 function addMonitorPassengerRiding(name, phone) {
     var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-delete" class="secondary-content waves-effect waves-green btn">取消監督</button></li>');
@@ -131,6 +162,11 @@ function addMonitorPassengerRiding(name, phone) {
         cancel_GAs(name);
     });
     $('#pass-riding-wait-monitor').append($newMonitor);
+}
+
+// Clear all 
+function clearMonitorPassengerRiding(){
+    $('#pass-riding-wait-monitor').empty();
 }
 
 var timer;
