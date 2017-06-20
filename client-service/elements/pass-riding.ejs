@@ -215,8 +215,6 @@ function initMap() {
     });
 }
 
-const socket = io();
-
 // Notify server to find a driver
 function goRiding(){
     if(!passenger_page_status){
@@ -278,6 +276,8 @@ $('#tripBtn').click(function(){
 });
 
 // Socket IO section 
+
+// Find driver ! (Waiting modal -> hide , pass-riding -> hide , pass-riding-waiting -> show)
 socket.on('find_driver_listen',function(rawdata){
     if(rawdata.header == "error"){
         triggerPassengerBookModal("waiting");
@@ -291,6 +291,14 @@ socket.on('find_driver_listen',function(rawdata){
         $('#driver-model').html(rawdata.msg.car_model);
         // Start timer 
         arrivalTimer("2:30");
+        // Switch page 
+        $('#pass-riding').hide();
+        $('#pass-riding-wait').show();
+        // Set information in Monitor (Waiting) Panel
+        $('#driver-name-waiting').html(rawdata.msg.driverName);
+        $('#driver-phone-waiting').html(rawdata.msg.driverPhone);
+        $('#driver-license-waiting').html(rawdata.msg.license);
+        $('#driver-model-waiting').html(rawdata.msg.car_model);
     }
 });
 </script>

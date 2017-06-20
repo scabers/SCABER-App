@@ -102,16 +102,20 @@ body {
 /* card */
 .card-header .card-title {
   color: #3f3133; }
+
 .card-header .card-more {
   background-color: #3f3133 !important; }
   .card-header .card-more i {
     color: #ffcf47 !important; }
+
 .card-header .card-content {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .card-header .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .card-header .card-stat {
   margin: 0; }
 
@@ -120,19 +124,24 @@ body {
   position: absolute;
   left: 100px !important;
   padding: 0 !important; }
+
 .card-profile .card-avatar {
   height: 60px;
   width: 60px; }
+
 .card-profile .card-more {
   background-color: #3f3133 !important; }
   .card-profile .card-more i {
     color: #ffcf47 !important; }
+
 .card-profile .card-content {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .card-profile .card-reveal {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .card-profile .card-stat {
   margin: 0; }
 
@@ -140,18 +149,21 @@ body {
 .modal .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .modal .modal-footer {
   background-color: #3f3133; }
   .modal .modal-footer button {
     color: #ffcf47; }
-.modal-wait .modal-content {
 
+.modal-wait .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .modal-wait .modal-footer {
   background-color: #3f3133; }
   .modal-wait .modal-footer button {
     color: #ffcf47; }
+
 .modal-wait .modal-footer {
   overflow: hidden;
   justify-content: center; }
@@ -161,13 +173,16 @@ body {
 .modal-form .modal-content {
   background-color: #ffcf47;
   color: #3f3133; }
+
 .modal-form .modal-footer {
   background-color: #3f3133; }
   .modal-form .modal-footer button {
     color: #ffcf47; }
+
 .modal-form .modal-content input {
   border-bottom-color: #3f3133;
   color: #3f3133; }
+
 .modal-form .modal-content label {
   color: #3f3133; }
 
