@@ -5,3 +5,7 @@
         @include passenger-riding-map;
     }
 }
+
+.pass-trip {
+    @include passenger-trip;
+}

@@ -222,12 +222,12 @@ $pass-riding-modal-succ-i-color: $light-yellow;
 $pass-riding-wait-monitor-i-color: $light-yellow;
 // pass display
 $pass-profile-display: block;
-// pass font
 // pass height
 $pass-riding-map-height: 84vh;
 $pass-riding-wait-notice-height: 34vh;
 $pass-riding-monitor-height: 57vh;
 $pass-riding-wait-monitor-li-min-height: 64px;
+$pass-riding-trip-height: 90vh;
 // pass margin
 $pass-profile-margin-top: 0;
 $pass-riding-wait-notice-margin: 0;
@@ -237,10 +237,16 @@ $pass-overflow-y: auto;
 $pass-riding-wait-monitor-padding-bottom: 6px;
 // pass position
 $pass-riding-wait-monitor-position: relative;
+$pass-riding-trip-position: absolute;
+$pass-riding-trip-position-top: 10%;
 // pass width
 $pass-riding-map-width: 100%;
 $pass-riding-wait-notice-width: 100%;
 $pass-riding-wait-monitor-width: 100%;
+$pass-riding-trip-width: 100%;
+// pass z-index
+$pass-riding-map-zindex: 0;
+$pass-riding-trip-zindex: 500;
 
 /* toolbar */
 

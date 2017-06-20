@@ -127,6 +127,15 @@ function triggerPassengerOrderModal(signal) {
     }
 }
 
+function triggerPassengerTrip() {
+    $('.pass-riding').hide();
+    $('.pass-riding-wait').hide();
+    $('.pass-riding').show(function() {
+        $('#pass-toolbar').hide();
+        $('#pass-trip').show();
+    });
+}
+
 function triggerPassengerMonitorModal(signal) {
     if (signal == 'join') {
         $('.modal-succ').modal('open');
@@ -158,8 +167,8 @@ function join_GAs(new_ga, target_name, channel_id) {
     });
 }
 
-function addAvailableEntry(new_ga,name,phone,channel_id){
-    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn" onclick="join_GAs(\''+new_ga+'\',\''+name+'\',\''+channel_id+'\')">加入守護</button></li>');
+function addAvailableEntry(new_ga, name, phone, channel_id) {
+    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn" onclick="join_GAs(\'' + new_ga + '\',\'' + name + '\',\'' + channel_id + '\')">加入守護</button></li>');
     $newEntry.find('.user-name').text(name);
     $newEntry.find('.user-phone').text(phone);
     $('#pass-monitor-monitor').append($newEntry);
