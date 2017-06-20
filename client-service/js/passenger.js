@@ -8,7 +8,8 @@ $(document).ready(function() {
     $('#pass-message').hide();
     $('#pass-setting').hide();
     $('#pass-helper').hide();
-    $('#pass-travel').hide();
+    $('#pass-test1').hide();
+    $('#pass-test2').hide();
 
 
     // Initialize passenger modal
@@ -47,7 +48,7 @@ $(document).ready(function() {
         $('.pass-pages').hide();
         $('#pass-monitor').show();
         // Emit signal to server => require waiting channel 
-        socket.emit('fetch_waiting_channel',{});
+        socket.emit('fetch_waiting_channel', {});
     });
 
     // Bind passenger rating
@@ -75,16 +76,21 @@ $(document).ready(function() {
     });
 
     // TEST
-    $('.nav-test').click(function() {
+    $('.nav-test1').click(function() {
         $('.pass-pages').hide();
-        $('#pass-travel').show();
+        $('#pass-test1').show();
+    });
+
+    $('.nav-test2').click(function() {
+        $('.pass-pages').hide();
+        $('#pass-test2').show();
     });
 
     // Hide this btn first
     $('#startBtn').hide();
 
     // Bind statusBtn 
-    $('#statusBtn').click(function(){
+    $('#statusBtn').click(function() {
         $('#modal-succ').modal('open');
     });
 });
@@ -121,6 +127,21 @@ function triggerPassengerOrderModal(signal) {
     }
 }
 
+function triggerPassengerMonitorModal(signal) {
+    if (signal == 'join') {
+        $('.modal-succ').modal('open');
+    }
+}
+
+// TEST Trigger
+function triggerTEST(signal) {
+    if (signal == 'finish') { // test
+        $('.modal-finish').modal('open');
+    } else if (signal == 'join') {
+        $('.modal-succ').modal('open');
+    }
+}
+
 // Emit signal to server to cancel 
 function cancel_GAs(GA_name) {
     socket.emit('cancel_ga', {
@@ -129,8 +150,8 @@ function cancel_GAs(GA_name) {
 }
 
 // Emit signal to server to join
-function join_GAs(new_ga,target_name,channel_id){
-    socket.emit('join_ga',{
+function join_GAs(new_ga, target_name, channel_id) {
+    socket.emit('join_ga', {
         whoami: new_ga,
         account: target_name,
         channel: channel_id
@@ -144,7 +165,7 @@ function addAvailableEntry(new_ga,name,phone,channel_id){
     $('#pass-monitor-monitor').append($newEntry);
 }
 
-function clearAvailableEntry(){
+function clearAvailableEntry() {
     $('#pass-monitor-monitor').empty();
 }
 
@@ -161,7 +182,7 @@ function addMonitorPassengerRiding(name, phone) {
 }
 
 // Clear all 
-function clearMonitorPassengerRiding(){
+function clearMonitorPassengerRiding() {
     $('#pass-riding-wait-monitor').empty();
 }
 

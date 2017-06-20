@@ -91,7 +91,19 @@ body {
 }
 
 .modal-location {
-    @include modal-location;
+    @include modal-form;
+}
+
+.modal-succ {
+    @include modal-succ;
+}
+
+.modal-join {
+    @include modal-wait;
+}
+
+.modal-finish {
+    @include modal-succ;
 }
 
 

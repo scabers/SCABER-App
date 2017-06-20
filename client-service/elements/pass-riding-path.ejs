@@ -31,3 +31,41 @@
         </div>
     </div>
 </div>
+
+<!-- Modal viewing monitor -->
+<div class="modal bottom-sheet modal-monitor" id="modal-monitor">
+    <div class="modal-content">
+        <h4>監督用戶</h4>
+        <ul class="collection collection-avatar">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">perm_identity</i>
+                <p class="title">[Name]</p>
+                <p class="content-p" id="driver-phone">[phone]</p>
+                <button class="secondary-content waves-effect waves-green btn">移除守護</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal finish path routing -->
+<div class="modal modal-finish" id="modal-finish">
+    <div class="modal-content">
+        <h5>SCABER 旅程結束！</h5>
+        <ul class="collection collection-avatar">
+            <li class="collection-item avatar">
+                <i class="material-icons circle">timer</i> 
+                <p class="title">本趟旅程耗時</p>
+                <p class="content-p" id="driver-name">[consume]</p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">favorite</i> 
+                <p class="title">本趟旅程守護人數</p>
+                <p class="content-p" id="driver-name">[number]</p>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat">關閉視窗</button>
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="startBtn">給與評價</button>
+    </div>
+</div>
