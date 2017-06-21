@@ -42,13 +42,17 @@ $(document).ready(function() {
     // Bind passenger profile
     $('.nav-profile').click(function() {
         $('.pass-pages').hide();
-        $('#pass-profile').show();
+        $('#pass-profile').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // Bind passenger monitor
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
-        $('#pass-monitor').show();
+        $('#pass-monitor').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
         // Emit signal to server => require waiting channel 
         socket.emit('fetch_waiting_channel', {});
     });
@@ -56,7 +60,9 @@ $(document).ready(function() {
     // Bind passenger rating
     $('.nav-rating').click(function() {
         $('.pass-pages').hide();
-        $('#pass-rating').show();
+        $('#pass-rating').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // Bind passenger message
@@ -87,11 +93,6 @@ $(document).ready(function() {
         $('#pass-test1').show();
     });
 
-    $('.nav-test2').click(function() {
-        $('.pass-pages').hide();
-        $('#pass-test2').show();
-    });
-
     // Hide this btn first
     $('#startBtn').hide();
 
@@ -112,8 +113,8 @@ function triggerPassengerBookModal(signal) {
         passenger_page_status = 1;
     } else if (signal == 'book') {
         $('.modal-book').modal('open');
-    } else if (signal == 'monitor') {
-        $('.modal-monitor').modal('open');
+    } else if (signal == 'test') {
+        $('.modal-test').modal('open');
     }
 }
 
@@ -153,12 +154,14 @@ function triggerTEST(signal) {
     if (signal == 'finish') { // test
         $('.modal-finish').modal('open');
     } else if (signal == 'join') {
+        $('.modal-join').modal('open');
+    } else if (signal == 'succ') {
         $('.modal-succ').modal('open');
     }
 }
 
 // Emit signal to server to cancel 
-function cancel_GAs(GA_name,channel) {
+function cancel_GAs(GA_name, channel) {
     socket.emit('cancel_ga', {
         account: GA_name,
         channel: channel
@@ -166,7 +169,7 @@ function cancel_GAs(GA_name,channel) {
 }
 
 // Emit signal to server to join
-function join_GAs(new_ga, target_name, channel_id,ga_phone) {
+function join_GAs(new_ga, target_name, channel_id, ga_phone) {
     socket.emit('join_ga', {
         whoami: new_ga,
         myphone: ga_phone,
@@ -175,8 +178,8 @@ function join_GAs(new_ga, target_name, channel_id,ga_phone) {
     });
 }
 
-function addAvailableEntry(new_ga,ga_phone,name,phone,channel_id){
-    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn" onclick="join_GAs(\''+new_ga+'\',\''+name+'\',\''+channel_id+'\',\''+ga_phone+'\')">加入守護</button></li>');
+function addAvailableEntry(new_ga, ga_phone, name, phone, channel_id) {
+    var $newEntry = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-join" class="secondary-content waves-effect waves-green btn" onclick="join_GAs(\'' + new_ga + '\',\'' + name + '\',\'' + channel_id + '\',\'' + ga_phone + '\')">加入守護</button></li>');
     $newEntry.find('.user-name').text(name);
     $newEntry.find('.user-phone').text(phone);
     $('#pass-monitor-monitor').append($newEntry);
@@ -187,8 +190,8 @@ function clearAvailableEntry() {
 }
 
 // Add monitor in passenger waiting taxi
-function addMonitorPassengerRiding(name, phone,channel_id) {
-    var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-delete" class="secondary-content waves-effect waves-green btn" onclick="cancel_GAs(\''+name+'\',\''+channel_id+'\')">取消監督</button></li>');
+function addMonitorPassengerRiding(name, phone, channel_id) {
+    var $newMonitor = $('<li class="collection-item avatar"><img class="circle" src="driver/unknown.png" alt><p class="title user-name">[name]</p><p class="user-phone" id="user-phone">[phone]</p><button id="user-delete" class="secondary-content waves-effect waves-green btn" onclick="cancel_GAs(\'' + name + '\',\'' + channel_id + '\')">取消監督</button></li>');
     $newMonitor.find('.user-name').text(name);
     $newMonitor.find('.user-phone').text(phone);
     $('#pass-riding-wait-monitor').append($newMonitor);

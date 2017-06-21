@@ -116,15 +116,15 @@ body {
 .collection-avatar {
   border: none;
   margin-bottom: 0; }
-  .collection-avatar li .collection-header {
+  .collection-avatar .collection-header {
     background-color: #3f3133 !important;
     color: #ffcf47; }
-  .collection-avatar li .collection-item {
+  .collection-avatar .collection-item {
     border-bottom: none !important;
     background-color: #ffcf47 !important;
     min-height: 64px !important;
     padding-bottom: 0; }
-    .collection-avatar li .collection-item i {
+    .collection-avatar .collection-item i {
       background-color: #3f3133 !important;
       color: #ffcf47 !important; }
   .collection-avatar li .content-p {
@@ -144,15 +144,15 @@ body {
 .collection-avatar-contrast {
   border: none;
   margin-bottom: 0; }
-  .collection-avatar-contrast li .collection-header {
+  .collection-avatar-contrast .collection-header {
     background-color: #3f3133 !important;
     color: #ffcf47; }
-  .collection-avatar-contrast li .collection-item {
+  .collection-avatar-contrast .collection-item {
     border-bottom: none !important;
     background-color: #ffcf47 !important;
     min-height: 64px !important;
     padding-bottom: 0; }
-    .collection-avatar-contrast li .collection-item i {
+    .collection-avatar-contrast .collection-item i {
       background-color: #3f3133 !important;
       color: #ffcf47 !important; }
   .collection-avatar-contrast li .content-p {
@@ -168,15 +168,18 @@ body {
     .collection-avatar-contrast li .secondary-content-p i {
       background-color: transparent !important;
       color: #db5a3c !important; }
+  .collection-avatar-contrast .collection-header {
+    background-color: #ffcf47 !important;
+    color: #3f3133; }
+  .collection-avatar-contrast .collection-item {
+    background-color: #3f3133 !important;
+    color: #ffcf47; }
   .collection-avatar-contrast li {
     background-color: #3f3133 !important;
     border-bottom: #72595c !important;
     color: #ffcf47; }
     .collection-avatar-contrast li img {
       border-color: #72595c !important; }
-    .collection-avatar-contrast li .collection-header {
-      background-color: #ffcf47 !important;
-      color: #3f3133; }
     .collection-avatar-contrast li .content-p {
       color: #ffcf47; }
     .collection-avatar-contrast li .secondary-content-p {
@@ -437,6 +440,54 @@ body {
     .modal-finish .modal-content li i {
       color: #ffcf47; }
 
+.modal-chat .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-chat .modal-footer {
+  background-color: #3f3133; }
+  .modal-chat .modal-footer button {
+    color: #ffcf47; }
+.modal-chat .modal-content input {
+  border-bottom-color: #3f3133;
+  color: #3f3133; }
+.modal-chat .modal-content label {
+  color: #3f3133; }
+.modal-chat .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  background-color: #d8d8d8 !important;
+  padding: 12px !important; }
+  .modal-chat .modal-content form {
+    margin-bottom: 0; }
+    .modal-chat .modal-content form .modal-textarea {
+      background-color: white; }
+    .modal-chat .modal-content form .modal-input {
+      color: #3f3133;
+      margin-bottom: 0; }
+      .modal-chat .modal-content form .modal-input input {
+        color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input::-webkit-input-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input::-moz-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input:-ms-input-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+    .modal-chat .modal-content form .modal-type {
+      margin-top: 10px; }
+
+/* divider */
+.divider {
+  background-color: #d8d8d8; }
+
 /* button */
 .btn-default {
   background-color: #ffcf47;
@@ -470,9 +521,13 @@ body {
       margin: 0 2.5px;
       vertical-align: middle;
       width: auto; }
+  .nav-default .navbar li a {
+    color: #3f3133; }
   .nav-default .side-nav {
     background-color: #ffcf47;
     color: #3f3133; }
+    .nav-default .side-nav .nav-tab a {
+      color: #3f3133; }
 
 /* Import Layout */
 /** layout/_start.scss **/

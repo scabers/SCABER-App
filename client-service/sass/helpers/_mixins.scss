@@ -246,13 +246,13 @@
 @mixin collection-avatar {
     border: $coll-avatar-border;
     margin-bottom: $coll-avatar-ul-margin-bottom;
+    .collection-header {
+        @include collection-header;
+    }
+    .collection-item {
+        @include collection-avatar-item;
+    }
     li {
-        .collection-header {
-            @include collection-header;
-        }
-        .collection-item {
-            @include collection-avatar-item;
-        }
         .content-p {
             @include collection-content-p;
         }
@@ -268,16 +268,20 @@
 
 @mixin collection-avatar-contrast {
     @include collection-avatar;
+    .collection-header {
+        background-color: $light-yellow !important;
+        color: $dark-brown;
+    }
+    .collection-item {
+        background-color: $dark-brown !important;
+        color: $light-yellow;
+    }
     li {
         background-color: $dark-brown !important;
         border-bottom: $light-brown !important;
         color: $light-yellow;
         img {
             border-color: $light-brown !important;
-        }
-        .collection-header {
-            background-color: $light-yellow !important;
-            color: $dark-brown;
         }
         .content-p {
             color: $light-yellow;
@@ -532,6 +536,43 @@
             padding-bottom: $mdl-succ-content-li-padding-bottom;
             i {
                 color: $mdl-succ-content-i-color;
+            }
+        }
+    }
+}
+
+@mixin modal-chat {
+    @include modal-form;
+    .modal-content {
+        @include modal-content;
+        background-color: $light-gray !important;
+        padding: 12px !important;
+        form {
+            margin-bottom: 0;
+            .modal-textarea {
+                background-color: $white;
+            }
+            .modal-input {
+                color: $dark-brown;
+                margin-bottom: 0;
+                input {
+                    color: $dark-brown;
+                    &::-webkit-input-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                    &::-moz-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                    &:-ms-input-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                }
+            }
+            .modal-type {
+                margin-top: 10px;
             }
         }
     }

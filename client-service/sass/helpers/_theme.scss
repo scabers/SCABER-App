@@ -117,6 +117,17 @@ body {
     @include modal-succ;
 }
 
+.modal-chat {
+    @include modal-chat
+}
+
+
+/* divider */
+
+.divider {
+    background-color: $light-gray;
+}
+
 
 /* button */
 
