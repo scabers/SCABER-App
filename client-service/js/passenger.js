@@ -49,7 +49,9 @@ $(document).ready(function() {
     // Bind passenger monitor
     $('.nav-monitor').click(function() {
         $('.pass-pages').hide();
-        $('#pass-monitor').show();
+        $('#pass-monitor').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
         // Emit signal to server => require waiting channel 
         socket.emit('fetch_waiting_channel', {});
     });
@@ -57,7 +59,9 @@ $(document).ready(function() {
     // Bind passenger rating
     $('.nav-rating').click(function() {
         $('.pass-pages').hide();
-        $('#pass-rating').show();
+        $('#pass-rating').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // Bind passenger message

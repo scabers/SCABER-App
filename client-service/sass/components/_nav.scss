@@ -5,7 +5,19 @@
     .brand-logo {
         @include nav-brand-logo;
     }
+    .navbar {
+        li {
+            a {
+                color: $dark-brown;
+            }
+        }
+    }
     .side-nav {
         @include nav-side-nav;
+        .nav-tab {
+            a {
+                color: $dark-brown;
+            }
+        }
     }
 }

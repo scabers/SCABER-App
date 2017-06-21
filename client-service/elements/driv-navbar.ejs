@@ -1,0 +1,70 @@
+<nav class="nav-default">
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><img src="logo/logo_icon.png" alt="">SCABER</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+            <i class="fa fa-bars"></i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a class="nav-riding" href="#pass-riding">開車</a>
+            </li>
+            <li>
+                <a class="nav-profile" href="#pass-profile">個人</a>
+            </li>
+            <li>
+                <a class="nav-message" href="#pass-message">訊息</a>
+            </li>
+            <li>
+                <a class="nav-setting" href="#pass-setting">設定</a>
+            </li>
+            <li>
+                <a class="nav-helper" href="#pass-helper">幫助</a>
+            </li>
+            <li>
+                <a class="nav-signout" href="/logout">登出</a>
+            </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="driver.png">
+                    </div>
+                    <a href="#!user">
+                        <img class="circle" src="driver/unknown.png">
+                    </a>
+                    <a href="#!name">
+                        <span class="white-text name"><%= user_familyName %> <%= user_givenName %> / <span class="white-text role">司機</span></span>
+                    </a>
+                    <a href="#!email">
+                        <span class="white-text email"><%= user_email %></span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-riding" href="#driv-riding"><i class="material-icons">local_taxi</i>開車</a>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-profile" href="#driv-profile"><i class="material-icons">account_circle</i>個人</a>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-message" href="#driv-message"><i class="material-icons">message</i>訊息</a>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-setting" href="#driv-setting"><i class="material-icons">settings</i>設定</a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-helper" href="#driv-helper"><i class="material-icons">info_outline</i>幫助</a>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-signout" href="/logout"><i class="material-icons">power_settings_new</i>登出</a>
+            </li>
+            <li class="nav-tab">
+                <a class="nav-test1" href="#driv-test1"><i class="material-icons">report_problem</i>開發人員測試</a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -407,6 +407,10 @@ body {
     .modal-finish .modal-content li i {
       color: #ffcf47; }
 
+/* divider */
+.divider {
+  background-color: #d8d8d8; }
+
 /* button */
 .btn-default {
   background-color: #ffcf47;
@@ -440,9 +444,13 @@ body {
       margin: 0 2.5px;
       vertical-align: middle;
       width: auto; }
+  .nav-default .navbar li a {
+    color: #3f3133; }
   .nav-default .side-nav {
     background-color: #ffcf47;
     color: #3f3133; }
+    .nav-default .side-nav .nav-tab a {
+      color: #3f3133; }
 
 /* Import Layout */
 /** layout/_start.scss **/
