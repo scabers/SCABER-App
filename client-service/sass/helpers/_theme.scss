@@ -34,10 +34,6 @@ img::-moz-selection {
     @include -placeholder;
 }
 
-html {
-    @include html
-}
-
 body {
     @include body;
 }
@@ -50,10 +46,21 @@ body {
 }
 
 
+/* collapsible */
+
+.collapsible {
+    @include collapsible;
+}
+
+
 /* collection */
 
 .collection-avatar {
     @include collection-avatar;
+}
+
+.collection-avatar-contrast {
+    @include collection-avatar-contrast;
 }
 
 
@@ -73,6 +80,10 @@ body {
 
 .card-trip {
     @include card-trip;
+}
+
+.card-chat {
+    @include card-chat;
 }
 
 
@@ -108,6 +119,18 @@ body {
 
 
 /* button */
+
+.btn-default {
+    @include btn-default;
+}
+
+.btn-contrast {
+    @include btn-contrast;
+}
+
+.btn-warning {
+    @include btn-warning;
+}
 
 .btn-identity {
     @include btn-identity;

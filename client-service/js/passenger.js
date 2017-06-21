@@ -34,6 +34,7 @@ $(document).ready(function() {
         } else {
             $('.pass-pages').hide();
             $('#pass-riding').show();
+            $('#pass-toolbar').show();
         }
     });
 
@@ -60,7 +61,9 @@ $(document).ready(function() {
     // Bind passenger message
     $('.nav-message').click(function() {
         $('.pass-pages').hide();
-        $('#pass-message').show();
+        $('#pass-message').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // Bind passenger setting
@@ -72,7 +75,9 @@ $(document).ready(function() {
     // Bind passenger help
     $('.nav-helper').click(function() {
         $('.pass-pages').hide();
-        $('#pass-helper').show();
+        $('#pass-helper').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // TEST
@@ -132,7 +137,7 @@ function triggerPassengerTrip() {
     $('.pass-riding-wait').hide();
     $('.pass-riding').show(function() {
         $('#pass-toolbar').hide();
-        $('#pass-trip').show();
+        $('.pass-trip').show();
     });
 }
 

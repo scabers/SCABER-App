@@ -60,18 +60,13 @@
 
 /* html */
 
-@mixin html {
-    //height: $html-height;
-    //width: $html-width;
-}
-
 
 /* body */
 
 @mixin body {
-    //height: $body-height;
-    overflow: $body-overflow !important;
-    //width: $body-width;
+    background-color: $body-background-color;
+    overflow-x: $body-overflow-x !important;
+    overflow-y: $body-overflow-y;
 }
 
 
@@ -230,7 +225,71 @@
 }
 
 
+/* collapsible */
+
+@mixin collapsible {
+    border: $colp-border;
+    .collapsible-header {
+        background-color: $colp-header-background-color;
+        border-bottom: $colp-header-border-bottom;
+        color: $colp-header-color;
+    }
+    .collapsible-body {
+        background-color: $colp-body-background-color;
+        color: $colp-body-color;
+    }
+}
+
+
 /* collection */
+
+@mixin collection-avatar {
+    border: $coll-avatar-border;
+    margin-bottom: $coll-avatar-ul-margin-bottom;
+    li {
+        .collection-header {
+            @include collection-header;
+        }
+        .collection-item {
+            @include collection-avatar-item;
+        }
+        .content-p {
+            @include collection-content-p;
+        }
+        .secondary-content-p {
+            @include collection-secondary-content-p;
+            i {
+                background-color: transparent !important;
+                color: $coll-content-p-color !important;
+            }
+        }
+    }
+}
+
+@mixin collection-avatar-contrast {
+    @include collection-avatar;
+    li {
+        background-color: $dark-brown !important;
+        border-bottom: $light-brown !important;
+        color: $light-yellow;
+        img {
+            border-color: $light-brown !important;
+        }
+        .collection-header {
+            background-color: $light-yellow !important;
+            color: $dark-brown;
+        }
+        .content-p {
+            color: $light-yellow;
+        }
+        .secondary-content-p {
+            color: $light-orange;
+            i {
+                color: $light-orange !important;
+            }
+        }
+    }
+}
 
 @mixin collection-content-p {
     color: $coll-content-p-color;
@@ -252,18 +311,9 @@
     }
 }
 
-@mixin collection-avatar {
-    border: $coll-avatar-border;
-    margin-bottom: $coll-avatar-ul-margin-bottom;
-    li {
-        @include collection-avatar-item;
-        .content-p {
-            @include collection-content-p;
-        }
-        .secondary-content-p {
-            @include collection-secondary-content-p;
-        }
-    }
+@mixin collection-header {
+    background-color: $dark-brown !important;
+    color: $light-yellow;
 }
 
 @mixin collection-avatar-item {
@@ -340,13 +390,44 @@
 @mixin card-trip {
     @include card-default;
     .card-content {
-        padding: 12px 12px !important;
+        padding: $card-trip-content-padding !important;
+    }
+}
+
+@mixin card-chat {
+    .card-content {
+        background-color: $card-chat-content-background-color;
+        padding: $card-char-content-padding;
+        textarea {
+            border: $card-chat-content-textarea-border;
+            border-radius: $card-chat-content-textarea-border-radius;
+            color: $card-chat-content-textarea-color;
+            height: $card-char-content-textarea-height;
+            margin-bottom: $card-chat-content-textarea-margin-bottom;
+        }
+    }
+    .card-action {
+        background-color: $card-chat-action-background-color;
+        i {
+            color: $card-chat-action-i-color;
+        }
+        input {
+            border-bottom-color: $card-chat-action-input-border-bottom-color;
+            color: $card-chat-action-input-color;
+            margin-bottom: $card-chat-action-input-margin-bottom;
+        }
+        label {
+            color: $card-chat-action-label-color;
+        }
     }
 }
 
 @mixin card-header {
     background-color: $card-header-background-color;
     padding: $card-header-padding;
+    .row {
+        margin-bottom: 10px !important;
+    }
 }
 
 @mixin card-default-title {
@@ -470,6 +551,21 @@
 
 
 /* button */
+
+@mixin btn-default {
+    background-color: $light-yellow;
+    color: $dark-brown;
+}
+
+@mixin btn-contrast {
+    background-color: $dark-brown;
+    color: $light-yellow;
+}
+
+@mixin btn-warning {
+    background-color: $dark-orange;
+    color: $white;
+}
 
 @mixin btn-identity {
     font: {
