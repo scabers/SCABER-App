@@ -34,6 +34,12 @@ class SyncService {
                 // check out the room name
                 console.log('[Sync] Leaving Room: ' + socket.room_name);
             });
+            // ========================== leaving ==========================
+            socket.on("leaving",function(rawdata){
+                // leaving the room 
+                console.log("Leaving the room! This user no longer in this room now!");
+                socket.leave(rawdata.room_name);
+            });
             // ========================== Fetch waiting channel ==========================
             socket.on("fetch_waiting_channel",function(){
                 socket.emit("get_waiting_channel",{
@@ -84,9 +90,20 @@ class SyncService {
             });
             // ========================== Prepare to binding channel ==========================
             socket.on("trip_start",function(pass_obj){
+                // Debug => print out all information 
+                console.log("Passenger Account: " + pass_obj.id);
+                console.log("Passenger Phone: " + pass_obj.phone);
+                console.log("Safty Channel: " + pass_obj.unique);
+                console.log("Distance: " + pass_obj.distance);
+                console.log("Duration: " + pass_obj.duration);
+                console.log("Start Position: " + JSON.stringify(pass_obj.startPos));
+                console.log("End Position: " + JSON.stringify(pass_obj.endPos));
                 // broadcast in pass_obj.unique (receive by GAs, and they will go into monitor page)
-                self.io.in(pass_obj.unique).emit('go_monitor',{
-                    passenger: pass_obj.id,
+                self.io.in(pass_obj.unique).emit('safty_channel_build',{
+                    passenger_account: pass_obj.id,
+                    passenger_phone: pass_obj.phone,
+                    distance: pass_obj.distance,
+                    duration: pass_obj.duration,
                     startPos: pass_obj.startPos,
                     endPos: pass_obj.endPos 
                 });
@@ -94,17 +111,29 @@ class SyncService {
             // ========================== Remove somebody from channel ==========================
             socket.on("cancel_ga",function(ga_obj){
                 // FIXME 
-                console.log("GA: " + ga_obj.account);
+                console.log("Cancel who: " + ga_obj.account);
+                // Broadcast in room 
+                self.io.in(ga_obj.channel).emit('cancel_who',{
+                    cancel_target: ga_obj.account,
+                    cancel_from: ga_obj.channel 
+                });
             });
             // ========================== Become GA ==========================
             socket.on("join_ga",function(ga_obj){
                 console.log("New coming GA: " + ga_obj.whoami);
+                console.log("New coming GA's phone: " + ga_obj.myphone);
                 console.log("Target passenger monitor: " + ga_obj.account);
                 console.log("Target channel: " + ga_obj.channel);
                 // Join the channel 
+                socket.room_name = ga_obj.whoami;
                 socket.join(ga_obj.channel,function(){
-                    // emit signal
-                    
+                    // emit signal (only channel owner can hear)
+                    self.io.in(ga_obj.channel).emit('add_ga',{
+                        ga_name: ga_obj.whoami,
+                        ga_phone: ga_obj.myphone,
+                        target_name: ga_obj.account,
+                        target_channel: ga_obj.channel
+                    });
                 });
             });
         }); // Web Socket Listening
