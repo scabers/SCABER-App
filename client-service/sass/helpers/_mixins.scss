@@ -541,6 +541,43 @@
     }
 }
 
+@mixin modal-chat {
+    @include modal-form;
+    .modal-content {
+        @include modal-content;
+        background-color: $light-gray !important;
+        padding: 12px !important;
+        form {
+            margin-bottom: 0;
+            .modal-textarea {
+                background-color: $white;
+            }
+            .modal-input {
+                color: $dark-brown;
+                margin-bottom: 0;
+                input {
+                    color: $dark-brown;
+                    &::-webkit-input-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                    &::-moz-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                    &:-ms-input-placeholder {
+                        @include -placeholder;
+                        color: $dark-brown;
+                    }
+                }
+            }
+            .modal-type {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
 @mixin modal-content {
     background-color: $mdl-content-background-color;
     color: $mdl-content-color;

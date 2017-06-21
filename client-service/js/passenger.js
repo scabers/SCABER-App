@@ -92,11 +92,6 @@ $(document).ready(function() {
         $('#pass-test1').show();
     });
 
-    $('.nav-test2').click(function() {
-        $('.pass-pages').hide();
-        $('#pass-test2').show();
-    });
-
     // Hide this btn first
     $('#startBtn').hide();
 
@@ -117,8 +112,8 @@ function triggerPassengerBookModal(signal) {
         passenger_page_status = 1;
     } else if (signal == 'book') {
         $('.modal-book').modal('open');
-    } else if (signal == 'monitor') {
-        $('.modal-monitor').modal('open');
+    } else if (signal == 'test') {
+        $('.modal-test').modal('open');
     }
 }
 
@@ -158,6 +153,8 @@ function triggerTEST(signal) {
     if (signal == 'finish') { // test
         $('.modal-finish').modal('open');
     } else if (signal == 'join') {
+        $('.modal-join').modal('open');
+    } else if (signal == 'succ') {
         $('.modal-succ').modal('open');
     }
 }

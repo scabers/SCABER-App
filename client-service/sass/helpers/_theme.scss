@@ -117,6 +117,10 @@ body {
     @include modal-succ;
 }
 
+.modal-chat {
+    @include modal-chat
+}
+
 
 /* divider */
 

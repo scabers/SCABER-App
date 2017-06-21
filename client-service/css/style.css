@@ -407,6 +407,50 @@ body {
     .modal-finish .modal-content li i {
       color: #ffcf47; }
 
+.modal-chat .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133; }
+.modal-chat .modal-footer {
+  background-color: #3f3133; }
+  .modal-chat .modal-footer button {
+    color: #ffcf47; }
+.modal-chat .modal-content input {
+  border-bottom-color: #3f3133;
+  color: #3f3133; }
+.modal-chat .modal-content label {
+  color: #3f3133; }
+.modal-chat .modal-content {
+  background-color: #ffcf47;
+  color: #3f3133;
+  background-color: #d8d8d8 !important;
+  padding: 12px !important; }
+  .modal-chat .modal-content form {
+    margin-bottom: 0; }
+    .modal-chat .modal-content form .modal-textarea {
+      background-color: white; }
+    .modal-chat .modal-content form .modal-input {
+      color: #3f3133;
+      margin-bottom: 0; }
+      .modal-chat .modal-content form .modal-input input {
+        color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input::-webkit-input-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input::-moz-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+        .modal-chat .modal-content form .modal-input input:-ms-input-placeholder {
+          color: #ffcf47;
+          font-family: Yantramanav, sans-serif;
+          font-size: 14px;
+          color: #3f3133; }
+    .modal-chat .modal-content form .modal-type {
+      margin-top: 10px; }
+
 /* divider */
 .divider {
   background-color: #d8d8d8; }
