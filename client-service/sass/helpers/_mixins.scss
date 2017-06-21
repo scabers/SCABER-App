@@ -246,13 +246,13 @@
 @mixin collection-avatar {
     border: $coll-avatar-border;
     margin-bottom: $coll-avatar-ul-margin-bottom;
+    .collection-header {
+        @include collection-header;
+    }
+    .collection-item {
+        @include collection-avatar-item;
+    }
     li {
-        .collection-header {
-            @include collection-header;
-        }
-        .collection-item {
-            @include collection-avatar-item;
-        }
         .content-p {
             @include collection-content-p;
         }
@@ -268,16 +268,20 @@
 
 @mixin collection-avatar-contrast {
     @include collection-avatar;
+    .collection-header {
+        background-color: $light-yellow !important;
+        color: $dark-brown;
+    }
+    .collection-item {
+        background-color: $dark-brown !important;
+        color: $light-yellow;
+    }
     li {
         background-color: $dark-brown !important;
         border-bottom: $light-brown !important;
         color: $light-yellow;
         img {
             border-color: $light-brown !important;
-        }
-        .collection-header {
-            background-color: $light-yellow !important;
-            color: $dark-brown;
         }
         .content-p {
             color: $light-yellow;

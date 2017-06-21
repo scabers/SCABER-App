@@ -116,15 +116,15 @@ body {
 .collection-avatar {
   border: none;
   margin-bottom: 0; }
-  .collection-avatar li .collection-header {
+  .collection-avatar .collection-header {
     background-color: #3f3133 !important;
     color: #ffcf47; }
-  .collection-avatar li .collection-item {
+  .collection-avatar .collection-item {
     border-bottom: none !important;
     background-color: #ffcf47 !important;
     min-height: 64px !important;
     padding-bottom: 0; }
-    .collection-avatar li .collection-item i {
+    .collection-avatar .collection-item i {
       background-color: #3f3133 !important;
       color: #ffcf47 !important; }
   .collection-avatar li .content-p {
@@ -144,15 +144,15 @@ body {
 .collection-avatar-contrast {
   border: none;
   margin-bottom: 0; }
-  .collection-avatar-contrast li .collection-header {
+  .collection-avatar-contrast .collection-header {
     background-color: #3f3133 !important;
     color: #ffcf47; }
-  .collection-avatar-contrast li .collection-item {
+  .collection-avatar-contrast .collection-item {
     border-bottom: none !important;
     background-color: #ffcf47 !important;
     min-height: 64px !important;
     padding-bottom: 0; }
-    .collection-avatar-contrast li .collection-item i {
+    .collection-avatar-contrast .collection-item i {
       background-color: #3f3133 !important;
       color: #ffcf47 !important; }
   .collection-avatar-contrast li .content-p {
@@ -168,15 +168,18 @@ body {
     .collection-avatar-contrast li .secondary-content-p i {
       background-color: transparent !important;
       color: #db5a3c !important; }
+  .collection-avatar-contrast .collection-header {
+    background-color: #ffcf47 !important;
+    color: #3f3133; }
+  .collection-avatar-contrast .collection-item {
+    background-color: #3f3133 !important;
+    color: #ffcf47; }
   .collection-avatar-contrast li {
     background-color: #3f3133 !important;
     border-bottom: #72595c !important;
     color: #ffcf47; }
     .collection-avatar-contrast li img {
       border-color: #72595c !important; }
-    .collection-avatar-contrast li .collection-header {
-      background-color: #ffcf47 !important;
-      color: #3f3133; }
     .collection-avatar-contrast li .content-p {
       color: #ffcf47; }
     .collection-avatar-contrast li .secondary-content-p {
