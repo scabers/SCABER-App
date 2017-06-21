@@ -8,6 +8,7 @@ $(document).ready(function() {
     $('#pass-message').hide();
     $('#pass-setting').hide();
     $('#pass-helper').hide();
+    $('#pass-trip').hide();
     $('#pass-test1').hide();
     $('#pass-test2').hide();
 
@@ -34,6 +35,7 @@ $(document).ready(function() {
         } else {
             $('.pass-pages').hide();
             $('#pass-riding').show();
+            $('#pass-toolbar').show();
         }
     });
 
@@ -60,7 +62,9 @@ $(document).ready(function() {
     // Bind passenger message
     $('.nav-message').click(function() {
         $('.pass-pages').hide();
-        $('#pass-message').show();
+        $('#pass-message').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // Bind passenger setting
@@ -72,7 +76,9 @@ $(document).ready(function() {
     // Bind passenger help
     $('.nav-helper').click(function() {
         $('.pass-pages').hide();
-        $('#pass-helper').show();
+        $('#pass-helper').show(function() {
+            $('body').css('overflow-y', 'auto');
+        });
     });
 
     // TEST
@@ -132,7 +138,7 @@ function triggerPassengerTrip() {
     $('.pass-riding-wait').hide();
     $('.pass-riding').show(function() {
         $('#pass-toolbar').hide();
-        $('#pass-trip').show();
+        $('.pass-trip').show();
     });
 }
 
@@ -215,4 +221,32 @@ function arrivalTimer(rawString) {
             total--;
         }
     }, 1000);
+}
+
+// Count-down timer(for monitor use)
+function tripTimer(rawString){
+    // Clear first 
+    clearInterval(timer);
+    // Parsing to get minute
+    var min = parseInt(rawString.split(" ")[0]); 
+    console.log("Get min: "+min);
+    var total = min * 60;
+    timer = setInterval(function(){
+        $('#trip-time').html((Math.floor(total / 60) >= 10 ? Math.floor(total / 60).toString() : '0' + Math.floor(total / 60).toString()) + ":" + (total % 60 >= 10 ? total % 60 : '0' + (total % 60).toString()));
+        if(total <= 0){
+            // notify all monitor and user => need to refresh
+            notify_timeout();
+            clearInterval(timer);
+        }else{
+            total--;
+        }
+    },1000);
+}
+
+// Calculate the fee 
+function tripFee(rawString){
+    var min = parseInt(rawString.split(" ")[0]); 
+    var fee = 85 + 5*Math.ceil(min/3);
+    console.log("Get min: "+min);
+    $('#trip-cost').html("約 " + fee + " 元");
 }

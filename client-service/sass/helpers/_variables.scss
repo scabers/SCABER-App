@@ -79,11 +79,14 @@ $screen-lg-min: 1200px;
 
 /* view */
 
+// background
+$body-background-color: $light-gray;
 // height
 $html-height: 100vh;
 $body-height: 100%;
 // overflow
-$body-overflow: hidden;
+$body-overflow-x: hidden;
+$body-overflow-y: hidden;
 // width
 $html-width: 100vw;
 $body-width: 100%;
@@ -233,6 +236,7 @@ $pass-profile-margin-top: 0;
 $pass-riding-wait-notice-margin: 0;
 // pass overflow
 $pass-overflow-y: auto;
+$pass-message-overflow-y: auto;
 // pass padding
 $pass-riding-wait-monitor-padding-bottom: 6px;
 // pass position
@@ -272,6 +276,19 @@ $tbar-width: 100%;
 // tbar z-index
 $tbar-zindex: 10;
 
+/* collapsible */
+
+// colp background
+$colp-header-background-color: $dark-brown;
+$colp-body-background-color: $light-yellow;
+// colp border
+$colp-border: none;
+$colp-header-border-bottom: 1px solid $light-brown;
+$colp-body-border-bottom: none;
+// colp color
+$colp-header-color: $light-yellow;
+$colp-body-color: $dark-brown;
+
 /* collection */
 
 // coll background
@@ -303,7 +320,13 @@ $card-header-background-color: $dark-brown;
 $card-theme-content-background-color: $light-yellow;
 $card-theme-content-contrast-background-color: $dark-brown;
 $card-theme-reveal-background-color: $light-yellow;
+$card-chat-content-background-color: $white;
+$card-chat-action-background-color: $light-yellow;
 $card-more-background-color: $dark-brown;
+// card border
+$card-chat-content-textarea-border: 1px solid $dark-brown;
+$card-chat-content-textarea-border-radius: 5px;
+$card-chat-action-input-border-bottom-color: $dark-brown;
 // card color
 $card-default-title-color: $light-yellow;
 $card-theme-title-color: $dark-brown;
@@ -311,19 +334,28 @@ $card-theme-content-color: $dark-brown;
 $card-theme-content-contrast-color: $light-yellow;
 $card-theme-reveal-color: $dark-brown;
 $card-more-i-color: $light-yellow;
+$card-chat-content-textarea-color: $dark-brown;
+$card-chat-action-i-color: $dark-brown;
+$card-chat-action-input-color: $dark-brown;
+$card-chat-action-label-color: $dark-brown;
 // card height
 $card-profile-avatar-height: 60px;
+$card-char-content-textarea-height: 35vh;
 // card margin
 $card-default-title-margin: 0;
 $card-default-text-margin-bottom: 0;
 $card-theme-title-margin: 0;
 $card-theme-content-row-margin: 0;
 $card-theme-stat-margin: 0;
+$card-chat-action-input-margin-bottom: 0;
+$card-chat-content-textarea-margin-bottom: 0;
 // card padding
 $card-header-padding: 10px;
 $card-default-title-padding: 0;
 $card-theme-title-padding: 12px 24px;
 $card-theme-content-padding: 12px 24px;
+$card-trip-content-padding: 12px 12px;
+$card-char-content-padding: 12px;
 // card position
 $card-profile-name-posiiton: absolute;
 $card-profile-name-position-left: 100px;

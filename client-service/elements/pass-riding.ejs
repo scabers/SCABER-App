@@ -124,6 +124,25 @@
     </div>
 </div>
 
+<!-- Modal choosing location -->
+<div class="modal modal-location" id="modal-location">
+    <div class="modal-content">
+        <h4>前往目的地？</h4>
+        <form class="cpl s12">
+            <div class="row modal-input">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">place</i>
+                    <input id="book-dest" type="text">
+                    <label class="center-align" for="email" data-error="wrong" data-success="right">目的地</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="tripBtn">發車</button>
+    </div>
+</div>
+
 <!-- Google Map -->
 <script>
 var map;
@@ -235,6 +254,7 @@ $('#startBtn').click(function() {
 
 $('#tripBtn').click(function() {
     // FIXME: 判斷使用者是否輸入正確的地標，再做 emit
+    console.log("Trip start!");
     var destination = $('#book-dest').val();
     address2pos(destination,function(err,pos){
         if(err){
@@ -348,10 +368,17 @@ socket.on('safty_channel_build',function(rawdata){
     // debug
     console.log(JSON.stringify(rawdata));
     // Set up new timer to count down => check out safty
-
+    tripTimer(rawdata.duration);
+    // Calculate the fee 
+    tripFee(rawdata.duration);
     // And then open Google map and draw two point on it
+    triggerPassengerTrip();
 });
 
+// Chat room 
+socket.on('chat_info_get',function(rawdata){
+
+});
 </script>
 
 <!-- Google Map API -->
