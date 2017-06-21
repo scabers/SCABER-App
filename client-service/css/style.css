@@ -213,19 +213,20 @@ body {
 .card-trip .card-header {
   background-color: #3f3133;
   padding: 10px; }
+
 .card-trip .card-title {
   color: #ffcf47;
   margin: 0;
   padding: 0; }
-.card-trip .card-content {
 
+.card-trip .card-content {
   background-color: #ffcf47;
   color: #3f3133;
   padding: 12px 24px; }
   .card-trip .card-content .row {
     margin: 0; }
-.card-trip .card-content-contrast {
 
+.card-trip .card-content-contrast {
   background-color: #ffcf47;
   color: #3f3133;
   padding: 12px 24px;
@@ -442,5 +443,3 @@ body {
   top: 10%;
   width: 100%;
   z-index: 500 !important; }
-
-/*# sourceMappingURL=style.css.map */
